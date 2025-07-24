@@ -148,13 +148,32 @@ dig axfr @<name server NS1> <dominio>
 Per trovare gli host in una rete (facendo ping scan/sweep)
 
 ```
-sudo nmap -sn <IP>/24
+sudo nmap -sn <IP>/24  // -sn solo per vedere se host online. scan che usa anche ICMP, quindi fa rumore
+nmap -sn <IP>/24 --send-ip // Non esegue degli ARP per ogni IP
+nmap -sn -PS1-1000 <IP> // TCP SYN Ping alle porte 1-1000
+nmap -sn -PA <IP> // TCP ACK Ping, porta 80 di default
+nmap -sn -PE <IP> --send-ip // ICMP ping scan, senza --send-ip non sempre parte 
+```
+
+Metodologie consigliate per host discovery con Nmap:
+
+```
+nmap -sn -v -T4 <IP> // -v ci dà più info e capiamo come mai nmap è arrivato a quel risultato
+nmap -sn -PS21,22,25,80,445,3389,8080 -T4 <IP> // SYN Scan su le porte più comuni
+nmap -sn -PS21,22,25,80,445,3389,8080 -PU137,138 -T4 <IP> // Aggiungiamo le porte UDP relative alle porte NETBIOS, per PC Windows
 ```
 
 Netdiscover: alternativa per scoprire IP sulla rete tramite protocollo ARP
 
 ```
 netdiscover -i eth0 -r <IP>/24
+```
+
+Ping: fare ping su tutta la rete per vedere gli host attivi:
+
+```
+ping -b -c 1 <IP> // -b significa broadcast
+fping -a -g <IP>/24 //-g generate target list // -S imposta l'IP sorgente
 ```
 
 #### Nmap: Port Scanning
