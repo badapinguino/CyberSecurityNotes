@@ -21,5 +21,6 @@
       * [Host Discovery with Nmap](information-gathering/active-information-gathering/host-discovery/host-discovery-with-nmap.md)
     * [Port Scanning With Nmap](information-gathering/active-information-gathering/port-scanning-with-nmap-1.md)
     * [Service Version & OS Detection](information-gathering/active-information-gathering/service-version-and-os-detection.md)
+    * [Nmap Scripting Engine (NSE)](information-gathering/active-information-gathering/nmap-scripting-engine-nse.md)
 * [Bigino - Cheat Sheet](bigino-cheat-sheet/README.md)
   * [Information Gathering](bigino-cheat-sheet/information-gathering.md)
