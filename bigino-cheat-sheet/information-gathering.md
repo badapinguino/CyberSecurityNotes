@@ -1,38 +1,32 @@
-# Bigino - Cheat Sheet
+# Information Gathering
 
-## Fasi del Penetration Testing
+<figure><img src="../.gitbook/assets/image (127).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src=".gitbook/assets/image (117).png" alt=""><figcaption></figcaption></figure>
+## Passive Information Gathering
 
-## Information Gathering
-
-<figure><img src=".gitbook/assets/image (119).png" alt=""><figcaption></figcaption></figure>
-
-### Passive Information Gathering
-
-#### Sito web & footprinting
+### Sito web & footprinting
 
 ```
 host <dominio.com>  //Trovare gli IP di un dominio
 ```
 
-Verificare i seguenti file via web browser:
+#### Verificare i seguenti file via web browser:
 
-* robots.txt: indica ai motori di ricerca quali pagine mostrare e quali no
-* sitemap.xml o sitemap\_index.xml: Mostra ai motori di ricerca l'ordine in cui mostrare le pagine
+* **robots.txt**: indica ai motori di ricerca quali pagine mostrare e quali no
+* **sitemap.xml o sitemap\_index.xml**: Mostra ai motori di ricerca l'ordine in cui mostrare le pagine
 
-Conoscere le tecnologie di un sito, estensioni del browser:
+#### Conoscere le tecnologie di un sito, estensioni del browser:
 
-* builtwith
-* wappalyzer
+* **builtwith**
+* **wappalyzer**
 
 ```
 whatweb <dominio.com>  // Mostra le tecnologie usate da un sito
 ```
 
-Scaricare un sito web:
+#### Scaricare un sito web:
 
-* HTTTrack: sito web
+* **HTTTrack**: sito web
 
 ```
 webhttrack <sito> // Scaricare un sito web
@@ -55,7 +49,7 @@ Alternativa sito web **who.is**
 
 Andare alla pagine Resources "What's that site running" Dà informazioni su un dominio, informazioni sulle tecnologie di un sito, name servers DNS, info sul register del dominio, ecc... Dà tutte le informazioni che abbiamo trovato prima a mano ma in maniera automatica.
 
-#### DNS Recon
+### DNS Recon
 
 Identificare i record associati ad un dominio DNS
 
@@ -63,9 +57,9 @@ Identificare i record associati ad un dominio DNS
 dnsrecon -d <nomedominio.com>
 ```
 
-DNS Dumpster: Sito web analogo al comando, con qualche info in più
+**DNS Dumpster**: Sito web analogo al comando, con qualche info in più
 
-#### WAF Detection: wafw00f
+### WAF Detection: wafw00f
 
 ```
 wafw00f <dominio.org>
@@ -73,7 +67,7 @@ wafw00f <dominio.org>
 wafw00f <dominio.org> -a  // Testa tutti i WAF che supporta, senza fermarsi al primo più probabile
 ```
 
-#### Subdomain enumeration: Sublist3r
+### Subdomain enumeration: Sublist3r
 
 Trovare tutti i sottodomini passivamente attraverso le info disponibili sui motori di ricerca
 
@@ -82,7 +76,7 @@ sublist3r -d <dominio.org>
 sublist3r -d <dominio.org> -e google,yahoo,bing // specifica i motori di ricerca da usare
 ```
 
-#### Google Hacking
+### Google Hacking
 
 * site:ine.com - Limitare risultati a un sito
 * inurl:admin - L'url deve contenere una data parola
@@ -96,7 +90,7 @@ sublist3r -d <dominio.org> -e google,yahoo,bing // specifica i motori di ricerca
 
 Sito utile: Exploit Database Google Hacking Database. Contiene query utili al nostro scopo.
 
-#### Email harvesting: theHarvester
+### Email harvesting: theHarvester
 
 Programma su GitHub usato per trovare mail, nome, IP, url e varie informazioni di una azienda.
 
@@ -106,25 +100,25 @@ Bisogna selezionare le fonti da cui fargli cercare le info
 theHarvester -d <azienda o dominio> -b <duckduckgo,baidu,bing,yahoo,urlscan...>
 ```
 
-#### Leaked Password Database
+### Leaked Password Database
 
 Possiamo utilizzare haveibeenpwned.com per trovare password di dipendenti coinvolti in data breach.
 
-### Active Information Gathering
+## Active Information Gathering
 
-#### DNS Zone Transfer
+### DNS Zone Transfer
 
-<figure><img src=".gitbook/assets/image (13).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (13).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src=".gitbook/assets/image (14).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (14).png" alt=""><figcaption></figcaption></figure>
 
 Possiamo usare due strumenti per trovare se ci sono dei server DNS attivi con domini diversi rispetto al dominio cercato (zone transfer):
 
-* dnsdumpster.com (sito)
-* dnsrecon (comando)
-* dnsenum (comando)
-* dig (comando)
-* fierce (comando)
+* **dnsdumpster.com** (sito)
+* **dnsrecon** (comando)
+* **dnsenum** (comando)
+* **dig** (comando)
+* **fierce** (comando)
 
 ```
 dnsrecon -d <dominio es. zonetransfer.me>
@@ -143,7 +137,7 @@ dig axfr @<name server NS1> <dominio>
 </strong><strong>// Trova tramite DNS dei range di indirizzi IP, oltre a zone transfer
 </strong></code></pre>
 
-#### Nmap: Host Discovery
+### Nmap: Host Discovery
 
 Per trovare gli host in una rete (facendo ping scan/sweep)
 
@@ -176,7 +170,7 @@ ping -b -c 1 <IP> // -b significa broadcast
 fping -a -g <IP>/24 //-g generate target list // -S imposta l'IP sorgente
 ```
 
-#### Nmap: Port Scanning
+### Nmap: Port Scanning
 
 Scansione porte aperte su in IP o una rete
 

@@ -20,4 +20,5 @@
       * [Ping Sweeps](information-gathering/active-information-gathering/host-discovery/ping-sweeps.md)
       * [Host Discovery with Nmap](information-gathering/active-information-gathering/host-discovery/host-discovery-with-nmap.md)
     * [Port Scanning With Nmap](information-gathering/active-information-gathering/port-scanning-with-nmap-1.md)
-* [Bigino - Cheat Sheet](bigino-cheat-sheet.md)
+* [Bigino - Cheat Sheet](bigino-cheat-sheet/README.md)
+  * [Information Gathering](bigino-cheat-sheet/information-gathering.md)
