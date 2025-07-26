@@ -172,10 +172,27 @@ fping -a -g <IP>/24 //-g generate target list // -S imposta l'IP sorgente
 
 ### Nmap: Port Scanning
 
-Scansione porte aperte su in IP o una rete
+Scansione porte aperte su un IP o una rete
+
+#### Scan completo con script per tutte le porte&#x20;
 
 ```
 nmap -T4 -A -p- <IP>
+```
+
+#### Fast scanning
+
+Scannerizza le prime 100 porte più comuni (-F) e skippa l'host discovery (-Pn)
+
+```
+nmap -Pn -F <IP>  // si può aggiungere -sS per fare sempre il SYN scan
+```
+
+#### UDP scan
+
+```
+nmap -sU <IP> // scan generica delle porte UDP, delle 1000 porte più comuni
+nmap -Pn -sU -p53,137,138,139 // -Pn nessun test che sia online prima di cercare le porte
 ```
 
 Vari flag usati:
@@ -192,3 +209,5 @@ Vari flag usati:
 * -A: Aggressive scan, praticamente corrisponde a -sV -O -sC
 * -T0 -T4 -T5: Regola la velocità dello scan da paranoid (0) a insane (5)
 * -oN oppure -oX: Salva su file l'output (txt o xml)
+* -sT: TCP connect scan, esegue il 3-way handshake completo
+* -sS: SYN scan o stealth scan, non lascia log di connessione perché non completa 3-way handshake
