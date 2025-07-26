@@ -195,7 +195,7 @@ nmap -sU <IP> // scan generica delle porte UDP, delle 1000 porte più comuni
 nmap -Pn -sU -p53,137,138,139 // -Pn nessun test che sia online prima di cercare le porte
 ```
 
-Vari flag usati:
+#### Vari flag usati:
 
 * -Pn: fa verifica host attivi guardando le porte invece che usare ICMP (ping)
 * -p-: scansiona tutte le porte
