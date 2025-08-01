@@ -211,6 +211,7 @@ nmap -Pn -sU -p53,137,138,139 // -Pn nessun test che sia online prima di cercare
 * -oN oppure -oX: Salva su file l'output (txt o xml)
 * -sT: TCP connect scan, esegue il 3-way handshake completo
 * -sS: SYN scan o stealth scan, non lascia log di connessione perché non completa 3-way handshake
+* -sA: ACK scan, utile per vedere presenza di firewall, indica se porte filtrate o non filtrate
 
 ### Nmap Scripting Engine
 
@@ -231,4 +232,92 @@ nmap -sS -sV -sC -p- -T4 <IP>  // -sC default script scan
 ```
 nmap -sS -sV --script=mongodb-info -p- -T4 <IP>
 ```
+
+### Firewall detection
+
+#### ACK scan per vedere se porte filtrate da firewall
+
+```
+nmap -Pn -sA <IP>
+```
+
+### IDS Evasion
+
+#### Frammentazione pacchetti
+
+Opzione -f per frammentare i pacchetti, opzione -mtu per impostare la dimensione massima dei frammenti
+
+```
+nmap -Pn -sS -sV -f <IP>  // -f per frammentazione dei pacchetti
+nmap -Pn -sS -sV -f --mtu 8 <IP>  // massima dimensione dei frammenti è 8 byte
+```
+
+#### Data Length
+
+è possibile specificare una lunghezza dei singoli pacchetti (aggiungendo byte randomici) con l'opzione ---data-length \<numero byte>
+
+#### Decoy IP sorgente
+
+è possibile specificare che i pacchetti partano da un IP sorgente differente:
+
+```
+nmap -Pn -sS -sV -D <IP1>,<IP2> <IP dest> // -D Sembra che gli scan arrivino da questi due IP
+```
+
+#### Specificare porta sorgente
+
+Opzione -g \<numero porta> specifica la porta sorgente
+
+```
+nmap -Pn -sS -sV -g <PORT> <IP dest>  // -g specifica la porta sorgente
+```
+
+### Gestire i tempi per gli scan nmap
+
+#### Timing templates
+
+Usare sneaky per evitare di essere individuati da un IDS.&#x20;
+
+* T0: paranoid
+* T1: sneaky - sembra quasi traffico normale talmente è frammentato l'invio dei pacchetti
+* T2: polite
+* T3: normal
+* T4: aggressive
+* T5: insane
+
+#### Host timeout
+
+\--host-timeout < tempo in s,m,h> utile quando ci sono diversi host scansionati come in host discovery, dopo un tot di tempo passa all'host successivo
+
+```
+nmap --host-timeout 30s <IP>/24
+```
+
+#### Scan delay
+
+L'opzione serve a impostare un ritardo tra ogni pacchetto inviato
+
+Per essere molto stealthy consiglia di impostarlo attorno ai 50 secondi.
+
+```
+nmap --scan-delay 15s <IP>
+```
+
+### Nmap Output Formats
+
+* oN: output normale come da riga di comando, va bene per un txt
+* oX: XML che è utile per essere dato in input a Metasploit Framework Database (si può fare un workspace per ogni pentest fatto)
+* oS: script kiddie
+* oG: formato utile se si vuole usare grep
+* oA: oN, oX e oG assieme
+* -v: verbose
+* \--reason: specifica perché una porta è nello stato indicato
+
+#### Caricare file xml nel DB metasploit
+
+1. Avviare il DB metasploit: service postgresql start
+2. Entrare in metasploit: msfconsole
+3. Creare un nuovo workspace: workspace -a pentest\_1
+4. Caricare il file XML: db\_import nmap\_xml.xml
+5. Verificare che sia caricato con i comandi: hosts e services
 
