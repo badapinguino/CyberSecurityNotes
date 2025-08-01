@@ -24,5 +24,6 @@
     * [Nmap Scripting Engine (NSE)](information-gathering/active-information-gathering/nmap-scripting-engine-nse.md)
     * [Firewall Detection & IDS Evasion](information-gathering/active-information-gathering/firewall-detection-and-ids-evasion.md)
     * [Optimizing Nmap Scans](information-gathering/active-information-gathering/optimizing-nmap-scans.md)
+    * [Nmap Output Formats](information-gathering/active-information-gathering/nmap-output-formats.md)
 * [Bigino - Cheat Sheet](bigino-cheat-sheet/README.md)
   * [Information Gathering](bigino-cheat-sheet/information-gathering.md)
