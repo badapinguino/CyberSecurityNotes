@@ -206,8 +206,29 @@ nmap -Pn -sU -p53,137,138,139 // -Pn nessun test che sia online prima di cercare
 * -sV: service detection, identifica i servizi running su ogni porta
 * -O: Operating System detection, identifica l'SO
 * -sC: Default script scan, viene eseguita una serie di script di default per identificare meglio le versioni dei servizi aprti
-* -A: Aggressive scan, praticamente corrisponde a -sV -O -sC
+* -A: Aggressive scan, praticamente corrisponde a -sV -O -sC + traceroute
 * -T0 -T4 -T5: Regola la velocità dello scan da paranoid (0) a insane (5)
 * -oN oppure -oX: Salva su file l'output (txt o xml)
 * -sT: TCP connect scan, esegue il 3-way handshake completo
 * -sS: SYN scan o stealth scan, non lascia log di connessione perché non completa 3-way handshake
+
+### Nmap Scripting Engine
+
+#### Lista degli script
+
+```
+ls -al /usr/share/nmap/scripts
+```
+
+#### Scan con script di default (-sC)
+
+```
+nmap -sS -sV -sC -p- -T4 <IP>  // -sC default script scan
+```
+
+#### Scan con esecuzione di uno script specifico
+
+```
+nmap -sS -sV --script=mongodb-info -p- -T4 <IP>
+```
+
