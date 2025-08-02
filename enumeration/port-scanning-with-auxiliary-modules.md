@@ -63,3 +63,55 @@ In questo caso dobbiamo cambiare l'RHOSTS e il TARGETURI:
 Ora avviamo l'exploit e attendiamo che ci ritorni una meterpreter shell:
 
 <figure><img src="../.gitbook/assets/image (144).png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+
+Ora dobbiamo avviare una shell normale bash e capire qual è l'IP della rete interna:
+
+<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+
+Ora con CTRL+C usciamo e torniamo alla shell meterpreter.
+
+Dobbiamo ora usare il comando autoroute:
+
+<figure><img src="../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+
+Mettiamo la sessione in background:
+
+<figure><img src="../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+
+Ora possiamo eseguire il portscan sulla seconda vittima, il secondo target. Impostando l'IP della rete interna che identifica la seconda vittima, il portscan verrà effettuato automaticamente passando per lla prima vittima, questo perché abbiamo configurato la route con autoroute.
+
+<figure><img src="../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
+
+Come possiamo vedere qui effettivamente stiamo andando a trovare le porte aperte sul secondo target.
+
+**Ecco come può essere molto utile l'auxiliary module del portscan presente su Metasploit** (MSF).
+
+In poche parole abbiamo usato un pivot point che era la vittima 1 per scannerizzare la sua rete interna (credo che questo sia il pivoting)
+
+## Scan UDP
+
+Ora proviamo con il modulo per fare lo scan UDP: udp\_sweep
+
+<figure><img src="../.gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../.gitbook/assets/image (7).png" alt=""><figcaption></figcaption></figure>
+
+Dobbiamo impostare solo l'RHOSTS
+
+<figure><img src="../.gitbook/assets/image (8).png" alt=""><figcaption></figcaption></figure>
+
+Facciamo lo scan sul primo target, quindi prendiamo l'IP della rete sulla quale siamo con la macchina attaccante e sostituiamo il 2 con il 3 che è l'IP della prima vittima.
+
+<figure><img src="../.gitbook/assets/image (10).png" alt=""><figcaption></figcaption></figure>
+
+In questo caso non c'erano porte UDP aperte.
+
+## Conclusione
+
+L'obiettivo di questa sessione pratica era dimostrare con un esempio l'utilità degli auxiliary modules per il port scanning, non solo nella fase iniziale di information gathering ma anche nella parte di post-exploitation per fare pivoting su altri host in altre reti target.
+
+Nei prossimi video vedremo come usare gli auxiliary modules per fare enumeration su tutti i vari servizi più comuni.
