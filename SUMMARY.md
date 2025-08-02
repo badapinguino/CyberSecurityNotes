@@ -28,5 +28,6 @@
     * [Nmap Output Formats](information-gathering/active-information-gathering/nmap-output-formats.md)
 * [Enumeration](enumeration/README.md)
   * [Port Scanning & Enumeration with Nmap](enumeration/port-scanning-and-enumeration-with-nmap.md)
+  * [Importing Nmap Scan Results into MSF](enumeration/importing-nmap-scan-results-into-msf.md)
 * [Bigino - Cheat Sheet](bigino-cheat-sheet/README.md)
   * [Information Gathering](bigino-cheat-sheet/information-gathering.md)

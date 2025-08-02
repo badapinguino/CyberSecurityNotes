@@ -12,7 +12,7 @@ I timing template sono da T0 a T5 e hanno dei nickname, ad esempio 0 è paranoid
 
 \--host-timeout utile quando ci sono diversi host scansionati come in host discovery, dopo un tot di tempo passa all'host successivo
 
-<figure><img src="../../.gitbook/assets/image (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 con host timeout possiamo specificare secondi, minuti o ore
 
