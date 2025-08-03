@@ -29,6 +29,7 @@
 * [Enumeration](enumeration/README.md)
   * [Port Scanning & Enumeration with Nmap](enumeration/port-scanning-and-enumeration-with-nmap.md)
   * [Importing Nmap Scan Results into MSF](enumeration/importing-nmap-scan-results-into-msf.md)
-  * [Port Scanning With Auxiliary Modules](enumeration/port-scanning-with-auxiliary-modules.md)
+  * [Port Scanning With Auxiliary Modules](enumeration/port-scanning-with-auxiliary-modules/README.md)
+    * [Lab T1046: Network Service Scanning](enumeration/port-scanning-with-auxiliary-modules/lab-t1046-network-service-scanning.md)
 * [Bigino - Cheat Sheet](bigino-cheat-sheet/README.md)
   * [Information Gathering](bigino-cheat-sheet/information-gathering.md)
