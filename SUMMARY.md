@@ -32,5 +32,6 @@
   * [Port Scanning With Auxiliary Modules](enumeration/port-scanning-with-auxiliary-modules/README.md)
     * [Lab T1046: Network Service Scanning](enumeration/port-scanning-with-auxiliary-modules/lab-t1046-network-service-scanning.md)
   * [FTP Enumeration](enumeration/ftp-enumeration.md)
+  * [SMB Enumeration](enumeration/smb-enumeration.md)
 * [Bigino - Cheat Sheet](bigino-cheat-sheet/README.md)
   * [Information Gathering](bigino-cheat-sheet/information-gathering.md)

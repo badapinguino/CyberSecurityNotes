@@ -2,7 +2,7 @@
 
 <figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
 
-FTP permette di trasgerire dati tra client e server
+FTP permette di trasferire dati tra client e server
 
 ```
 service postgresql start
