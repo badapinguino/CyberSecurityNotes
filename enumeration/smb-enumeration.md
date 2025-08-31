@@ -17,7 +17,6 @@ search type:auxiliary name:smb //per filtrare i risultati
 use auxiliary/scanner/smb/smb_version
 show options //vediamo che c'è RHOSTS è già stato impostato tramite la variabile globale
 run // verifichiamo la versione di SMB
-
 ```
 
 Possiamo usare una variabile globale per impostare l'IP destinazione senza che ogni volta dobbiamo rimetterlo, usando setg (set global variable).
@@ -25,6 +24,14 @@ Possiamo usare una variabile globale per impostare l'IP destinazione senza che o
 <figure><img src="../.gitbook/assets/image (146).png" alt=""><figcaption></figcaption></figure>
 
 Ogni tanto può capitare che l'OS identificato sia incorretto, infatti ora puoi vedere che dice Windows 6.1 ma poi tra parentesi mostra la versione corretta di SMB e possiamo vedere che si tratta di samba su ubuntu.
+
+### Metodo alternativo usando nmap senza metasploit
+
+Find the exact version of samba server by using appropriate nmap script.
+
+```
+nmap --script smb-os-discovery.nse -p 445 demo.ine.local
+```
 
 ## SMB users enumeration
 
@@ -56,6 +63,18 @@ run
 Troviamo varie share, in particolare share per ogni user presente
 
 Dall'enumerazione degli utenti abbiamo scoperto che c'era un utente admin, se noi riusciamo a fare un bruteforce contro l'utente admin allora possiamo entrare ed accedere a tutte queste share dei vari utenti. Proviamo a farlo.
+
+### Per verificare se è permesso il login anonimo
+
+Using smbclient determine whether anonymous connection (null session) is allowed on the samba server or not.
+
+```
+smbclient -L demo.ine.local -N
+```
+
+Anonymous connection is allowed since shares are displayed without requirement of password.
+
+<figure><img src="../.gitbook/assets/image (161).png" alt=""><figcaption></figcaption></figure>
 
 ## SMB Login brute force module
 
