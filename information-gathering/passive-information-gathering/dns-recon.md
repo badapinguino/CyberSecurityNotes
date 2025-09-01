@@ -6,7 +6,7 @@ description: DNS Passive Reconaissance
 
 Identifichiamo i record associati con un dominio DNS, non facciamo nulla di attivo.
 
-<figure><img src="../../.gitbook/assets/image (24).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (24) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## DNS Recon
 
@@ -14,9 +14,9 @@ Identifichiamo i record associati con un dominio DNS, non facciamo nulla di atti
 dnsrecon -d <nomedominio.com>
 ```
 
-<figure><img src="../../.gitbook/assets/image (25).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (25) (1).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/image (26).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (26) (1).png" alt=""><figcaption></figcaption></figure>
 
 Informazioni utili:
 

@@ -40,13 +40,13 @@ Operation system detection scan, per identificare quale SO: -O
 
 Utile per poter cercare poi eventuali vulnerabilità della versione del sistema operativo
 
-<figure><img src="../../.gitbook/assets/image (15) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (15) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 
 
 Default script scan, viene eseguito una serie di script che cerca di identificare ogni versione dei servizi aperti: -sC
 
-<figure><img src="../../.gitbook/assets/image (16) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (16) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 
 
@@ -54,14 +54,14 @@ Aggressive Scan: Service version detection, os detection e standard script scan 
 
 Velocizzare o rallentare uno scan: -T4 o da -T0 a -T5 dove più basso è il numero più è lento.
 
-<figure><img src="../../.gitbook/assets/image (17) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (17) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/image (18) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (18) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 
 
 Per salvare su file l'output: -oN \<nometile>
 
-<figure><img src="../../.gitbook/assets/image (19).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (19) (1).png" alt=""><figcaption></figcaption></figure>
 
 L'output può essere in test nomrale come quello che appare sul terminale: -oN, o in XML: -oX
