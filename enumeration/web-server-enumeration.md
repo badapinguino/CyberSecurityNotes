@@ -1,6 +1,6 @@
 # Web Server Enumeration
 
-<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Primi passi per avviare metsploit e configurarlo brevemente per questa sessione:
 
@@ -13,7 +13,7 @@ setg RHOST <IP target>
 search type:auxiliary name:http
 ```
 
-<figure><img src="../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## HTTP version enumeration
 
@@ -23,7 +23,7 @@ use auxiliary/scanner/http/http_version
 run
 ```
 
-<figure><img src="../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>
 
 Ci viene restituita la versione del web server e il sistema operativo
 

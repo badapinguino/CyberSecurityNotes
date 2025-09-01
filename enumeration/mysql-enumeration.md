@@ -1,6 +1,6 @@
 # MySQL Enumeration
 
-<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
 
 ```
 service postgresql start
@@ -106,6 +106,33 @@ run
 
 Ci mostra tutti gli schemi e tutte le tabelle, ma in questo caso non ci sono tabelle in questi schemi.
 
+## Modulo per mostrare tutti gli hash degli utenti del DB
+
+```
+use auxiliary/scanner/mysql/mysql_hashdump
+set USERNAME root
+set PASSWORD twinkle
+set RHOSTS <IP target>
+run
+```
+
+<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+
+## Modulo per identificare quali cartelle sono scrivibili tramite MySQL
+
+MYSQL Directory Write Test
+
+```
+use auxiliary/scanner/mysql/mysql_writable_dirs
+set RHOSTS <IP target>
+set USERNAME root
+set PASSWORD twinkle
+set DIR_LIST /usr/share/metasploit-framework/data/wordlists/directory.txt
+run
+```
+
+<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+
 ## Cosa abbiamo trovato?
 
 Possiamo scrivere dentro metasploit vari comandi per vedere cosa abbiamo trovato, come hosts, servizi running con le loro porte aperte e anche le credenziali trovate (comando creds) o informazioni trovate come lo schema tramite il comando loot
@@ -119,7 +146,7 @@ Per questo motivo è consigliato creare dei workspace, perché metasploit framew
 ## Effettuiamo la connessione diretta al DB (al di fuori di Metasploit)
 
 ```
-mysql -h 192.143.6.3 -u root -p twinkle
+mysql -h 192.143.6.3 -u root -p
 // ora che siamo connessi dentro al DB possiamo fare tutte le query che vogliamo.
 ```
 
