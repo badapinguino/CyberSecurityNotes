@@ -68,11 +68,11 @@ Ci dice che non abbiamo accesso perché il browser ci avrebbe chiesto username e
 
 Si fa bruteforce di un webserver cercando tutte le directory con un dizionario per identificare quali directory sono presenti nel webserver, anche quelle che normalmente non sono accessibili via link nelle pagine.
 
-```
-use auxiliary/scanner/http/dir_scanner
+<pre><code>use auxiliary/scanner/http/dir_scanner
 show options  //nella variabile DICTIONARY c'è il file che contiene le parole usate come directory
-run
-```
+<strong>// se vogliamo possiamo eseguire: set DICTIONARY /usr/share/metasploit-framework/data/wordlists/directory.txt
+</strong><strong>run
+</strong></code></pre>
 
 <figure><img src="../.gitbook/assets/image (8).png" alt=""><figcaption></figcaption></figure>
 
@@ -109,7 +109,7 @@ Usiamo un modulo che ci consente di fare bruteforce su un authentication form
 ```
 use auxiliary/scanner/http/http_login
 set AUTH_URI /secure/    //dove secure è <pagina con autenticazione>
-unset USERPASS_FILE
+unset USERPASS_FILE    // meglio non farlo perché a me senza non ha funzionato nel lab
 run
 ```
 
@@ -177,3 +177,25 @@ E ci viene restituito nuovamente un errore quindi per il momento imposta VERBOSE
 Sembra ci venga restituito un errore nel momento in cui raggiungiamo una certa password. Potremmo provare con altri password file e altri utenti.
 
 Comunque sia qui voleva dimostrare che ci sono molti auxiliary modules che possiamo usare e che possono essere utili in vari contesti. Tutti i moduli mostrati possono essere usati su qualsiasi webserver come Apache, Engine x (nginx), Microsoft IIS, ricordiamoci però di impostare la porta corretta e SSL se il server usa HTTPS.
+
+## Effettuare un upload di un file sul webserver
+
+```
+use auxiliary/scanner/http/http_put
+set RHOSTS victim-1
+set PATH /data
+set FILENAME test.txt
+set FILEDATA "Welcome To AttackDefense"
+run
+```
+
+### Cancellare il file caricato
+
+```
+use auxiliary/scanner/http/http_put
+set RHOSTS victim-1
+set PATH /data
+set FILENAME test.txt
+set ACTION DELETE
+run
+```
