@@ -14,7 +14,7 @@ In questo caso abbiamo eseguito uno SYN scan ma già ci dice che le porte sono c
 nmap -Pn -sA <IP>
 ```
 
-<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 In questo caso eseguendo un ACK scan (-sA) possiamo vedere che le porte non sono filtrate. Ce lo dice esplicitamente, quindi non c'è un FW.
 

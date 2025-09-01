@@ -34,5 +34,6 @@
   * [FTP Enumeration](enumeration/ftp-enumeration.md)
   * [SMB Enumeration](enumeration/smb-enumeration.md)
   * [Web Server Enumeration](enumeration/web-server-enumeration.md)
+  * [MySQL Enumeration](enumeration/mysql-enumeration.md)
 * [Bigino - Cheat Sheet](bigino-cheat-sheet/README.md)
   * [Information Gathering](bigino-cheat-sheet/information-gathering.md)
