@@ -1,6 +1,6 @@
 # MySQL Enumeration
 
-<figure><img src="../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>
 
 ```
 service postgresql start
@@ -116,7 +116,7 @@ set RHOSTS <IP target>
 run
 ```
 
-<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (11).png" alt=""><figcaption></figcaption></figure>
 
 ## Modulo per identificare quali cartelle sono scrivibili tramite MySQL
 
@@ -131,7 +131,7 @@ set DIR_LIST /usr/share/metasploit-framework/data/wordlists/directory.txt
 run
 ```
 
-<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## Cosa abbiamo trovato?
 
