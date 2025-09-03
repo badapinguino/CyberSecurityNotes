@@ -321,3 +321,12 @@ nmap --scan-delay 15s <IP>
 4. Caricare il file XML: db\_import nmap\_xml.xml
 5. Verificare che sia caricato con i comandi: hosts e services
 
+## Enumeration
+
+## Quick tips
+
+### Trovare un file flag
+
+```
+find / -name "flag"
+```
