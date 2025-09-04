@@ -39,3 +39,4 @@
   * [SMTP Enumeration](enumeration/smtp-enumeration.md)
 * [Bigino - Cheat Sheet](bigino-cheat-sheet/README.md)
   * [Information Gathering](bigino-cheat-sheet/information-gathering.md)
+  * [Enumeration](bigino-cheat-sheet/enumeration.md)
