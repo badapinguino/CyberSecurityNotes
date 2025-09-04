@@ -108,7 +108,7 @@ Find the exact version of samba server by using appropriate nmap script.
 nmap --script smb-os-discovery.nse -p 445 demo.ine.local
 ```
 
-## SMB users enumeration
+### SMB users enumeration
 
 ```
 use auxiliary/scanner/smb/smb_enumusers
@@ -116,7 +116,7 @@ info // possiamo vedere qualche dettaglio in più sul modulo come nome, licenza,
 run
 ```
 
-## SMB shares enumeration
+### SMB shares enumeration
 
 Per enumerare tutte le cartelle share sul server SMB
 
