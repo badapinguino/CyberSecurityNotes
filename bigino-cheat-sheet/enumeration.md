@@ -159,3 +159,82 @@ smbclient -L \\\\192.91.46.3\\ -U admin
 smbclient \\\\<IP>\\public -U admin
 ```
 
+## Web Server Enumeration
+
+### Avvio Metasploit Framework (MSF)
+
+Primi passi per avviare metsploit e configurarlo brevemente per questa sessione:
+
+```
+service postgresql start
+msfconsole
+workspace -a Web_Enum
+setg RHOSTS <IP target>
+setg RHOST <IP target>
+search type:auxiliary name:http
+```
+
+### HTTP version enumeration
+
+```
+use auxiliary/scanner/http/http_version
+// se è HTTPS imposta la variabile SSL a true: set SSL true
+run
+```
+
+Ci viene restituita la versione del web server e il sistema operativo
+
+### Analizzare il robots.txt
+
+robots.txt elenca le pagine che non devono essere indicizzate nei search engine
+
+```
+use auxiliary/scanner/http/robots_txt
+run
+```
+
+### Directory bruteforce/listing/enumeration
+
+Si fa bruteforce di un webserver cercando tutte le directory con un dizionario per identificare quali directory sono presenti nel webserver, anche quelle che normalmente non sono accessibili via link nelle pagine.
+
+```
+use auxiliary/scanner/http/dir_scanner
+show options  //nella variabile DICTIONARY c'è il file che contiene le parole usate come directory
+// se vogliamo possiamo eseguire: set DICTIONARY /usr/share/metasploit-framework/data/wordlists/directory.txt
+run
+```
+
+### File bruteforcing/listing/enumeration
+
+Facciamo un bruteforce per trovare dei file, invece che directory come fatto prima.
+
+```
+use auxiliary/scanner/http/files_dir
+show options //si può modificare il DICTIONARY, EXTensions dei file e il PATH
+run
+```
+
+In questo caso viene impostato come dictionary un file di wmap, che è un modulo per metasploit framework usato per fare vulnerability scanning per webapplication.
+
+### Bruteforce login per pagine HTTP
+
+Usiamo un modulo che ci consente di fare bruteforce su un authentication form
+
+```
+use auxiliary/scanner/http/http_login
+set AUTH_URI /secure/    //dove secure è <pagina con autenticazione>
+unset USERPASS_FILE    // meglio non farlo perché a me senza non ha funzionato nel lab
+run
+```
+
+I parametri che andiamo a modificare sono: AUTH\_URI che è il path della directory che richiede il form di autenticazione, e andiamo a rimuovere l'impostazione di default a USERPASS\_FILE perché utilizzeremo i già impostati PASS\_FILE e USER\_FILE.
+
+Si può provare anche cambiando le wordlists:
+
+```
+set USER_FILE /usr/share/metasploit-framework/data/wordlists/namelist.txt
+set PASS_FILE /usr/share/metasploit-framework/data/wordlists/unix_passwords.txt
+set VERBOSE false  //cambiamo anche il VERBOSE per evitare che ci faccia vedere tutti i tentativi
+run
+```
+
