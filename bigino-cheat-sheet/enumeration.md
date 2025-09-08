@@ -22,7 +22,7 @@ nmap -Pn -sV -O <IP> -oX nome_file.xml
 ## Avviare Metasploit (MSF)
 
 ```
-service postresql start
+service postgresql start
 msfconsole
 db_status
 workspace -a <Nome_Workspace>
