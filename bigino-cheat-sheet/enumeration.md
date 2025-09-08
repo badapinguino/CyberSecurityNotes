@@ -467,7 +467,63 @@ run
 
 ```
 use auxiliary/scanner/smtp/smtp_enum     // user enumeration
+// set USER_FILE /usr/share/commix/src/txt/usernames.txt  // è una alternativa con root come utente + altri comuni
+// set /usr/share/metasploit-framework/data/wordlists/unix_users.txt  // è quella di default
 run
 ```
 
 UNIXONLY è true perché sappiamo che è un sistema linux, stesso motivo per cui lo USER\_FILE è la default unix\_users.txt
+
+#### Alternativa senza Metasploit: comando smtp-user-enum
+
+```
+smtp-user-enum -U /usr/share/commix/src/txt/usernames.txt -t demo.ine.local
+```
+
+### SMTP server name e banner
+
+```
+nmap -sV -script banner demo.ine.local
+```
+
+### Connessione con netcan
+
+#### Connessione + banner e servername
+
+```
+nc demo.ine.local 25
+```
+
+#### Verificare esistenza di un utente
+
+```
+VRFY admin@openmailbox.xyz   // dove admin è username e openmailbox.xyz è servername
+```
+
+Se restituisce 252, e in generale non un errore, allora significa che esiste
+
+#### Inviare mail via telnet
+
+```
+telnet demo.ine.local 25
+HELO attacker.xyz
+mail from: admin@attacker.xyz
+rcpt to:root@openmailbox.xyz
+data
+Subject: Hi Root
+Hello,
+This is a fake mail sent using telnet command.
+From,
+Admin
+.
+```
+
+#### Comandi utili
+
+{% embed url="https://www.samlogic.net/articles/smtp-commands-reference.htm" %}
+
+### Inviare una mail con sendemail
+
+```
+sendemail -f admin@attacker.xyz -t victimuser@openmailbox.xyz -s demo.ine.local -u Fakemail -m "Hi root, a fake from admin" -o tls=no
+```
