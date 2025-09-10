@@ -79,6 +79,12 @@ set USER_FILE /user/share/metasploit-framework/data/wordlists/common_users.txt
 set PASS_FILE /user/share/metasploit-framework/data/wordlists/unix_passwords.txt
 ```
 
+#### hydra: metodo più veloce per trovare username e password
+
+```
+hydra -L /root/Desktop/wordlists/ftptargetusers.txt -P /root/Desktop/wordlists/unix_passwords.txt ftp://target.ine.local:5554/
+```
+
 ### Modulo per connettersi ad FTP anonimamente (anonymous login) <a href="#modulo-per-connettersi-a-d-ftp-anonimamente-anonymous-login" id="modulo-per-connettersi-a-d-ftp-anonimamente-anonymous-login"></a>
 
 ```
@@ -134,6 +140,12 @@ use auxiliary/scanner/smb/smb_enumshares
 show options // tra le opzioni utili al massimo c'è SMBPass e SMBUser nel caso li avessimo e poi ShowFiles per mostrare informazioni dettagliate che potrebbero tornare utili
 set ShowFiles true
 run
+```
+
+#### enum4linux: Alternativa più veloce con enum4linux
+
+```
+enum4linux -S -s /root/Desktop/wordlists/shares.txt <IP target>
 ```
 
 ### Per verificare se è permesso il login anonimo
