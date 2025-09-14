@@ -41,6 +41,7 @@
   * [Overview of Windows Vulnerabilities](vulnerability-assessment/overview-of-windows-vulnerabilities.md)
   * [Frequently Exploited Windows Services](vulnerability-assessment/frequently-exploited-windows-services.md)
   * [Vulnerability Scanning with MSF](vulnerability-assessment/vulnerability-scanning-with-msf.md)
+  * [WebDAV Vulnerabilities](vulnerability-assessment/webdav-vulnerabilities.md)
 * [Bigino - Cheat Sheet](bigino-cheat-sheet/README.md)
   * [Information Gathering](bigino-cheat-sheet/information-gathering.md)
   * [Enumeration](bigino-cheat-sheet/enumeration.md)

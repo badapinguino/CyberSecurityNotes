@@ -1,6 +1,6 @@
 # Web Server Enumeration
 
-<figure><img src="../.gitbook/assets/image (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Primi passi per avviare metsploit e configurarlo brevemente per questa sessione:
 
@@ -13,7 +13,7 @@ setg RHOST <IP target>
 search type:auxiliary name:http
 ```
 
-<figure><img src="../.gitbook/assets/image (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## HTTP version enumeration
 
@@ -23,7 +23,7 @@ use auxiliary/scanner/http/http_version
 run
 ```
 
-<figure><img src="../.gitbook/assets/image (2) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Ci viene restituita la versione del web server e il sistema operativo
 
@@ -34,7 +34,7 @@ use auxiliary/scanner/http/http_header
 run
 ```
 
-<figure><img src="../.gitbook/assets/image (3) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (3) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Ci dà info sul server version e il fatto che il linguaggio è html. Simile al risultato di http\_version
 
@@ -47,7 +47,7 @@ use auxxiliary/scanner/http/robots_txt
 run
 ```
 
-<figure><img src="../.gitbook/assets/image (4) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (4) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Abbiamo scoperto che lo sviluppatore del server non voleva che qualcuno accedesse alla directory data e alla dir secure.
 
@@ -58,9 +58,9 @@ curl http://<IP>/data/
 curl http://<IP>/secure/
 ```
 
-<figure><img src="../.gitbook/assets/image (5) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (5) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../.gitbook/assets/image (7) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (7) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Ci dice che non abbiamo accesso perché il browser ci avrebbe chiesto username e password e noi non le abbiamo inserite. Possiamo provare a fare un bruteforce.
 
@@ -74,9 +74,9 @@ show options  //nella variabile DICTIONARY c'è il file che contiene le parole u
 </strong><strong>run
 </strong></code></pre>
 
-<figure><img src="../.gitbook/assets/image (8) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (8) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../.gitbook/assets/image (9) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (9) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Ci dà anche qualche informazione sul fatto che alcune pagine per essere accedute hanno bisogno di una WebDav authentication, e quindi probabilmente ci viene data anche qualche info sulla tipologia di applicazione usata (WebDav).
 
@@ -90,15 +90,15 @@ show options //si può modificare il DICTIONARY, EXTensions dei file e il PATH
 run
 ```
 
-<figure><img src="../.gitbook/assets/image (10) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (10) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 In questo caso viene impostato come dictionary un file di wmap, che è un modulo per metasploit framework usato per fare vulnerability scanning per webapplication.
 
-<figure><img src="../.gitbook/assets/image (11) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (11) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Sono state trovati un po' di file in particolare index.html e test.php. Tutti i 301 invece sono redirect.
 
-<figure><img src="../.gitbook/assets/image (12).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (12) (1).png" alt=""><figcaption></figcaption></figure>
 
 Andiamo ora a fare bruteforce della cartella secure che ci restituisce 401 quindi è dietro ad una autenticazione.
 
@@ -113,15 +113,15 @@ unset USERPASS_FILE    // meglio non farlo perché a me senza non ha funzionato 
 run
 ```
 
-<figure><img src="../.gitbook/assets/image (13).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (13) (1).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../.gitbook/assets/image (15).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (15) (1).png" alt=""><figcaption></figcaption></figure>
 
 I parametri che andiamo a modificare sono: AUTH\_URI che è il path della directory che richiede il form di autenticazione, e andiamo a rimuovere l'impostazione di default a USERPASS\_FILE perché utilizzeremo i già impostati PASS\_FILE e USER\_FILE.
 
-<figure><img src="../.gitbook/assets/image (16).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (16) (1).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../.gitbook/assets/image (17).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (17) (1).png" alt=""><figcaption></figcaption></figure>
 
 Non abbiamo trovato nessuna credenziale, quindi proviamo a cambiare le liste usate per qualcosa di più robusto:
 
