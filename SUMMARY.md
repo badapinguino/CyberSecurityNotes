@@ -45,3 +45,4 @@
 * [Bigino - Cheat Sheet](bigino-cheat-sheet/README.md)
   * [Information Gathering](bigino-cheat-sheet/information-gathering.md)
   * [Enumeration](bigino-cheat-sheet/enumeration.md)
+  * [Vulnerability Assessment](bigino-cheat-sheet/vulnerability-assessment.md)

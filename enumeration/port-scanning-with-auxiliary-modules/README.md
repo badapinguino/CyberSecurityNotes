@@ -68,13 +68,13 @@ Ora avviamo l'exploit e attendiamo che ci ritorni una meterpreter shell:
 
 Ora dobbiamo avviare una shell normale bash e capire qual è l'IP della rete interna:
 
-<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Ora con CTRL+C usciamo e torniamo alla shell meterpreter.
 
 Dobbiamo ora usare il comando autoroute:
 
-<figure><img src="../../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Mettiamo la sessione in background:
 

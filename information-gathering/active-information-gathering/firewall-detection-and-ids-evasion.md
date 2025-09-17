@@ -6,7 +6,7 @@ In nmap possiamo usare il flag -sA che fa un ACK scan, serve per capire se una p
 
 nmap -Pn -sS -F \<IP>
 
-<figure><img src="../../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 In questo caso abbiamo eseguito uno SYN scan ma già ci dice che le porte sono chiuse (e non filtrate)
 
@@ -14,7 +14,7 @@ In questo caso abbiamo eseguito uno SYN scan ma già ci dice che le porte sono c
 nmap -Pn -sA <IP>
 ```
 
-<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 In questo caso eseguendo un ACK scan (-sA) possiamo vedere che le porte non sono filtrate. Ce lo dice esplicitamente, quindi non c'è un FW.
 
@@ -22,7 +22,7 @@ In questo caso eseguendo un ACK scan (-sA) possiamo vedere che le porte non sono
 
 ### Frammentazione pachetti
 
-<figure><img src="../../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Una delle cose è frammentare i pacchetti, così non è in grado di leggere il contenuto e capire dai singoli pacchetti cosa sono
 

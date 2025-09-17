@@ -9,7 +9,7 @@
 5. Caricare il file XML: db\_import nomefile.xml
 6. Verificare che sia caricato con i comandi: hosts e services
 
-<figure><img src="../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Si può anche inizializzare e performare una nmap scan direttamente dentro metasploit ed il cui output verrà automaticamente inserito nel database:
 
