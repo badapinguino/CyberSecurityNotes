@@ -26,9 +26,9 @@ run
 back
 ```
 
-<figure><img src="../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 In questo caso ci sono diversi moduli per sfruttare vulnerabilità di ProFTPD, ma non eseguiamo nulla perché non siamo ancora alla fase di exploitation (l'ultimo sarebbe l'unico che funziona in questo caso).
 
@@ -45,13 +45,13 @@ set USER_FILE /user/share/metasploit-framework/data/wordlists/common_users.txt
 set PASS_FILE /user/share/metasploit-framework/data/wordlists/unix_passwords.txt
 ```
 
-<figure><img src="../.gitbook/assets/image (3) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (3) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Le opzioni da modificare sono ovviamente l'RHOSTS ma anche USER\_FILE che serve per indicare un file contenente una lista di username (o USERNAME nel caso in cui vogliamo trovare la password di solo un username), e PASS\_FILE che serve per indicare un file contenente una lista di password (o una singola PASSWORD). E se vogliamo la BRUTEFORCE\_SPEED.
 
 Quando trova una coppia di username e password viene evidenziato in verde:
 
-<figure><img src="../.gitbook/assets/image (4) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (4) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Infine proviamo a connetterci con le credenziali trovate tramite la shell normale (usciamo quindi da msfconsole)
 
@@ -59,7 +59,7 @@ Infine proviamo a connetterci con le credenziali trovate tramite la shell normal
 ftp <IP> // e inseriamo username e password quando ce lo chiede. Se dà errore potrebbe essere perché abbiamo appena fatto un bruteforce quindi cerca di bloccarci, dobbiamo aspettare e provare più tardi
 ```
 
-<figure><img src="../.gitbook/assets/image (8) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (8) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## Modulo per connettersi ad FTP anonimamente (anonymous login)
 
@@ -70,6 +70,6 @@ set RHOSTS <IP>
 run
 ```
 
-<figure><img src="../.gitbook/assets/image (9) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (9) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 In questo caso non è possibile accedere il server FTP anonimously
