@@ -42,7 +42,7 @@
   * [Frequently Exploited Windows Services](vulnerability-assessment/frequently-exploited-windows-services.md)
   * [Vulnerability Scanning with MSF](vulnerability-assessment/vulnerability-scanning-with-msf.md)
   * [WebDAV Vulnerabilities](vulnerability-assessment/webdav-vulnerabilities.md)
-  * [Vulnerabilty Analysis: EternalBlue (MS17-010)](vulnerability-assessment/vulnerabilty-analysis-eternalblue-ms17-010.md)
+  * [Vulnerabilty Analysis: EternalBlue (MS17-010) - SMB](vulnerability-assessment/vulnerabilty-analysis-eternalblue-ms17-010-smb.md)
 * [Bigino - Cheat Sheet](bigino-cheat-sheet/README.md)
   * [Information Gathering](bigino-cheat-sheet/information-gathering.md)
   * [Enumeration](bigino-cheat-sheet/enumeration.md)
