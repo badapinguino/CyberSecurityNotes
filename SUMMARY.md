@@ -43,6 +43,8 @@
   * [Vulnerability Scanning with MSF](vulnerability-assessment/vulnerability-scanning-with-msf.md)
   * [WebDAV Vulnerabilities](vulnerability-assessment/webdav-vulnerabilities.md)
   * [Vulnerabilty Analysis: EternalBlue (MS17-010) - SMB](vulnerability-assessment/vulnerabilty-analysis-eternalblue-ms17-010-smb.md)
+  * [Vulnerability Analysis: BlueKeep (CVE-2019-0708) - RDP](vulnerability-assessment/vulnerability-analysis-bluekeep-cve-2019-0708-rdp.md)
+  * [Pass-the-Hash](vulnerability-assessment/pass-the-hash.md)
 * [Bigino - Cheat Sheet](bigino-cheat-sheet/README.md)
   * [Information Gathering](bigino-cheat-sheet/information-gathering.md)
   * [Enumeration](bigino-cheat-sheet/enumeration.md)
