@@ -46,6 +46,7 @@
   * [Vulnerability Analysis: BlueKeep (CVE-2019-0708) - RDP](vulnerability-assessment/vulnerability-analysis-bluekeep-cve-2019-0708-rdp.md)
   * [Pass-the-Hash](vulnerability-assessment/pass-the-hash.md)
   * [Frequently Exploited Linux Services](vulnerability-assessment/frequently-exploited-linux-services.md)
+  * [Vulnerability Analysis: Shellshock (CVE-2014-6271) - Apache e Bash](vulnerability-assessment/vulnerability-analysis-shellshock-cve-2014-6271-apache-e-bash.md)
 * [Bigino - Cheat Sheet](bigino-cheat-sheet/README.md)
   * [Information Gathering](bigino-cheat-sheet/information-gathering.md)
   * [Enumeration](bigino-cheat-sheet/enumeration.md)
