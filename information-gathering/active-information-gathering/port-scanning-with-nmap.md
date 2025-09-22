@@ -40,7 +40,7 @@ Operation system detection scan, per identificare quale SO: -O
 
 Utile per poter cercare poi eventuali vulnerabilità della versione del sistema operativo
 
-<figure><img src="../../.gitbook/assets/image (15) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (15) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 
 
