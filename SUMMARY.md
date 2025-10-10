@@ -48,6 +48,7 @@
   * [Frequently Exploited Linux Services](vulnerability-assessment/frequently-exploited-linux-services.md)
   * [Vulnerability Analysis: Shellshock (CVE-2014-6271) - Apache e Bash](vulnerability-assessment/vulnerability-analysis-shellshock-cve-2014-6271-apache-e-bash.md)
   * [Vulnerability Scanning with Nessus](vulnerability-assessment/vulnerability-scanning-with-nessus.md)
+  * [Web App Vulnerability Scanning with WMAP](vulnerability-assessment/web-app-vulnerability-scanning-with-wmap.md)
 * [Bigino - Cheat Sheet](bigino-cheat-sheet/README.md)
   * [Information Gathering](bigino-cheat-sheet/information-gathering.md)
   * [Enumeration](bigino-cheat-sheet/enumeration.md)
