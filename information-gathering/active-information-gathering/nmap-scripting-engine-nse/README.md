@@ -40,7 +40,7 @@ nmap -sS -sV -sC -p- -T4 <IP> // -sC default script scan
 
 In questo caso una misconfigurazione del servizio mongodb ci ha dato informazioni sulla versione del OS.
 
-<figure><img src="../../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Da mongodb possiamo anche prendere l'hostname del PC che in questo caso è victim-1
 

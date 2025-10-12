@@ -131,7 +131,7 @@ set DIR_LIST /usr/share/metasploit-framework/data/wordlists/directory.txt
 run
 ```
 
-<figure><img src="../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## Cosa abbiamo trovato?
 
