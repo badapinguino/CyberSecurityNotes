@@ -98,7 +98,7 @@ In questo caso viene impostato come dictionary un file di wmap, che è un modulo
 
 Sono state trovati un po' di file in particolare index.html e test.php. Tutti i 301 invece sono redirect.
 
-<figure><img src="../.gitbook/assets/image (12) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (12) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Andiamo ora a fare bruteforce della cartella secure che ci restituisce 401 quindi è dietro ad una autenticazione.
 
@@ -113,13 +113,13 @@ unset USERPASS_FILE    // meglio non farlo perché a me senza non ha funzionato 
 run
 ```
 
-<figure><img src="../.gitbook/assets/image (13) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (13) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../.gitbook/assets/image (15) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (15) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 I parametri che andiamo a modificare sono: AUTH\_URI che è il path della directory che richiede il form di autenticazione, e andiamo a rimuovere l'impostazione di default a USERPASS\_FILE perché utilizzeremo i già impostati PASS\_FILE e USER\_FILE.
 
-<figure><img src="../.gitbook/assets/image (16) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (16) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 <figure><img src="../.gitbook/assets/image (17) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
