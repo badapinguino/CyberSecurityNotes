@@ -53,6 +53,8 @@
   * [Overview of Security Auditing](assessment-methodologies-auditing-fundamentals/overview-of-security-auditing.md)
   * [Essential Terminology](assessment-methodologies-auditing-fundamentals/essential-terminology.md)
   * [Security Auditing Process/Lifecycle](assessment-methodologies-auditing-fundamentals/security-auditing-process-lifecycle.md)
+  * [Types of Security Audits](assessment-methodologies-auditing-fundamentals/types-of-security-audits.md)
+  * [Security Auditing & Penetration Testing](assessment-methodologies-auditing-fundamentals/security-auditing-and-penetration-testing.md)
 * [Bigino - Cheat Sheet](bigino-cheat-sheet/README.md)
   * [Information Gathering](bigino-cheat-sheet/information-gathering.md)
   * [Enumeration](bigino-cheat-sheet/enumeration.md)
