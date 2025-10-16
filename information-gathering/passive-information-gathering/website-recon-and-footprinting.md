@@ -22,7 +22,7 @@ Cosa cerchiamo?
 host <dominio.com>
 ```
 
-<figure><img src="../../.gitbook/assets/image (35) (1).png" alt=""><figcaption><p>Ci restituisce gli IP, IPv6 e il mailserver con il dominio mail</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (35) (1) (1).png" alt=""><figcaption><p>Ci restituisce gli IP, IPv6 e il mailserver con il dominio mail</p></figcaption></figure>
 
 Si possono poi cercare delle informazioni come le mail o indirizzi nelle pagine del sito come nel footer
 
