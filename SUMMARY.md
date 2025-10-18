@@ -60,6 +60,7 @@
   * [From Auditing to Penetration Testing](assessment-methodologies-auditing-fundamentals/from-auditing-to-penetration-testing/README.md)
     * [Phase 1 - Develop a Security Policy](assessment-methodologies-auditing-fundamentals/from-auditing-to-penetration-testing/phase-1-develop-a-security-policy.md)
     * [Phase 2 - Security Auditing with Lynis](assessment-methodologies-auditing-fundamentals/from-auditing-to-penetration-testing/phase-2-security-auditing-with-lynis.md)
+    * [Phase 3 - Conduct Penetration Test](assessment-methodologies-auditing-fundamentals/from-auditing-to-penetration-testing/phase-3-conduct-penetration-test.md)
 * [Bigino - Cheat Sheet](bigino-cheat-sheet/README.md)
   * [Information Gathering](bigino-cheat-sheet/information-gathering.md)
   * [Enumeration](bigino-cheat-sheet/enumeration.md)
