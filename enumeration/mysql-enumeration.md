@@ -116,7 +116,7 @@ set RHOSTS <IP target>
 run
 ```
 
-<figure><img src="../.gitbook/assets/image (11) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (11) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## Modulo per identificare quali cartelle sono scrivibili tramite MySQL
 

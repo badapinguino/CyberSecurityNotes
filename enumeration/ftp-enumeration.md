@@ -59,7 +59,7 @@ Infine proviamo a connetterci con le credenziali trovate tramite la shell normal
 ftp <IP> // e inseriamo username e password quando ce lo chiede. Se dà errore potrebbe essere perché abbiamo appena fatto un bruteforce quindi cerca di bloccarci, dobbiamo aspettare e provare più tardi
 ```
 
-<figure><img src="../.gitbook/assets/image (8) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (8) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## Modulo per connettersi ad FTP anonimamente (anonymous login)
 
@@ -70,6 +70,6 @@ set RHOSTS <IP>
 run
 ```
 
-<figure><img src="../.gitbook/assets/image (9) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (9) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 In questo caso non è possibile accedere il server FTP anonimously

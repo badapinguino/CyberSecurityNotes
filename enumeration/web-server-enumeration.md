@@ -60,7 +60,7 @@ curl http://<IP>/secure/
 
 <figure><img src="../.gitbook/assets/image (5) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../.gitbook/assets/image (7) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (7) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Ci dice che non abbiamo accesso perché il browser ci avrebbe chiesto username e password e noi non le abbiamo inserite. Possiamo provare a fare un bruteforce.
 
@@ -74,9 +74,9 @@ show options  //nella variabile DICTIONARY c'è il file che contiene le parole u
 </strong><strong>run
 </strong></code></pre>
 
-<figure><img src="../.gitbook/assets/image (8) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (8) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../.gitbook/assets/image (9) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (9) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Ci dà anche qualche informazione sul fatto che alcune pagine per essere accedute hanno bisogno di una WebDav authentication, e quindi probabilmente ci viene data anche qualche info sulla tipologia di applicazione usata (WebDav).
 
@@ -90,11 +90,11 @@ show options //si può modificare il DICTIONARY, EXTensions dei file e il PATH
 run
 ```
 
-<figure><img src="../.gitbook/assets/image (10) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (10) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 In questo caso viene impostato come dictionary un file di wmap, che è un modulo per metasploit framework usato per fare vulnerability scanning per webapplication.
 
-<figure><img src="../.gitbook/assets/image (11) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (11) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Sono state trovati un po' di file in particolare index.html e test.php. Tutti i 301 invece sono redirect.
 
