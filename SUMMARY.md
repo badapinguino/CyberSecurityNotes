@@ -69,6 +69,7 @@
   * [Exploiting Windows Vulnerabilites](host-and-network-penetration-testing-system-host-based-attacks/exploiting-windows-vulnerabilites/README.md)
     * [Exploiting Microsoft IIS WebDAV](host-and-network-penetration-testing-system-host-based-attacks/exploiting-windows-vulnerabilites/exploiting-microsoft-iis-webdav.md)
     * [Exploiting WebDAV With Metasploit](host-and-network-penetration-testing-system-host-based-attacks/exploiting-windows-vulnerabilites/exploiting-webdav-with-metasploit.md)
+    * [Exploiting SMB With PsExec](host-and-network-penetration-testing-system-host-based-attacks/exploiting-windows-vulnerabilites/exploiting-smb-with-psexec.md)
 * [Bigino - Cheat Sheet](bigino-cheat-sheet/README.md)
   * [Information Gathering](bigino-cheat-sheet/information-gathering.md)
   * [Enumeration](bigino-cheat-sheet/enumeration.md)
