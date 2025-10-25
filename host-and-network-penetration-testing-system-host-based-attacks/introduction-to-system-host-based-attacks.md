@@ -1,8 +1,8 @@
 # Introduction to System/Host Based Attacks
 
-<figure><img src="../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (5) (1).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../.gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (6) (1).png" alt=""><figcaption></figcaption></figure>
 
 Sfruttare le vulnerabilità di un SO, per entrare nei PC dei dipendenti, invece che network based attacks che sono relativi ai servizi esposti da un server.
 
