@@ -71,6 +71,7 @@
     * [Exploiting WebDAV With Metasploit](host-and-network-penetration-testing-system-host-based-attacks/exploiting-windows-vulnerabilites/exploiting-webdav-with-metasploit.md)
     * [Exploiting SMB With PsExec](host-and-network-penetration-testing-system-host-based-attacks/exploiting-windows-vulnerabilites/exploiting-smb-with-psexec.md)
     * [Exploiting Windows MS17-010 SMB Vulnerability (EternalBlue)](host-and-network-penetration-testing-system-host-based-attacks/exploiting-windows-vulnerabilites/exploiting-windows-ms17-010-smb-vulnerability-eternalblue.md)
+    * [Exploiting RDP](host-and-network-penetration-testing-system-host-based-attacks/exploiting-windows-vulnerabilites/exploiting-rdp.md)
 * [Bigino - Cheat Sheet](bigino-cheat-sheet/README.md)
   * [Information Gathering](bigino-cheat-sheet/information-gathering.md)
   * [Enumeration](bigino-cheat-sheet/enumeration.md)
