@@ -73,6 +73,7 @@
     * [Exploiting Windows MS17-010 SMB Vulnerability (EternalBlue)](host-and-network-penetration-testing-system-host-based-attacks/exploiting-windows-vulnerabilites/exploiting-windows-ms17-010-smb-vulnerability-eternalblue.md)
     * [Exploiting RDP](host-and-network-penetration-testing-system-host-based-attacks/exploiting-windows-vulnerabilites/exploiting-rdp.md)
     * [Exploiting Windows CVE-2019-0708 RDP Vulnerability (BlueKeep)](host-and-network-penetration-testing-system-host-based-attacks/exploiting-windows-vulnerabilites/exploiting-windows-cve-2019-0708-rdp-vulnerability-bluekeep.md)
+    * [Exploiting WinRM](host-and-network-penetration-testing-system-host-based-attacks/exploiting-windows-vulnerabilites/exploiting-winrm.md)
 * [Bigino - Cheat Sheet](bigino-cheat-sheet/README.md)
   * [Information Gathering](bigino-cheat-sheet/information-gathering.md)
   * [Enumeration](bigino-cheat-sheet/enumeration.md)
