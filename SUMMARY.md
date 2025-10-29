@@ -74,6 +74,8 @@
     * [Exploiting RDP](host-and-network-penetration-testing-system-host-based-attacks/exploiting-windows-vulnerabilites/exploiting-rdp.md)
     * [Exploiting Windows CVE-2019-0708 RDP Vulnerability (BlueKeep)](host-and-network-penetration-testing-system-host-based-attacks/exploiting-windows-vulnerabilites/exploiting-windows-cve-2019-0708-rdp-vulnerability-bluekeep.md)
     * [Exploiting WinRM](host-and-network-penetration-testing-system-host-based-attacks/exploiting-windows-vulnerabilites/exploiting-winrm.md)
+  * [Windows Privilege Escalation](host-and-network-penetration-testing-system-host-based-attacks/windows-privilege-escalation/README.md)
+    * [Windows Kernel Exploits](host-and-network-penetration-testing-system-host-based-attacks/windows-privilege-escalation/windows-kernel-exploits.md)
 * [Bigino - Cheat Sheet](bigino-cheat-sheet/README.md)
   * [Information Gathering](bigino-cheat-sheet/information-gathering.md)
   * [Enumeration](bigino-cheat-sheet/enumeration.md)
