@@ -76,6 +76,7 @@
     * [Exploiting WinRM](host-and-network-penetration-testing-system-host-based-attacks/exploiting-windows-vulnerabilites/exploiting-winrm.md)
   * [Windows Privilege Escalation](host-and-network-penetration-testing-system-host-based-attacks/windows-privilege-escalation/README.md)
     * [Windows Kernel Exploits](host-and-network-penetration-testing-system-host-based-attacks/windows-privilege-escalation/windows-kernel-exploits.md)
+    * [Bypassing UAC with UACMe](host-and-network-penetration-testing-system-host-based-attacks/windows-privilege-escalation/bypassing-uac-with-uacme.md)
 * [Bigino - Cheat Sheet](bigino-cheat-sheet/README.md)
   * [Information Gathering](bigino-cheat-sheet/information-gathering.md)
   * [Enumeration](bigino-cheat-sheet/enumeration.md)
