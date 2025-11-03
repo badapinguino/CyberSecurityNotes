@@ -80,6 +80,8 @@
     * [Access Token Impersonation](host-and-network-penetration-testing-system-host-based-attacks/windows-privilege-escalation/access-token-impersonation.md)
   * [Windows File System Vulnerabilities](host-and-network-penetration-testing-system-host-based-attacks/windows-file-system-vulnerabilities/README.md)
     * [Alternate Data Streams](host-and-network-penetration-testing-system-host-based-attacks/windows-file-system-vulnerabilities/alternate-data-streams.md)
+  * [Windows Credential Dumping](host-and-network-penetration-testing-system-host-based-attacks/windows-credential-dumping/README.md)
+    * [Windows Password Hashes](host-and-network-penetration-testing-system-host-based-attacks/windows-credential-dumping/windows-password-hashes.md)
 * [Bigino - Cheat Sheet](bigino-cheat-sheet/README.md)
   * [Information Gathering](bigino-cheat-sheet/information-gathering.md)
   * [Enumeration](bigino-cheat-sheet/enumeration.md)
