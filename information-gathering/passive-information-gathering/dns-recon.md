@@ -6,7 +6,7 @@ description: DNS Passive Reconaissance
 
 Identifichiamo i record associati con un dominio DNS, non facciamo nulla di attivo.
 
-<figure><img src="../../.gitbook/assets/image (24) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (24) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## DNS Recon
 
@@ -14,9 +14,9 @@ Identifichiamo i record associati con un dominio DNS, non facciamo nulla di atti
 dnsrecon -d <nomedominio.com>
 ```
 
-<figure><img src="../../.gitbook/assets/image (25) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (25) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/image (26) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (26) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Informazioni utili:
 
@@ -24,7 +24,7 @@ MX Mail Server
 
 Name Servers
 
-<figure><img src="../../.gitbook/assets/image (27) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (27) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Da qui si può vedere che stanno usando come mail Google, un record A che associa il nome dominio all'IP, TXT invece viene usato per verificare per tracciare il sito con Google Analytics
 
@@ -32,7 +32,7 @@ Da qui si può vedere che stanno usando come mail Google, un record A che associ
 
 Sito dnsdumpser.com
 
-<figure><img src="../../.gitbook/assets/image (28) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (28) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 <figure><img src="../../.gitbook/assets/image (29) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
