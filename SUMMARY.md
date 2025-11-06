@@ -82,6 +82,7 @@
     * [Alternate Data Streams](host-and-network-penetration-testing-system-host-based-attacks/windows-file-system-vulnerabilities/alternate-data-streams.md)
   * [Windows Credential Dumping](host-and-network-penetration-testing-system-host-based-attacks/windows-credential-dumping/README.md)
     * [Windows Password Hashes](host-and-network-penetration-testing-system-host-based-attacks/windows-credential-dumping/windows-password-hashes.md)
+    * [Searching For Passwords In Windows Configuration Files](host-and-network-penetration-testing-system-host-based-attacks/windows-credential-dumping/searching-for-passwords-in-windows-configuration-files.md)
 * [Bigino - Cheat Sheet](bigino-cheat-sheet/README.md)
   * [Information Gathering](bigino-cheat-sheet/information-gathering.md)
   * [Enumeration](bigino-cheat-sheet/enumeration.md)
