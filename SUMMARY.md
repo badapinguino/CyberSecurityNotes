@@ -83,6 +83,8 @@
   * [Windows Credential Dumping](host-and-network-penetration-testing-system-host-based-attacks/windows-credential-dumping/README.md)
     * [Windows Password Hashes](host-and-network-penetration-testing-system-host-based-attacks/windows-credential-dumping/windows-password-hashes.md)
     * [Searching For Passwords In Windows Configuration Files](host-and-network-penetration-testing-system-host-based-attacks/windows-credential-dumping/searching-for-passwords-in-windows-configuration-files.md)
+    * [Unattended Installation (Lab)](host-and-network-penetration-testing-system-host-based-attacks/windows-credential-dumping/unattended-installation-lab.md)
+    * [Dumping Hashes With Mimikatz](host-and-network-penetration-testing-system-host-based-attacks/windows-credential-dumping/dumping-hashes-with-mimikatz.md)
 * [Bigino - Cheat Sheet](bigino-cheat-sheet/README.md)
   * [Information Gathering](bigino-cheat-sheet/information-gathering.md)
   * [Enumeration](bigino-cheat-sheet/enumeration.md)
