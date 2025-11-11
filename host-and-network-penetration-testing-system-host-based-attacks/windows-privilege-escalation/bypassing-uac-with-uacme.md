@@ -90,7 +90,7 @@ net user admin password123 //ci da errore perché dobbiamo bypassare UAC
 
 ```
 
-<figure><img src="../../.gitbook/assets/image (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Si tratta di Windows Server 2012 R2 (6.3 build 9600).
 
@@ -100,17 +100,17 @@ E a questo punto vediamo che effettivamente la sessione di meterpreter è a 64 b
 
 Controlliamo che utente stiamo usando e scopriamo che è un utente di nome admin, ma non è l'administrator di default di Windows.
 
-<figure><img src="../../.gitbook/assets/image (2) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (2) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 In questo momento l'utente ha pochi privilegi ma ciò non significa che non possa eseguire come amministratore se fa parte del gruppo administrators
 
-<figure><img src="../../.gitbook/assets/image (3) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (3) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Con net user vediamo che ci sono solo due account in pratica: admin e Administrator
 
 Con il comando net localgroup administators possiamo vedere che fanno parte del gruppo administrators l'account admin e Administrator. Quindi l'utente admin che stiamo usando è nel gruppo.
 
-<figure><img src="../../.gitbook/assets/image (5) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (5) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Se proviamo ad eseguire questo comando per cambiare la password ci dà errore perché dovremmo confermare con il prompt UAC, ma da cmd ovviamente non può essere fatto, quindi bisogna bypassare l'UAC.
 
@@ -118,32 +118,32 @@ Se proviamo ad eseguire questo comando per cambiare la password ci dà errore pe
 
 Per usarlo dobbiamo eseguire il file akagi32 seguito da una key che sarebbe il tipo di "script" da eseguire che dipende dalla versione di windows del target e la tecnica più adatta allo scenario, seguito dai parametri.
 
-<figure><img src="../../.gitbook/assets/image (6) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (6) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 I file eseguibili si trovano a questo percorso:
 
-<figure><img src="../../.gitbook/assets/image (7) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (7) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/image (8) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (8) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/image (9) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (9) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/image (10) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (10) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/image (11) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (11) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 In questo caso usiamo il metodo 23 che è quello che funziona di più.
 
-<figure><img src="../../.gitbook/assets/image (12) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (12) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/image (13) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (13) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Per usarlo bisogna compilare i file C, non ci vengono forniti i file compilati.
 
 A fini del laboratorio abbiamo già il file pronto di Akagai64 sul Desktop della nostra macchina Kali attaccante, dobbiamo trasferirlo sulla vittima.\
 Il file lo troviamo su Desktop/tools/UACME/Akagai64.exe
 
-<figure><img src="../../.gitbook/assets/image (14) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (14) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## Attacco con msfvenom + UACMe per bypassare l'UAC
 
@@ -171,9 +171,9 @@ run
 // Cambiamo finestra del terminale per fare le prossime operazioni
 ```
 
-<figure><img src="../../.gitbook/assets/image (15) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (15) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/image (16) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (16) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### Carichiamo il payload generato sul target e lo eseguiamo per ricevere una reverse shell
 
@@ -195,7 +195,7 @@ dir
 
 <figure><img src="../../.gitbook/assets/image (18) (1).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/image (17) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (17) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 <figure><img src="../../.gitbook/assets/image (19) (1).png" alt=""><figcaption></figcaption></figure>
 
