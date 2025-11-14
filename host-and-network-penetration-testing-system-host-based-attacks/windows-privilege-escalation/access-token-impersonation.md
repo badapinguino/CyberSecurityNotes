@@ -69,6 +69,10 @@ Se ci troviamo in una situaziuone dove non ci sono privileged access token dispo
 
 ### Una volta ottenuto accesso come Administrator possiamo passare anche ad altri token
 
+```
+impersonate_token "NT AUTHORITY SYSTEM"
+```
+
 <figure><img src="../../.gitbook/assets/image (453).png" alt=""><figcaption></figcaption></figure>
 
 Ad esempio NT AUTHORITY\SYSTEM e possiamo guardare anche i suoi di privilegi:
