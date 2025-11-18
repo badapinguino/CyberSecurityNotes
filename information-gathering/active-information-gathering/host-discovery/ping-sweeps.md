@@ -1,12 +1,12 @@
 # Ping Sweeps
 
-<figure><img src="../../../.gitbook/assets/image (120).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (546).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../../.gitbook/assets/image (121).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (547).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../../.gitbook/assets/image (122).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (548).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../../.gitbook/assets/image (123).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (549).png" alt=""><figcaption></figcaption></figure>
 
 ### ping
 
@@ -23,7 +23,7 @@ sudo wireshark -i eth1
 
 Possiamo usare wireshark per vedere le richieste di ping che abbiamo inviato
 
-<figure><img src="../../../.gitbook/assets/image (124).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (550).png" alt=""><figcaption></figcaption></figure>
 
 In questo caso l'host sembra offline ma è da verificare, magari non risponde agli ICMP.
 
@@ -44,7 +44,7 @@ fping -a -g 10.10.23.0/24 //-g generate target list
 
 fping usa comunque ICMP.
 
-<figure><img src="../../../.gitbook/assets/image (125).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (551).png" alt=""><figcaption></figcaption></figure>
 
 Perché così tutti gli errori vengono nascosti.
 
@@ -58,4 +58,4 @@ nmap -sn 10.4.31.111
 
 L'host non risponde a ICMP ma è un windows ed è attivo come si può vedere da questo coamando:
 
-<figure><img src="../../../.gitbook/assets/image (126).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (552).png" alt=""><figcaption></figcaption></figure>

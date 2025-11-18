@@ -2,11 +2,11 @@
 
 ## Fasi del Penetration Testing
 
-<figure><img src="../.gitbook/assets/image (117).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (543).png" alt=""><figcaption></figcaption></figure>
 
 ## Information Gathering
 
-<figure><img src="../.gitbook/assets/image (119).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (545).png" alt=""><figcaption></figcaption></figure>
 
 ### Passive Information Gathering
 
@@ -114,9 +114,9 @@ Possiamo utilizzare haveibeenpwned.com per trovare password di dipendenti coinvo
 
 #### DNS Zone Transfer
 
-<figure><img src="../.gitbook/assets/image (13) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (439).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../.gitbook/assets/image (14) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (440).png" alt=""><figcaption></figcaption></figure>
 
 Possiamo usare due strumenti per trovare se ci sono dei server DNS attivi con domini diversi rispetto al dominio cercato (zone transfer):
 

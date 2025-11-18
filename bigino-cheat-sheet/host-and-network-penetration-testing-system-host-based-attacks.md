@@ -148,7 +148,7 @@ exploit
 
 ### Exploiting EternalBlue (MS17-010) - SMB
 
-<figure><img src="../.gitbook/assets/image (254).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (680).png" alt=""><figcaption></figcaption></figure>
 
 #### Scan Nmap per vedere OS e porta SMB
 
@@ -203,7 +203,7 @@ run
 #### Hydra: Bruteforce a RDP per trovare le credenziali
 
 ```
-hydra -L /usr/share/metasploit-framework/data/wordlists/common_users.txt -P /usr/share/metasploit-frameworj/data/wordlists/unix_passwords.txt rdp://10.2.24.86 -s 3333
+hydra -L /usr/share/metasploit-framework/data/wordlists/common_users.txt -P /usr/share/metasploit-framework/data/wordlists/unix_passwords.txt rdp://10.2.24.86 -s 3333
 // dove 3333 è la porta RDP, se non la specifichiamo con -s hydra assume la porta di default
 ```
 
@@ -220,7 +220,7 @@ xfreerdp /u:administrator /p:qwertyuiop /v:10.2.24.86:3333
 
 ### BlueKeep (CVE-2019-0708) - RDP
 
-<figure><img src="../.gitbook/assets/image (255).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (681).png" alt=""><figcaption></figcaption></figure>
 
 Deve essere abilitato RDP e disabilitata la Network Level authentication. E quindi per mitigare si può abilitare la Network Level Authentication.
 
@@ -716,7 +716,7 @@ lsa_dump_secrets
 
 **lsa\_dump\_secrets**: ci restituisce la SysKey e in alcuni casi ci può fornire delle credenziali in cleartext.
 
-<figure><img src="../.gitbook/assets/image (7).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (11).png" alt=""><figcaption></figcaption></figure>
 
 Se si lavora con un ambiente Active Directory è possibile usare i comandi **kerberos\_ticket** e **golden\_ticket\_create**.
 

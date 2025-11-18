@@ -25,4 +25,4 @@ Cercare info su un target, azienda o persone
 
 
 
-<figure><img src=".gitbook/assets/image (118).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (544).png" alt=""><figcaption></figcaption></figure>

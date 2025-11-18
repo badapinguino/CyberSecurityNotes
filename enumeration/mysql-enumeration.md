@@ -1,6 +1,6 @@
 # MySQL Enumeration
 
-<figure><img src="../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (329).png" alt=""><figcaption></figcaption></figure>
 
 ```
 service postgresql start
@@ -17,13 +17,13 @@ search type:auxiliary name:mysql
 use auxiliary/scanner/mysql/mysql_version
 ```
 
-<figure><img src="../.gitbook/assets/image (165).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (591).png" alt=""><figcaption></figcaption></figure>
 
 In questo caso per sicurezza verifichiamo la porta di MySQL con il modulo portscan/tcp che avevamo usato in passato:
 
-<figure><img src="../.gitbook/assets/image (163).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (589).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../.gitbook/assets/image (164).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (590).png" alt=""><figcaption></figcaption></figure>
 
 ## MySQL Brute Force Login Attack
 
@@ -37,9 +37,9 @@ set VERBOSE false
 run
 ```
 
-<figure><img src="../.gitbook/assets/image (166).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (592).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../.gitbook/assets/image (167).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (593).png" alt=""><figcaption></figcaption></figure>
 
 Ottimo, abbiamo trovato la password per l'utente root e quindi possiamo entrare nel DB come root.
 
@@ -52,19 +52,19 @@ set USERNAME root
 run
 ```
 
-<figure><img src="../.gitbook/assets/image (168).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (594).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../.gitbook/assets/image (169).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (595).png" alt=""><figcaption></figcaption></figure>
 
 Ha enumerato varie informazioni come: versione, SO, architettura, server hostname.
 
 Enumera poi una serie di account con l'hash delle loro password:
 
-<figure><img src="../.gitbook/assets/image (170).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (596).png" alt=""><figcaption></figcaption></figure>
 
 Ci fornisce poi informazioni sui permessi dei vari utenti, tra l'alto notiamo che l'unico con GRANT è l'utente root:
 
-<figure><img src="../.gitbook/assets/image (171).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (597).png" alt=""><figcaption></figcaption></figure>
 
 ## Modulo per eseguire query SQL
 
@@ -76,7 +76,7 @@ set SQL //dobbiamo impostare la query SQL da eseguire, di default è select vers
 run
 ```
 
-<figure><img src="../.gitbook/assets/image (172).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (598).png" alt=""><figcaption></figcaption></figure>
 
 Ma dato che abbiamo accesso come root possiamo andare ad eseguire un'altra query più interessante: show databases;
 
@@ -85,11 +85,11 @@ set SQL show databases;
 run
 ```
 
-<figure><img src="../.gitbook/assets/image (173).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (599).png" alt=""><figcaption></figcaption></figure>
 
 Poi possiamo eseguire altre varie query una alla volta come ad esempio prima selezionare il DB e poi identificare le tabelle:
 
-<figure><img src="../.gitbook/assets/image (174).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (600).png" alt=""><figcaption></figcaption></figure>
 
 ## Modulo per mostrare tutti gli schema e tabelle presenti negli schemi del DB
 
@@ -100,9 +100,9 @@ set USERNAME root
 run
 ```
 
-<figure><img src="../.gitbook/assets/image (175).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (601).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../.gitbook/assets/image (176).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (602).png" alt=""><figcaption></figcaption></figure>
 
 Ci mostra tutti gli schemi e tutte le tabelle, ma in questo caso non ci sono tabelle in questi schemi.
 
@@ -116,7 +116,7 @@ set RHOSTS <IP target>
 run
 ```
 
-<figure><img src="../.gitbook/assets/image (11) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (327).png" alt=""><figcaption></figcaption></figure>
 
 ## Modulo per identificare quali cartelle sono scrivibili tramite MySQL
 
@@ -131,15 +131,15 @@ set DIR_LIST /usr/share/metasploit-framework/data/wordlists/directory.txt
 run
 ```
 
-<figure><img src="../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (328).png" alt=""><figcaption></figcaption></figure>
 
 ## Cosa abbiamo trovato?
 
 Possiamo scrivere dentro metasploit vari comandi per vedere cosa abbiamo trovato, come hosts, servizi running con le loro porte aperte e anche le credenziali trovate (comando creds) o informazioni trovate come lo schema tramite il comando loot
 
-<figure><img src="../.gitbook/assets/image (177).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (603).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../.gitbook/assets/image (178).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (604).png" alt=""><figcaption></figcaption></figure>
 
 Per questo motivo è consigliato creare dei workspace, perché metasploit framework si salva automaticamente le vari informazioni identificate, e quindi in questo modo è possibile tornare a riguardare tutte le info che abbiamo gathered con pochi comandi, e assicurarci che non ci siamo persi qualche cosa.
 
@@ -150,7 +150,7 @@ mysql -h 192.143.6.3 -u root -p
 // ora che siamo connessi dentro al DB possiamo fare tutte le query che vogliamo.
 ```
 
-<figure><img src="../.gitbook/assets/image (179).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (605).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../.gitbook/assets/image (180).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (606).png" alt=""><figcaption></figcaption></figure>
 

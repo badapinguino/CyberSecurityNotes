@@ -1,50 +1,50 @@
 # Bypassing UAC with UACMe
 
-<figure><img src="../../.gitbook/assets/image (423).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (849).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/image (424).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (850).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/image (425).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (851).png" alt=""><figcaption></figcaption></figure>
 
 UACMe è una lista di metodi per bypassare l'UAC, attraverso un eseguibile da mettere sul target che può eseguire un payload.
 
 ## Come funziona UAC su un sistema Windows
 
-<figure><img src="../../.gitbook/assets/image (427).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (853).png" alt=""><figcaption></figcaption></figure>
 
 Su questa macchina c'è un account IEUser che fa parte del gruppo administrators
 
 Infatti se lancio un programma come amministratore (es. cmd) mi esce la finestra UAC:
 
-<figure><img src="../../.gitbook/assets/image (428).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (854).png" alt=""><figcaption></figcaption></figure>
 
 Con un account non nel gruppo administrators sarebbe apparso l'UAC prompt con username e password da inserire di un amministratore.
 
 ### Livelli UAC
 
-<figure><img src="../../.gitbook/assets/image (430).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (856).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/image (429).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (855).png" alt=""><figcaption></figcaption></figure>
 
 In una installazione standard l'UAC non è mai settato al valore massimo.
 
 Al livello massimo è difficile da bypassare:
 
-<figure><img src="../../.gitbook/assets/image (431).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (857).png" alt=""><figcaption></figcaption></figure>
 
 ## Bypass UAC via standard command shell (cmd) oppure meterpeter session
 
-<figure><img src="../../.gitbook/assets/image (432).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (858).png" alt=""><figcaption></figcaption></figure>
 
 ```
 nmap 10.2.22.220
 ```
 
-<figure><img src="../../.gitbook/assets/image (433).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (859).png" alt=""><figcaption></figcaption></figure>
 
 Facendo una scansione del target con nmap vediamo che c'è un webserver sulla porta 80.
 
-<figure><img src="../../.gitbook/assets/image (434).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (860).png" alt=""><figcaption></figcaption></figure>
 
 Il server è HFS sviluppato da rejetto nella versione 2.3, che è vulnerabile e quindi exploiteremo questa vulnerabilità con MSF per avere accesso alla macchina target.
 
@@ -60,17 +60,17 @@ show options
 exploit
 ```
 
-<figure><img src="../../.gitbook/assets/image (435).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (861).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/image (436).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (862).png" alt=""><figcaption></figcaption></figure>
 
 Viene impostato il payload di default per windows 32 bit, e ci va bene.
 
-<figure><img src="../../.gitbook/assets/image (437).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (863).png" alt=""><figcaption></figcaption></figure>
 
 Eventualmente settare TARGETURI ma in questo caso il servizio vulnerabile gira sulla root del webserver
 
-<figure><img src="../../.gitbook/assets/image (28).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (60).png" alt=""><figcaption></figcaption></figure>
 
 E abbiamo accesso alla macchina vittima, ora facciamo un minimo di enumeration per capire che sistema è.
 
@@ -90,7 +90,7 @@ net user admin password123 //ci da errore perché dobbiamo bypassare UAC
 
 ```
 
-<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (61).png" alt=""><figcaption></figcaption></figure>
 
 Si tratta di Windows Server 2012 R2 (6.3 build 9600).
 
@@ -100,17 +100,17 @@ E a questo punto vediamo che effettivamente la sessione di meterpreter è a 64 b
 
 Controlliamo che utente stiamo usando e scopriamo che è un utente di nome admin, ma non è l'administrator di default di Windows.
 
-<figure><img src="../../.gitbook/assets/image (2) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (62).png" alt=""><figcaption></figcaption></figure>
 
 In questo momento l'utente ha pochi privilegi ma ciò non significa che non possa eseguire come amministratore se fa parte del gruppo administrators
 
-<figure><img src="../../.gitbook/assets/image (3) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (63).png" alt=""><figcaption></figcaption></figure>
 
 Con net user vediamo che ci sono solo due account in pratica: admin e Administrator
 
 Con il comando net localgroup administators possiamo vedere che fanno parte del gruppo administrators l'account admin e Administrator. Quindi l'utente admin che stiamo usando è nel gruppo.
 
-<figure><img src="../../.gitbook/assets/image (5) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (65).png" alt=""><figcaption></figcaption></figure>
 
 Se proviamo ad eseguire questo comando per cambiare la password ci dà errore perché dovremmo confermare con il prompt UAC, ma da cmd ovviamente non può essere fatto, quindi bisogna bypassare l'UAC.
 
@@ -118,32 +118,32 @@ Se proviamo ad eseguire questo comando per cambiare la password ci dà errore pe
 
 Per usarlo dobbiamo eseguire il file akagi32 seguito da una key che sarebbe il tipo di "script" da eseguire che dipende dalla versione di windows del target e la tecnica più adatta allo scenario, seguito dai parametri.
 
-<figure><img src="../../.gitbook/assets/image (6) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (66).png" alt=""><figcaption></figcaption></figure>
 
 I file eseguibili si trovano a questo percorso:
 
-<figure><img src="../../.gitbook/assets/image (7) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (67).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/image (8) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (68).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/image (9) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (69).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/image (10) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (70).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/image (11) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (71).png" alt=""><figcaption></figcaption></figure>
 
 In questo caso usiamo il metodo 23 che è quello che funziona di più.
 
-<figure><img src="../../.gitbook/assets/image (12) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (72).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/image (13) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (73).png" alt=""><figcaption></figcaption></figure>
 
 Per usarlo bisogna compilare i file C, non ci vengono forniti i file compilati.
 
 A fini del laboratorio abbiamo già il file pronto di Akagai64 sul Desktop della nostra macchina Kali attaccante, dobbiamo trasferirlo sulla vittima.\
 Il file lo troviamo su Desktop/tools/UACME/Akagai64.exe
 
-<figure><img src="../../.gitbook/assets/image (14) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (74).png" alt=""><figcaption></figcaption></figure>
 
 ## Attacco con msfvenom + UACMe per bypassare l'UAC
 
@@ -171,9 +171,9 @@ run
 // Cambiamo finestra del terminale per fare le prossime operazioni
 ```
 
-<figure><img src="../../.gitbook/assets/image (15) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (75).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/image (16) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (76).png" alt=""><figcaption></figcaption></figure>
 
 ### Carichiamo il payload generato sul target e lo eseguiamo per ricevere una reverse shell
 
@@ -193,17 +193,17 @@ dir
 .\Akagi64.exe 23 C:\Temp\backdoor.exe
 ```
 
-<figure><img src="../../.gitbook/assets/image (18) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (78).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/image (17) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (77).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/image (19) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (79).png" alt=""><figcaption></figcaption></figure>
 
 Se volessimo eseguire backdoor.exe direttamente non potremmo farlo perché l'UAC ci blocca.
 
 Il metodo 23 che useremo con Akagai per bypassare l'UAC sfrutta il packetmanager per eseguire poi backdoor con permessi amministrativi senza UAC.
 
-<figure><img src="../../.gitbook/assets/image (20) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (80).png" alt=""><figcaption></figcaption></figure>
 
 
 
@@ -211,7 +211,7 @@ Il metodo 23 che useremo con Akagai per bypassare l'UAC sfrutta il packetmanager
 
 Ora se andiamo a controllare la tab del terminale con il listener aperto vedremo la sessione meterpreter:
 
-<figure><img src="../../.gitbook/assets/image (21) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (81).png" alt=""><figcaption></figcaption></figure>
 
 ```
 sysinfo //connessione aperta correttamente, processo a 32bit
@@ -225,15 +225,15 @@ getuid //abbiamo ora NT AUTHORITY\SYSTEM
 
 Fino a qui abbiamo sempre l'utente admin, però se guardiamo i privilegi vedremo che abbiamo molti più privilegi perché è come se avessimo eseguito il file backdoor.exe come amministratore.
 
-<figure><img src="../../.gitbook/assets/image (22) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (82).png" alt=""><figcaption></figcaption></figure>
 
 Ora però possiamo migrare a qualsiasi altro processo eseguito come SYSTEM dato che abbiamo i privilegi. Comando ps:
 
-<figure><img src="../../.gitbook/assets/image (23) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (83).png" alt=""><figcaption></figcaption></figure>
 
 Ad esempio migriamo a lsass.exe
 
-<figure><img src="../../.gitbook/assets/image (24) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (84).png" alt=""><figcaption></figcaption></figure>
 
 Abbiamo ora una sessione con utente SYSTEM, quindi privilegiata.
 
@@ -243,6 +243,6 @@ Siamo riusciti con successo ad elevare i nostri privilegi bypassando l'UAC, in p
 
 UACMe è complesso come strumento e ogni tecnica che si può utilizzare dipende dal sistema operativo. Bisogna fare un po' di test magari con delle VM con diverse versioni di Windows. Ovviamente meglio evitare le key/versioni che sono state fixate, meglio quelle che sono ancora unfixed.
 
-<figure><img src="../../.gitbook/assets/image (25) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (85).png" alt=""><figcaption></figcaption></figure>
 
 Questa versione/metodo/key evidenziata in particolare è quella che solitamente l'istruttore utilizza con i sistemi Windows 10.
