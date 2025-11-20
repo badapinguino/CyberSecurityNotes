@@ -532,7 +532,7 @@ wupdate //E ci viene eseguito winpeas che era il nostro payload
 
 ### Windows Password Hashes
 
-<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
 
 Prima si fa privilege escalation, e poi con la sessione amministrativa si fa il dump delle credenziali.
 
@@ -540,11 +540,11 @@ Tool come mimikatz vanno a leggere la cache del processo LSASS che interagisce c
 
 #### LM Hash
 
-<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### NTLM Hash
 
-<figure><img src="../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>
 
 Non hanno password salts, quindi possono essere craccate con brute force e rainbow attack.
 
