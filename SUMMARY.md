@@ -93,6 +93,7 @@
     * [Exploiting Bash CVE-2014-6271 Vulnerability (Shellshock) - Apache e Bash](host-and-network-penetration-testing-system-host-based-attacks/exploiting-linux-vulnerabilities/exploiting-bash-cve-2014-6271-vulnerability-shellshock-apache-e-bash.md)
     * [Exploiting FTP](host-and-network-penetration-testing-system-host-based-attacks/exploiting-linux-vulnerabilities/exploiting-ftp.md)
     * [Exploiting SSH](host-and-network-penetration-testing-system-host-based-attacks/exploiting-linux-vulnerabilities/exploiting-ssh.md)
+    * [Exploiting SAMBA](host-and-network-penetration-testing-system-host-based-attacks/exploiting-linux-vulnerabilities/exploiting-samba.md)
 * [Bigino - Cheat Sheet](bigino-cheat-sheet/README.md)
   * [Information Gathering](bigino-cheat-sheet/information-gathering.md)
   * [Enumeration](bigino-cheat-sheet/enumeration.md)
