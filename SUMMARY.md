@@ -100,6 +100,7 @@
     * [Exploiting SUID Binaries](host-and-network-penetration-testing-system-host-based-attacks/linux-privilege-escalation/exploiting-suid-binaries.md)
   * [Linux Credential Dumping](host-and-network-penetration-testing-system-host-based-attacks/linux-credential-dumping/README.md)
     * [Dumping Linux Password Hashes](host-and-network-penetration-testing-system-host-based-attacks/linux-credential-dumping/dumping-linux-password-hashes.md)
+    * [Password Cracker: Linux (Lab)](host-and-network-penetration-testing-system-host-based-attacks/linux-credential-dumping/password-cracker-linux-lab.md)
 * [Bigino - Cheat Sheet](bigino-cheat-sheet/README.md)
   * [Information Gathering](bigino-cheat-sheet/information-gathering.md)
   * [Enumeration](bigino-cheat-sheet/enumeration.md)
