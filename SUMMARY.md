@@ -97,6 +97,7 @@
   * [Linux Privilege Escalation](host-and-network-penetration-testing-system-host-based-attacks/linux-privilege-escalation/README.md)
     * [Linux Kernel Exploits](host-and-network-penetration-testing-system-host-based-attacks/linux-privilege-escalation/linux-kernel-exploits.md)
     * [Exploiting Misconfigured Cron Jobs](host-and-network-penetration-testing-system-host-based-attacks/linux-privilege-escalation/exploiting-misconfigured-cron-jobs.md)
+    * [Exploiting SUID Binaries](host-and-network-penetration-testing-system-host-based-attacks/linux-privilege-escalation/exploiting-suid-binaries.md)
 * [Bigino - Cheat Sheet](bigino-cheat-sheet/README.md)
   * [Information Gathering](bigino-cheat-sheet/information-gathering.md)
   * [Enumeration](bigino-cheat-sheet/enumeration.md)
