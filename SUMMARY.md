@@ -94,6 +94,8 @@
     * [Exploiting FTP](host-and-network-penetration-testing-system-host-based-attacks/exploiting-linux-vulnerabilities/exploiting-ftp.md)
     * [Exploiting SSH](host-and-network-penetration-testing-system-host-based-attacks/exploiting-linux-vulnerabilities/exploiting-ssh.md)
     * [Exploiting SAMBA](host-and-network-penetration-testing-system-host-based-attacks/exploiting-linux-vulnerabilities/exploiting-samba.md)
+  * [Linux Privilege Escalation](host-and-network-penetration-testing-system-host-based-attacks/linux-privilege-escalation/README.md)
+    * [Linux Kernel Exploits](host-and-network-penetration-testing-system-host-based-attacks/linux-privilege-escalation/linux-kernel-exploits.md)
 * [Bigino - Cheat Sheet](bigino-cheat-sheet/README.md)
   * [Information Gathering](bigino-cheat-sheet/information-gathering.md)
   * [Enumeration](bigino-cheat-sheet/enumeration.md)
