@@ -932,6 +932,12 @@ cat /etc/*issue //per trovare la versione del SO
 uname -r //per mostrare la versione del kernel
 ```
 
+#### Modulo MSF per bypassare l'autenticazione SSH
+
+```
+search libssh_auth_bypass
+```
+
 ### Exploiting SAMBA
 
 #### Bruteforce sull'istanza SAMBA con Hydra
