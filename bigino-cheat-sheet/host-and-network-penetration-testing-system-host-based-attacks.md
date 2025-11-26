@@ -540,7 +540,7 @@ Tool come mimikatz vanno a leggere la cache del processo LSASS che interagisce c
 
 #### LM Hash
 
-<figure><img src="../.gitbook/assets/image (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### NTLM Hash
 
@@ -1157,7 +1157,7 @@ ls -al
 
 Nella home dell'utente ci sono due file: greetings e welcome. Welcome appartiene all'utente root ma possiamo eseguirlo dato che ci sono le x. Ma se poniamo attenzione alla s, quella s è l'SUID permission è applicata a questo file.
 
-<figure><img src="../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 #### Static Analysis del file con SUID e delle chiamate per sfruttarlo
 

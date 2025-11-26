@@ -104,6 +104,7 @@
 * [Host & Network Penetration Testing: Network-Based Attacks](host-and-network-penetration-testing-network-based-attacks/README.md)
   * [Networking](host-and-network-penetration-testing-network-based-attacks/networking/README.md)
     * [Networking Fundamentals](host-and-network-penetration-testing-network-based-attacks/networking/networking-fundamentals.md)
+    * [Firewall Detection & IDS Evasion](host-and-network-penetration-testing-network-based-attacks/networking/firewall-detection-and-ids-evasion.md)
 * [Bigino - Cheat Sheet](bigino-cheat-sheet/README.md)
   * [Information Gathering](bigino-cheat-sheet/information-gathering.md)
   * [Enumeration](bigino-cheat-sheet/enumeration.md)
