@@ -83,4 +83,4 @@ nmap -Pn -sS -sV -g <PORT> <IP>  // -g specifica la porta sorgente
 
 <figure><img src="../../.gitbook/assets/image (414).png" alt=""><figcaption></figcaption></figure>
 
-Come si può vedere da wireshark la source port è effettivamente quella che abbiamo impostato noi, in questo modo sembra quasi che è un servizio DNS che fa la richiesta, o comunque una porta specifica e non una porta generata a caso che può essere più sospetta.
+Come si può vedere da wireshark la source port è effettivamente quella che abbiamo impostato noi, in questo modo sembra quasi che è un servizio DNS (porta 53) che fa la richiesta, o comunque una porta specifica e non una porta generata a caso che può essere più sospetta.
