@@ -85,6 +85,8 @@ Proviamo a usare un nmap con uno scan con script specifico
 
 Nemmeno questo script ci dà informazioni aggiuntive in risposta, quindi è altamente probabile che questa porta sia bloccata da un firewall o sia in qualche modo "chiusa".
 
+### Altro tool alternativo: nbtstat
+
 ## SMB Enumeration
 
 ```
