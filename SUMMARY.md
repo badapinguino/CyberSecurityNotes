@@ -108,6 +108,7 @@
   * [Network Attacks](host-and-network-penetration-testing-network-based-attacks/network-attacks/README.md)
     * [Network Enumeration](host-and-network-penetration-testing-network-based-attacks/network-attacks/network-enumeration.md)
     * [SMB & NetBIOS Enumeration](host-and-network-penetration-testing-network-based-attacks/network-attacks/smb-and-netbios-enumeration.md)
+    * [NetBIOS Hacking (Lab)](host-and-network-penetration-testing-network-based-attacks/network-attacks/netbios-hacking-lab.md)
 * [Bigino - Cheat Sheet](bigino-cheat-sheet/README.md)
   * [Information Gathering](bigino-cheat-sheet/information-gathering.md)
   * [Enumeration](bigino-cheat-sheet/enumeration.md)
