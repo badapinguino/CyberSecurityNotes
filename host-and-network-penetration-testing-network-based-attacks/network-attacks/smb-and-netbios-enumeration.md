@@ -122,7 +122,7 @@ Quindi ora vedremo come sfruttare la versione vulnerabile. Però prima vogliamo 
 ### Verificare il livello di sicurezza di SMB configurato
 
 ```
-nmap -p445 --script sb-security-mode demo.ine.local
+nmap -p445 --script smb-security-mode demo.ine.local
 ```
 
 <figure><img src="../../.gitbook/assets/image (10).png" alt=""><figcaption></figcaption></figure>
