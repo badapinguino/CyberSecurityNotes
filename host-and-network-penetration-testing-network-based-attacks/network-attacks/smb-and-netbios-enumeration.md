@@ -239,7 +239,7 @@ exploit
 
 <figure><img src="../../.gitbook/assets/image (22).png" alt=""><figcaption></figcaption></figure>
 
-Verifichiamo velocemente di avere proxychains.conf o proxychians4.conf sulla macchina attaccante:
+Verifichiamo velocemente di avere proxychains.conf o proxychains4.conf sulla macchina attaccante:
 
 <figure><img src="../../.gitbook/assets/image (23).png" alt=""><figcaption></figcaption></figure>
 
