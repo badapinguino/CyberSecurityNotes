@@ -44,7 +44,7 @@ nmap -Pn -sS -sV -f --mtu 8 <IP> // massima dimensione dei frammenti è 8 byte
 
 Possiamo anche impostare il ttl (time to live) come opzione oppure --data-length che mette dei bit a caso alla fine del pacchetto per farlo risultare una certa misura:
 
-<figure><img src="../../.gitbook/assets/image (6) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (6) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 <figure><img src="../../.gitbook/assets/image (409).png" alt=""><figcaption></figcaption></figure>
 
