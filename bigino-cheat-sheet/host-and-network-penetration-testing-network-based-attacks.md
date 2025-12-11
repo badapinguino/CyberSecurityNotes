@@ -150,3 +150,50 @@ Siamo riusciti ad accedere ai file della seconda vittima (demo1) montando le car
 
 ## SNMP Enumeration
 
+### nmap scan per identificare le porte UDP di SNMP
+
+```
+nmap -sU -sV -p 161,162 demo.ine.local
+```
+
+### Bruteforce per le SNMP community strings
+
+```
+ls -al /usr/share/nmap/scripts/ | grep "snmp"
+ls -al /usr/share/nmap/nselib/data/ | grep snmp //wordlist usata da modulo MSF per bruteforce
+nmap -sU -p 161 --script=snmp-brute demo.ine.local
+```
+
+### Enumeration date le community strings
+
+```
+snmpwalk -v 1 -c public demo.ine.local // questo ci permette di elencare tante informazioni data la community string public, ma poco leggibili
+nmap -sU -p 161 --script snmp-* demo.ine.local > snmp_info //questo ci dà un risultato analogo ma più leggibile
+cat snmp_info
+```
+
+Possiamo enumerare le seguenti informazioni:
+
+* Software installati (Amazon SSM, Firefox, ...)
+* Tabelle di routing
+* Brute force delle community strings
+* I servizi in esecuzione sul sistema Windows a 32 bit
+* Processi in esecuzione
+* Interfacce di rete
+* Gli account utente sulla macchina
+* Una descrizione del sistema con HW, SW e tempo di accensione
+
+{% hint style="info" %}
+Importante: avendo ora gli utenti si può fare un tentativo di brute force della password ad esempio con SMB.
+{% endhint %}
+
+### Bruteforce credenziali utenti Windows del sistema via SMB <a href="#bruteforce-credenziali-utenti-windows-del-sistema-via-smb" id="bruteforce-credenziali-utenti-windows-del-sistema-via-smb"></a>
+
+```
+hydra -l Administrator -P /usr/share/metasploit-framework/data/wordlists/unix_passwords.txt demo.ine.local smb
+```
+
+A questo punto si può usare psexec o provare ad autenticarsi via RDP se la porta è aperta.
+
+## SMB Relay Attack
+
