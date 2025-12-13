@@ -30,7 +30,7 @@ Per navigare nel MSF File System possiamo navigare su linux alla cartella:
 
 Nel secondo caso si intendono user custom modules.
 
-
+## Navighiamo i moduli MSF e la sua struttura
 
 <figure><img src="../../.gitbook/assets/image (7).png" alt=""><figcaption></figcaption></figure>
 
@@ -100,9 +100,9 @@ Ad esempio se andiamo su x86 (architettura a 32bit) possiamo vedere i vari encod
 
 ***
 
-## Per i moduli custom
+## Moduli custom
 
-Possiamo andare nella nostra cartella home, dalle opzioni selezionare la visualizzazione delle hidden folders, e poi possiamo andare sulla cartella .msf4/modules/ ed eventualmente caricare nostri moduli qui. Suddividendoli per sistema operativo / programma o servizio
+Per inserire moduli custom possiamo andare nella nostra cartella home, dalle opzioni selezionare la visualizzazione delle hidden folders, e poi possiamo andare sulla cartella .msf4/modules/ ed eventualmente caricare nostri moduli qui. Suddividendoli per sistema operativo / programma o servizio
 
 <figure><img src="../../.gitbook/assets/image (22).png" alt=""><figcaption></figcaption></figure>
 
