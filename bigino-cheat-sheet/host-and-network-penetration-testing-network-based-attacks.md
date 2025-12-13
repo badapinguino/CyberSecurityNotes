@@ -395,3 +395,221 @@ getuid
 ```
 
 In this lab, we were able to trick the client by spoofing DNS records, this, in turn, combined with SMB relay attack, provided us with a meterpreter session on the target machine with administrative privileges.
+
+## 🧠 Wireshark – Network Analysis (PCAP Analysis)
+
+Questa guida è pensata come **checklist operativa da esame INE / eJPT**, basata su un **lab reale**.\
+Seguila **in ordine**, senza andare a caso.
+
+***
+
+### 🔁 Metodo mentale (prima di usare i filtri)
+
+Chiediti SEMPRE:
+
+1. Chi è il **client infetto**?
+2. Con chi comunica?
+3. Quali **protocolli** usa?
+4. Cosa scarica/esegue?
+5. Ci sono **credenziali, script o wallet**?
+
+***
+
+### 1️⃣ Individuare traffico sospetto HTTP
+
+#### Filtri base
+
+```wireshark
+http
+```
+
+Solo HTTP OK:
+
+```wireshark
+http.response.code == 200
+```
+
+HTTP di un host specifico:
+
+```wireshark
+http && ip.addr == <IP_CLIENT>
+```
+
+### 2️⃣ Trovare dominio malevolo (Flag tipo 1)
+
+#### Metodo
+
+1. Filtra HTTP 200
+2. Guarda **Host** header
+3. Conferma con TCP Stream
+
+#### Filtro
+
+```wireshark
+http.response.code == 200
+```
+
+#### TCP Stream
+
+* Right click → **Follow → TCP Stream**
+* Cerca:
+
+```
+Host: <domain>
+HTTP/1.1 200 OK
+```
+
+📌 Rispondi **solo con il dominio**, senza `http://`
+
+### 3️⃣ Identificare IP e MAC del client infetto (Flag tipo 2)
+
+#### IP del client
+
+Usa DNS o traffico verso dominio malevolo:
+
+```wireshark
+ip.addr == <IP_SERVER>
+```
+
+→ L’IP privato è il client
+
+#### MAC address (ARP)
+
+```wireshark
+arp
+```
+
+Cerca:
+
+```
+<IP_CLIENT> is at <MAC>
+```
+
+Oppure:
+
+* Espandi **Ethernet II**
+* Guarda Source MAC quando l’IP client è sorgente
+
+### 4️⃣ Hostname Windows via NBNS (Flag tipo 3)
+
+#### Filtro corretto
+
+```wireshark
+nbns
+```
+
+Con IP client:
+
+```wireshark
+nbns && ip.addr == <IP_CLIENT>
+```
+
+#### Dove guardare
+
+Packet Details → **NetBIOS Name Service**
+
+Esempio:
+
+```
+DESKTOP-XXXXX<00>
+```
+
+👉 Hostname = `DESKTOP-XXXXX`
+
+### 5️⃣ Individuare PowerShell e script eseguiti (Flag tipo 4)
+
+#### Filtri utili
+
+```wireshark
+frame contains "PowerShell"
+```
+
+```wireshark
+frame contains "ps1"
+```
+
+#### TCP Stream
+
+* Follow → TCP Stream
+* Cerca path:
+
+```
+C:\Users\<USERNAME>\Documents\mystery_file.ps1
+```
+
+👉 **USERNAME = utente infetto**
+
+### 6️⃣ Identificare User-Agent PowerShell (Flag tipo 5)
+
+#### Filtro
+
+```wireshark
+frame contains "User-Agent"
+```
+
+Esempio header:
+
+```http
+User-Agent: Mozilla/5.0 (...) WindowsPowerShell/5.1.xxxx
+```
+
+👉 Stringa indicativa richiesta da INE:
+
+```
+WindowsPowerShell
+```
+
+📌 INE chiede **la keyword**, non l’header completo
+
+### 7️⃣ Wallet extension ID (Flag tipo 6)
+
+#### Metodo
+
+1. Torna al TCP Stream PowerShell
+2. Usa **Find** → `coinbase`
+3. Cerca mapping ID | Wallet
+
+#### Esempio
+
+```
+hnfanknocfeofbddgcijnmhnfnkdnaad | Coinbase
+```
+
+👉 Risposta = **solo l’ID**
+
+***
+
+### 🔎 Filtri universali da MEMORIZZARE
+
+```wireshark
+http
+ip.addr == x.x.x.x
+arp
+nbns
+udp.port == 137
+frame contains "password"
+frame contains "powershell"
+frame contains "ps1"
+frame contains "User-Agent"
+```
+
+***
+
+### ⚠️ Errori comuni all’esame
+
+* ❌ Usare conoscenza esterna invece del PCAP
+* ❌ Risposte troppo lunghe
+* ❌ Confondere hostname / username
+* ❌ Ignorare TCP Stream
+
+***
+
+### ✅ Checklist finale da esame
+
+* [ ] Dominio malevolo
+* [ ] IP client
+* [ ] MAC client
+* [ ] Hostname Windows
+* [ ] Utente infetto
+* [ ] User-Agent PowerShell
+* [ ] Wallet / payload / C2
