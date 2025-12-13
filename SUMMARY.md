@@ -112,6 +112,7 @@
     * [SNMP Enumeration](host-and-network-penetration-testing-network-based-attacks/network-attacks/snmp-enumeration.md)
     * [SMB Relay Attack](host-and-network-penetration-testing-network-based-attacks/network-attacks/smb-relay-attack.md)
     * [DNS & SMB Relay Attack (Lab)](host-and-network-penetration-testing-network-based-attacks/network-attacks/dns-and-smb-relay-attack-lab.md)
+  * [Host & Network Penetration Testing: Network-Based Attacks CTF 1](host-and-network-penetration-testing-network-based-attacks/host-and-network-penetration-testing-network-based-attacks-ctf-1.md)
 * [Bigino - Cheat Sheet](bigino-cheat-sheet/README.md)
   * [Information Gathering](bigino-cheat-sheet/information-gathering.md)
   * [Enumeration](bigino-cheat-sheet/enumeration.md)
