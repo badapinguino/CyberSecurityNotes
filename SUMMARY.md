@@ -116,6 +116,7 @@
 * [Host & Network Penetration Testing: The Metasploit Framework (MSF)](host-and-network-penetration-testing-the-metasploit-framework-msf/README.md)
   * [Metasploit Framework Overview](host-and-network-penetration-testing-the-metasploit-framework-msf/metasploit-framework-overview/README.md)
     * [Introduction to the Metasploit Framework](host-and-network-penetration-testing-the-metasploit-framework-msf/metasploit-framework-overview/introduction-to-the-metasploit-framework.md)
+    * [Metasploit Framework Architecture](host-and-network-penetration-testing-the-metasploit-framework-msf/metasploit-framework-overview/metasploit-framework-architecture.md)
 * [Bigino - Cheat Sheet](bigino-cheat-sheet/README.md)
   * [Information Gathering](bigino-cheat-sheet/information-gathering.md)
   * [Enumeration](bigino-cheat-sheet/enumeration.md)
