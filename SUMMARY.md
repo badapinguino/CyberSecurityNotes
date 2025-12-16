@@ -122,6 +122,8 @@
     * [Installing & Configuring The Metasploit Framework](host-and-network-penetration-testing-the-metasploit-framework-msf/metasploit-fundamentals/installing-and-configuring-the-metasploit-framework.md)
     * [MSFconsole Fundamentals](host-and-network-penetration-testing-the-metasploit-framework-msf/metasploit-fundamentals/msfconsole-fundamentals.md)
     * [Creating & Managing Workspaces](host-and-network-penetration-testing-the-metasploit-framework-msf/metasploit-fundamentals/creating-and-managing-workspaces.md)
+    * [Port Scanning & Enumeration with Nmap](host-and-network-penetration-testing-the-metasploit-framework-msf/metasploit-fundamentals/port-scanning-and-enumeration-with-nmap.md)
+    * [Importing Nmap Scan Results into MSF](host-and-network-penetration-testing-the-metasploit-framework-msf/metasploit-fundamentals/importing-nmap-scan-results-into-msf.md)
 * [Bigino - Cheat Sheet](bigino-cheat-sheet/README.md)
   * [Information Gathering](bigino-cheat-sheet/information-gathering.md)
   * [Enumeration](bigino-cheat-sheet/enumeration.md)
