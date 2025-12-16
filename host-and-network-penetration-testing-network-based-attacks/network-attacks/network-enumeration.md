@@ -10,5 +10,5 @@ L'Enumeration è un processo attivo perché andiamo ad interagire con i sistemi 
 
 Con l'enumeration andiamo ad interagire e raccogliere informazioni sugli specifici servizi attivi, non ci limitiamo a fare uno scan delle porte come nell'information gathering.
 
-<figure><img src="../../.gitbook/assets/image (6) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (6) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
