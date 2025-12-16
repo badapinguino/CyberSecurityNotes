@@ -41,8 +41,8 @@ Al fine di identificare username e password
 ```
 use auxiliary/scanner/ftp/ftp_login
 set RHOSTS <IP>
-set USER_FILE /user/share/metasploit-framework/data/wordlists/common_users.txt
-set PASS_FILE /user/share/metasploit-framework/data/wordlists/unix_passwords.txt
+set USER_FILE /usr/share/metasploit-framework/data/wordlists/common_users.txt
+set PASS_FILE /usr/share/metasploit-framework/data/wordlists/unix_passwords.txt
 run
 ```
 
