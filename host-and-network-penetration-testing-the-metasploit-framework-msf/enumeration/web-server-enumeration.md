@@ -43,7 +43,7 @@ Ci dà info sul server version e il fatto che il linguaggio è html. Simile al r
 robots.txt elenca le pagine che non devono essere indicizzate nei search engine
 
 ```
-use auxxiliary/scanner/http/robots_txt
+use auxiliary/scanner/http/robots_txt
 run
 ```
 
