@@ -128,6 +128,8 @@
     * [Port Scanning With Auxiliary Modules](host-and-network-penetration-testing-the-metasploit-framework-msf/enumeration/port-scanning-with-auxiliary-modules/README.md)
       * [Lab T1046: Network Service Scanning](host-and-network-penetration-testing-the-metasploit-framework-msf/enumeration/port-scanning-with-auxiliary-modules/lab-t1046-network-service-scanning.md)
     * [FTP Enumeration](host-and-network-penetration-testing-the-metasploit-framework-msf/enumeration/ftp-enumeration.md)
+    * [SMB Enumeration](host-and-network-penetration-testing-the-metasploit-framework-msf/enumeration/smb-enumeration.md)
+    * [Web Server Enumeration](host-and-network-penetration-testing-the-metasploit-framework-msf/enumeration/web-server-enumeration.md)
 * [Bigino - Cheat Sheet](bigino-cheat-sheet/README.md)
   * [Information Gathering](bigino-cheat-sheet/information-gathering.md)
   * [Enumeration](bigino-cheat-sheet/enumeration.md)
