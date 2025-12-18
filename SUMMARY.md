@@ -130,6 +130,7 @@
     * [FTP Enumeration](host-and-network-penetration-testing-the-metasploit-framework-msf/enumeration/ftp-enumeration.md)
     * [SMB Enumeration](host-and-network-penetration-testing-the-metasploit-framework-msf/enumeration/smb-enumeration.md)
     * [Web Server Enumeration](host-and-network-penetration-testing-the-metasploit-framework-msf/enumeration/web-server-enumeration.md)
+    * [MySQL Enumeration](host-and-network-penetration-testing-the-metasploit-framework-msf/enumeration/mysql-enumeration.md)
 * [Bigino - Cheat Sheet](bigino-cheat-sheet/README.md)
   * [Information Gathering](bigino-cheat-sheet/information-gathering.md)
   * [Enumeration](bigino-cheat-sheet/enumeration.md)
