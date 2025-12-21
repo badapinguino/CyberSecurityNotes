@@ -4,13 +4,13 @@
 
 Le librerie hanno una funzionalità analoga alle shared objects in linux o dll in windows. Essenzialmente ti permettono di estendere le funzionalità, contengono il codice necessario per estendere queste funzionalità, come ad esempio creare una socket TCP o in generale operazioni base a livello di sistema operativo per input/output.
 
-<figure><img src="../../.gitbook/assets/image (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Exploit sfrutta la vulnerabilità e si porta al suo interno il payload, il payload è l'operazione che vogliamo venga eseguita dopo aver avuto accesso alla macchina. Ad esempio un payload può essere un comando o una reverse shell.
 
 Gli encoders sono utili per offuscare il payload ed evitare venga identificato e bloccato dagli antivirus.
 
-<figure><img src="../../.gitbook/assets/image (2) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (2) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 <figure><img src="../../.gitbook/assets/image (3) (1) (1).png" alt=""><figcaption></figcaption></figure>
 

@@ -2,7 +2,7 @@
 
 <figure><img src="../../.gitbook/assets/image (6) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/image (2) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="info" %}
 Attenzione, leggere bene la documentazione del lab perché spiega qual è la rete su cui siamo e quali sono i nostri obiettivi
@@ -117,11 +117,11 @@ Nel frattempo riguardiamo lo schema di rete:
 
 Torniamo al terminale e vediamo che abbiamo intercettato una richiesta di connessione SMB a fileserver.sportsfoo.com:
 
-<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Guardiamo cosa succede nella sessione metasploit:
 
-<figure><img src="../../.gitbook/assets/image (2) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (2) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Ogni volta che c'è una incoming SMB connection il modulo smb\_relay in MSF cattura l'hash e automaticamente lo usa per ottenere una meterpreter session o shell sulla vittima, che in questo caso è 172.16.5.10 ossia il domain controller (controller.sportsfoo.com), lo abbiamo configurato noi con l'SMBHOST option.
 

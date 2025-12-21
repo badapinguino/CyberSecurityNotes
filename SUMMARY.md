@@ -138,6 +138,8 @@
     * [Vulnerability Scanning with MSF](host-and-network-penetration-testing-the-metasploit-framework-msf/vulnerability-scanning/vulnerability-scanning-with-msf.md)
     * [Vulnerability Scanning with Nessus](host-and-network-penetration-testing-the-metasploit-framework-msf/vulnerability-scanning/vulnerability-scanning-with-nessus.md)
     * [Web App Vulnerability Scanning with WMAP](host-and-network-penetration-testing-the-metasploit-framework-msf/vulnerability-scanning/web-app-vulnerability-scanning-with-wmap.md)
+  * [Client-Side Attacks](host-and-network-penetration-testing-the-metasploit-framework-msf/client-side-attacks/README.md)
+    * [Generating Payloads With Msfvenom](host-and-network-penetration-testing-the-metasploit-framework-msf/client-side-attacks/generating-payloads-with-msfvenom.md)
 * [Bigino - Cheat Sheet](bigino-cheat-sheet/README.md)
   * [Information Gathering](bigino-cheat-sheet/information-gathering.md)
   * [Enumeration](bigino-cheat-sheet/enumeration.md)
