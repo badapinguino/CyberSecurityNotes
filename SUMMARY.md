@@ -141,6 +141,8 @@
   * [Client-Side Attacks](host-and-network-penetration-testing-the-metasploit-framework-msf/client-side-attacks/README.md)
     * [Generating Payloads With Msfvenom](host-and-network-penetration-testing-the-metasploit-framework-msf/client-side-attacks/generating-payloads-with-msfvenom.md)
     * [Encoding Payloads With Msfvenom](host-and-network-penetration-testing-the-metasploit-framework-msf/client-side-attacks/encoding-payloads-with-msfvenom.md)
+    * [Injecting Payloads Into Windows Portable Executables](host-and-network-penetration-testing-the-metasploit-framework-msf/client-side-attacks/injecting-payloads-into-windows-portable-executables.md)
+    * [Automating Metasploit With Resource Scripts](host-and-network-penetration-testing-the-metasploit-framework-msf/client-side-attacks/automating-metasploit-with-resource-scripts.md)
 * [Bigino - Cheat Sheet](bigino-cheat-sheet/README.md)
   * [Information Gathering](bigino-cheat-sheet/information-gathering.md)
   * [Enumeration](bigino-cheat-sheet/enumeration.md)
