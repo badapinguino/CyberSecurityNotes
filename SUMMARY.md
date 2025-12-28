@@ -146,6 +146,8 @@
   * [Exploitation](host-and-network-penetration-testing-the-metasploit-framework-msf/exploitation/README.md)
     * [Windows Exploitation](host-and-network-penetration-testing-the-metasploit-framework-msf/exploitation/windows-exploitation/README.md)
       * [Exploiting A Vulnerable HTTP File Server](host-and-network-penetration-testing-the-metasploit-framework-msf/exploitation/windows-exploitation/exploiting-a-vulnerable-http-file-server.md)
+      * [Exploiting Windows MS17-010 SMB Vulnerability](host-and-network-penetration-testing-the-metasploit-framework-msf/exploitation/windows-exploitation/exploiting-windows-ms17-010-smb-vulnerability.md)
+      * [Exploiting Windows MS17-010 SMB Vulnerability (EternalBlue)](host-and-network-penetration-testing-the-metasploit-framework-msf/exploitation/windows-exploitation/exploiting-windows-ms17-010-smb-vulnerability-eternalblue.md)
 * [Bigino - Cheat Sheet](bigino-cheat-sheet/README.md)
   * [Information Gathering](bigino-cheat-sheet/information-gathering.md)
   * [Enumeration](bigino-cheat-sheet/enumeration.md)
