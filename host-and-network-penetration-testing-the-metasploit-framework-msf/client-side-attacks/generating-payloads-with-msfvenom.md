@@ -8,7 +8,7 @@ Vediamo quindi cosa sono i client-side attacks e come differiscono dagli host-ba
 
 Per poter rendere meno identificabili i payload ad un antivirus, vedremo come fare l'encoding del nostro payload con msfvenom. Ed infine vedremo come inserire (injecting) il nostro payload in un eseguibile legittimo per renderlo più nascosto possibile.
 
-<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ***
 
@@ -20,7 +20,7 @@ Per poter rendere meno identificabili i payload ad un antivirus, vedremo come fa
 msfvenom --list payloads
 ```
 
-<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 <figure><img src="../../.gitbook/assets/image (2) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 

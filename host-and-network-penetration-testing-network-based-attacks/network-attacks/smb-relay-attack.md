@@ -117,7 +117,7 @@ Nel frattempo riguardiamo lo schema di rete:
 
 Torniamo al terminale e vediamo che abbiamo intercettato una richiesta di connessione SMB a fileserver.sportsfoo.com:
 
-<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Guardiamo cosa succede nella sessione metasploit:
 

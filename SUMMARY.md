@@ -146,7 +146,6 @@
   * [Exploitation](host-and-network-penetration-testing-the-metasploit-framework-msf/exploitation/README.md)
     * [Windows Exploitation](host-and-network-penetration-testing-the-metasploit-framework-msf/exploitation/windows-exploitation/README.md)
       * [Exploiting A Vulnerable HTTP File Server](host-and-network-penetration-testing-the-metasploit-framework-msf/exploitation/windows-exploitation/exploiting-a-vulnerable-http-file-server.md)
-      * [Exploiting Windows MS17-010 SMB Vulnerability](host-and-network-penetration-testing-the-metasploit-framework-msf/exploitation/windows-exploitation/exploiting-windows-ms17-010-smb-vulnerability.md)
       * [Exploiting Windows MS17-010 SMB Vulnerability (EternalBlue)](host-and-network-penetration-testing-the-metasploit-framework-msf/exploitation/windows-exploitation/exploiting-windows-ms17-010-smb-vulnerability-eternalblue.md)
       * [Exploiting WinRM (Windows Remote Management Protocol)](host-and-network-penetration-testing-the-metasploit-framework-msf/exploitation/windows-exploitation/exploiting-winrm-windows-remote-management-protocol.md)
       * [Exploiting A Vulnerable Apache Tomcat Web Server](host-and-network-penetration-testing-the-metasploit-framework-msf/exploitation/windows-exploitation/exploiting-a-vulnerable-apache-tomcat-web-server.md)

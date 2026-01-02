@@ -4,7 +4,7 @@ description: Windows Enumeration
 
 # SMB & NetBIOS Enumeration
 
-<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 <figure><img src="../../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
@@ -27,7 +27,7 @@ Se guardiamo nel file hosts abbiamo due macchine:&#x20;
 * demo.ine.local che è raggiungibile dal nostro sistema Kali attaccante
 * demo1.ine.local che non è direttamente raggiungibile dal nostro sistema ma sarà necessario effettuare un Pivoting per raggiungerla
 
-<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### Nmap scan sul primo target
 
@@ -57,7 +57,7 @@ Se proviamo a fare lo scan solo dell'IP del primo server demo non funziona, dobb
 
 Quando eseguiamo nbtscan ci vengono mostrati tutti i nomi Netbios delle macchine sulla rete, nel caso sotto non ne abbiamo, e nella subnet dopo invece c'è qualche errore perché non ci mostra nulla:
 
-<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### Usiamo il tool nmblookup
 
