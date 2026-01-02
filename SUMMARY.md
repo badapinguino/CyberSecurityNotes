@@ -156,4 +156,5 @@
   * [Vulnerability Assessment](bigino-cheat-sheet/vulnerability-assessment.md)
   * [Host & Network Penetration Testing: System/Host Based Attacks](bigino-cheat-sheet/host-and-network-penetration-testing-system-host-based-attacks.md)
   * [Host & Network Penetration Testing: Network Based Attacks](bigino-cheat-sheet/host-and-network-penetration-testing-network-based-attacks.md)
+  * [Host & Network Penetration Testing: The Metasploit Framework (MSF)](bigino-cheat-sheet/host-and-network-penetration-testing-the-metasploit-framework-msf.md)
 * [Utili](utili.md)
