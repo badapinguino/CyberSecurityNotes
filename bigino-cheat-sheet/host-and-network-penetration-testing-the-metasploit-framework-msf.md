@@ -497,8 +497,12 @@ Plugin aggiuntivo (da installare manualmente nelle versioni recenti) che associa
 Bash
 
 ```
+cd Downloads/
+wget https://raw.githubusercontent.com/hahwul/metasploit-autopwn/master/db_autopwn.rb
+sudo mv db_autopwn.rb /usr/share/metasploit-framework/plugins/
+// Torniamo in metasploit
 load db_autopawn
-db_autopawn -p -t  # Mostra exploit basati sulle porte (-p) e genera tabella (-t)
+db_autopawn
 ```
 
 {% hint style="info" %}
