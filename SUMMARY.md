@@ -152,6 +152,7 @@
     * [Linux Exploitation](host-and-network-penetration-testing-the-metasploit-framework-msf/exploitation/linux-exploitation/README.md)
       * [Exploiting A Vulnerable FTP Server](host-and-network-penetration-testing-the-metasploit-framework-msf/exploitation/linux-exploitation/exploiting-a-vulnerable-ftp-server.md)
       * [Exploiting Samba](host-and-network-penetration-testing-the-metasploit-framework-msf/exploitation/linux-exploitation/exploiting-samba.md)
+      * [Exploiting A Vulnerable SSH Server](host-and-network-penetration-testing-the-metasploit-framework-msf/exploitation/linux-exploitation/exploiting-a-vulnerable-ssh-server.md)
 * [Bigino - Cheat Sheet](bigino-cheat-sheet/README.md)
   * [Information Gathering](bigino-cheat-sheet/information-gathering.md)
   * [Enumeration](bigino-cheat-sheet/enumeration.md)
