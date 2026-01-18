@@ -170,6 +170,8 @@
       * [Keylogging](host-and-network-penetration-testing-the-metasploit-framework-msf/post-exploitation/windows-post-exploitation/keylogging.md)
       * [Clearing Windows Event Logs](host-and-network-penetration-testing-the-metasploit-framework-msf/post-exploitation/windows-post-exploitation/clearing-windows-event-logs.md)
       * [Pivoting](host-and-network-penetration-testing-the-metasploit-framework-msf/post-exploitation/windows-post-exploitation/pivoting.md)
+    * [Linux Post Exploitation](host-and-network-penetration-testing-the-metasploit-framework-msf/post-exploitation/linux-post-exploitation/README.md)
+      * [Linux Post Exploitation Modules](host-and-network-penetration-testing-the-metasploit-framework-msf/post-exploitation/linux-post-exploitation/linux-post-exploitation-modules.md)
 * [Bigino - Cheat Sheet](bigino-cheat-sheet/README.md)
   * [Information Gathering](bigino-cheat-sheet/information-gathering.md)
   * [Enumeration](bigino-cheat-sheet/enumeration.md)
