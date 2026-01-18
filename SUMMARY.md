@@ -161,6 +161,7 @@
       * [Upgrading Command Shells To Meterpreter Shells](host-and-network-penetration-testing-the-metasploit-framework-msf/post-exploitation/post-exploitation-fundamentals/upgrading-command-shells-to-meterpreter-shells.md)
     * [Windows Post Exploitation Modules](host-and-network-penetration-testing-the-metasploit-framework-msf/post-exploitation/windows-post-exploitation-modules.md)
     * [Windows Privilege Escalation: Bypassing UAC](host-and-network-penetration-testing-the-metasploit-framework-msf/post-exploitation/windows-privilege-escalation-bypassing-uac.md)
+    * [Windows Privilege Escalation: Token Impersonation With Incognito](host-and-network-penetration-testing-the-metasploit-framework-msf/post-exploitation/windows-privilege-escalation-token-impersonation-with-incognito.md)
 * [Bigino - Cheat Sheet](bigino-cheat-sheet/README.md)
   * [Information Gathering](bigino-cheat-sheet/information-gathering.md)
   * [Enumeration](bigino-cheat-sheet/enumeration.md)
