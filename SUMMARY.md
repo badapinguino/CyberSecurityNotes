@@ -165,6 +165,7 @@
       * [Windows Privilege Escalation: Token Impersonation With Incognito](host-and-network-penetration-testing-the-metasploit-framework-msf/post-exploitation/windows-post-exploitation/windows-privilege-escalation-token-impersonation-with-incognito.md)
       * [Dumping Hashes With Mimikatz](host-and-network-penetration-testing-the-metasploit-framework-msf/post-exploitation/windows-post-exploitation/dumping-hashes-with-mimikatz.md)
       * [Pass-the-Hash With PSExec](host-and-network-penetration-testing-the-metasploit-framework-msf/post-exploitation/windows-post-exploitation/pass-the-hash-with-psexec.md)
+      * [Establishing Persistence On Windows](host-and-network-penetration-testing-the-metasploit-framework-msf/post-exploitation/windows-post-exploitation/establishing-persistence-on-windows.md)
 * [Bigino - Cheat Sheet](bigino-cheat-sheet/README.md)
   * [Information Gathering](bigino-cheat-sheet/information-gathering.md)
   * [Enumeration](bigino-cheat-sheet/enumeration.md)
