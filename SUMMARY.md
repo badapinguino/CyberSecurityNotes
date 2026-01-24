@@ -174,6 +174,7 @@
       * [Linux Post Exploitation Modules](host-and-network-penetration-testing-the-metasploit-framework-msf/post-exploitation/linux-post-exploitation/linux-post-exploitation-modules/README.md)
         * [Post Exploitation Lab I](host-and-network-penetration-testing-the-metasploit-framework-msf/post-exploitation/linux-post-exploitation/linux-post-exploitation-modules/post-exploitation-lab-i.md)
       * [Linux Privilege Escalation: Exploiting A Vulnerable Program](host-and-network-penetration-testing-the-metasploit-framework-msf/post-exploitation/linux-post-exploitation/linux-privilege-escalation-exploiting-a-vulnerable-program.md)
+      * [Dumping Hashes With Hashmap](host-and-network-penetration-testing-the-metasploit-framework-msf/post-exploitation/linux-post-exploitation/dumping-hashes-with-hashmap.md)
 * [Bigino - Cheat Sheet](bigino-cheat-sheet/README.md)
   * [Information Gathering](bigino-cheat-sheet/information-gathering.md)
   * [Enumeration](bigino-cheat-sheet/enumeration.md)
