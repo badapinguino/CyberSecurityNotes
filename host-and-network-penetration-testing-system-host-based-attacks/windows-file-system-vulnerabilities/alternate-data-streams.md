@@ -1,6 +1,6 @@
 # Alternate Data Streams
 
-<figure><img src="../../.gitbook/assets/image (32) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (32) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 è un ottimo modo per nascondere payload in file autentici in modo da rendere difficile l'individuazione da parte di amministratori, utenti o Anti Virus basati sulle sole firme.
 
@@ -8,13 +8,13 @@
 
 ### Come funziona il resource stream e come ci si può scrivere ed accedere
 
-<figure><img src="../../.gitbook/assets/image (33) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (33) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/image (34) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (34) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Creiamo un file legittimo di esempio.
 
-<figure><img src="../../.gitbook/assets/image (35) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (35) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 E inseriamo un testo base giusto per riempire lo spazio e lo salviamo sul Desktop:
 
