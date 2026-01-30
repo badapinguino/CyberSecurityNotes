@@ -186,6 +186,7 @@
   * [Vulnerability Scanning](host-and-network-penetration-testing-exploitation/vulnerability-scanning/README.md)
     * [Banner Grabbing](host-and-network-penetration-testing-exploitation/vulnerability-scanning/banner-grabbing.md)
     * [Vulnerability Scanning With Nmap Scripts](host-and-network-penetration-testing-exploitation/vulnerability-scanning/vulnerability-scanning-with-nmap-scripts.md)
+    * [Vulnerability Scanning With Metasploit](host-and-network-penetration-testing-exploitation/vulnerability-scanning/vulnerability-scanning-with-metasploit.md)
 * [Bigino - Cheat Sheet](bigino-cheat-sheet/README.md)
   * [Information Gathering](bigino-cheat-sheet/information-gathering.md)
   * [Enumeration](bigino-cheat-sheet/enumeration.md)
