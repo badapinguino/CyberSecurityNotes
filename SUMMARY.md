@@ -189,6 +189,7 @@
     * [Vulnerability Scanning With Metasploit](host-and-network-penetration-testing-exploitation/vulnerability-scanning/vulnerability-scanning-with-metasploit.md)
   * [Exploits](host-and-network-penetration-testing-exploitation/exploits/README.md)
     * [Searching For Publicly Available Exploits](host-and-network-penetration-testing-exploitation/exploits/searching-for-publicly-available-exploits.md)
+    * [Searching For Exploits With SearchSploit](host-and-network-penetration-testing-exploitation/exploits/searching-for-exploits-with-searchsploit.md)
 * [Bigino - Cheat Sheet](bigino-cheat-sheet/README.md)
   * [Information Gathering](bigino-cheat-sheet/information-gathering.md)
   * [Enumeration](bigino-cheat-sheet/enumeration.md)
