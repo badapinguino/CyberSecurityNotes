@@ -879,7 +879,7 @@ run
 
 ### Exploiting Windows MS17-010 SMB Vulnerability (EternalBlue)
 
-<figure><img src="../.gitbook/assets/image (9) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (9) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ```
 service postgresql start
@@ -1591,7 +1591,7 @@ clearev
 
 ### Pivoting
 
-<figure><img src="../.gitbook/assets/image (29) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (29) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Una volta exploitato e avuto accesso a Victim 1 possiamo fare pivoting verso la rete interna a cui appartiene Victim 1, che ci permette di raggiungere Victim 2.
 
