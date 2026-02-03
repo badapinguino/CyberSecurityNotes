@@ -192,6 +192,8 @@
     * [Searching For Exploits With SearchSploit](host-and-network-penetration-testing-exploitation/exploits/searching-for-exploits-with-searchsploit.md)
     * [Fixing Exploits](host-and-network-penetration-testing-exploitation/exploits/fixing-exploits.md)
     * [Cross-Compiling Exploits](host-and-network-penetration-testing-exploitation/exploits/cross-compiling-exploits.md)
+  * [Bind & Reverse Shells](host-and-network-penetration-testing-exploitation/bind-and-reverse-shells/README.md)
+    * [Netcat Fundamentals](host-and-network-penetration-testing-exploitation/bind-and-reverse-shells/netcat-fundamentals.md)
 * [Bigino - Cheat Sheet](bigino-cheat-sheet/README.md)
   * [Information Gathering](bigino-cheat-sheet/information-gathering.md)
   * [Enumeration](bigino-cheat-sheet/enumeration.md)
