@@ -194,6 +194,7 @@
     * [Cross-Compiling Exploits](host-and-network-penetration-testing-exploitation/exploits/cross-compiling-exploits.md)
   * [Bind & Reverse Shells](host-and-network-penetration-testing-exploitation/bind-and-reverse-shells/README.md)
     * [Netcat Fundamentals](host-and-network-penetration-testing-exploitation/bind-and-reverse-shells/netcat-fundamentals.md)
+    * [Bind Shells](host-and-network-penetration-testing-exploitation/bind-and-reverse-shells/bind-shells.md)
 * [Bigino - Cheat Sheet](bigino-cheat-sheet/README.md)
   * [Information Gathering](bigino-cheat-sheet/information-gathering.md)
   * [Enumeration](bigino-cheat-sheet/enumeration.md)
