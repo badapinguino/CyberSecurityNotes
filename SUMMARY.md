@@ -199,6 +199,8 @@
     * [Reverse Shell Cheatsheet](host-and-network-penetration-testing-exploitation/bind-and-reverse-shells/reverse-shell-cheatsheet.md)
   * [Exploitation Frameworks](host-and-network-penetration-testing-exploitation/exploitation-frameworks/README.md)
     * [The Metasploit Framework (MSF)](host-and-network-penetration-testing-exploitation/exploitation-frameworks/the-metasploit-framework-msf.md)
+    * [PowerShell-Empire](host-and-network-penetration-testing-exploitation/exploitation-frameworks/powershell-empire.md)
+  * [Windows Exploitation](host-and-network-penetration-testing-exploitation/windows-exploitation.md)
 * [Bigino - Cheat Sheet](bigino-cheat-sheet/README.md)
   * [Information Gathering](bigino-cheat-sheet/information-gathering.md)
   * [Enumeration](bigino-cheat-sheet/enumeration.md)
