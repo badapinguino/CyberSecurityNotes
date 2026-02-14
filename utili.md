@@ -1,6 +1,6 @@
 # Utili
 
-### Per ottenere una reverse shell
+## Per ottenere una reverse shell
 
 Apriamo una porta con il listener netcat:
 
