@@ -212,6 +212,7 @@
     * [Port Scanning & Enumeration - Linux](host-and-network-penetration-testing-exploitation/linux-exploitation/port-scanning-and-enumeration-linux.md)
     * [Targeting vsFTPd](host-and-network-penetration-testing-exploitation/linux-exploitation/targeting-vsftpd.md)
     * [Targeting PHP](host-and-network-penetration-testing-exploitation/linux-exploitation/targeting-php.md)
+    * [Targeting SAMBA](host-and-network-penetration-testing-exploitation/linux-exploitation/targeting-samba.md)
 * [Bigino - Cheat Sheet](bigino-cheat-sheet/README.md)
   * [Information Gathering](bigino-cheat-sheet/information-gathering.md)
   * [Enumeration](bigino-cheat-sheet/enumeration.md)
