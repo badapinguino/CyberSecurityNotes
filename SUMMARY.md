@@ -215,6 +215,7 @@
     * [Targeting SAMBA](host-and-network-penetration-testing-exploitation/linux-exploitation/targeting-samba.md)
   * [AV Evasion & Obfuscation](host-and-network-penetration-testing-exploitation/av-evasion-and-obfuscation/README.md)
     * [AV Evasion With Shellter](host-and-network-penetration-testing-exploitation/av-evasion-and-obfuscation/av-evasion-with-shellter.md)
+    * [Obfuscating PowerShell Code](host-and-network-penetration-testing-exploitation/av-evasion-and-obfuscation/obfuscating-powershell-code.md)
 * [Bigino - Cheat Sheet](bigino-cheat-sheet/README.md)
   * [Information Gathering](bigino-cheat-sheet/information-gathering.md)
   * [Enumeration](bigino-cheat-sheet/enumeration.md)
