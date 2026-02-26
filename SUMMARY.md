@@ -213,6 +213,8 @@
     * [Targeting vsFTPd](host-and-network-penetration-testing-exploitation/linux-exploitation/targeting-vsftpd.md)
     * [Targeting PHP](host-and-network-penetration-testing-exploitation/linux-exploitation/targeting-php.md)
     * [Targeting SAMBA](host-and-network-penetration-testing-exploitation/linux-exploitation/targeting-samba.md)
+  * [AV Evasion & Obfuscation](host-and-network-penetration-testing-exploitation/av-evasion-and-obfuscation/README.md)
+    * [AV Evasion With Shellter](host-and-network-penetration-testing-exploitation/av-evasion-and-obfuscation/av-evasion-with-shellter.md)
 * [Bigino - Cheat Sheet](bigino-cheat-sheet/README.md)
   * [Information Gathering](bigino-cheat-sheet/information-gathering.md)
   * [Enumeration](bigino-cheat-sheet/enumeration.md)
