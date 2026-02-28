@@ -219,6 +219,7 @@
 * [Host & Network Penetration Testing: Post-Exploitation](host-and-network-penetration-testing-post-exploitation/README.md)
   * [Post-Exploitation](host-and-network-penetration-testing-post-exploitation/post-exploitation/README.md)
     * [Introduction To Post-Exploitation](host-and-network-penetration-testing-post-exploitation/post-exploitation/introduction-to-post-exploitation.md)
+    * [Post-Exploitation Methodology](host-and-network-penetration-testing-post-exploitation/post-exploitation/post-exploitation-methodology.md)
 * [Bigino - Cheat Sheet](bigino-cheat-sheet/README.md)
   * [Information Gathering](bigino-cheat-sheet/information-gathering.md)
   * [Enumeration](bigino-cheat-sheet/enumeration.md)
