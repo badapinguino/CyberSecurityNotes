@@ -225,6 +225,7 @@
     * [Enumerating Users & Groups - Windows](host-and-network-penetration-testing-post-exploitation/windows-local-enumeration/enumerating-users-and-groups-windows.md)
     * [Enumerating Network Information - Windows](host-and-network-penetration-testing-post-exploitation/windows-local-enumeration/enumerating-network-information-windows.md)
     * [Enumerating Processes & Services](host-and-network-penetration-testing-post-exploitation/windows-local-enumeration/enumerating-processes-and-services.md)
+    * [Automating Windows Local Enumeration](host-and-network-penetration-testing-post-exploitation/windows-local-enumeration/automating-windows-local-enumeration.md)
 * [Bigino - Cheat Sheet](bigino-cheat-sheet/README.md)
   * [Information Gathering](bigino-cheat-sheet/information-gathering.md)
   * [Enumeration](bigino-cheat-sheet/enumeration.md)
