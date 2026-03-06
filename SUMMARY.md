@@ -230,6 +230,8 @@
     * [Enumerating System Information - Linux](host-and-network-penetration-testing-post-exploitation/linux-local-enumeration/enumerating-system-information-linux.md)
     * [Enumerating Users & Groups - Linux](host-and-network-penetration-testing-post-exploitation/linux-local-enumeration/enumerating-users-and-groups-linux.md)
     * [Enumerating Network Information - Linux](host-and-network-penetration-testing-post-exploitation/linux-local-enumeration/enumerating-network-information-linux.md)
+    * [Enumerating Processes & Cron Jobs](host-and-network-penetration-testing-post-exploitation/linux-local-enumeration/enumerating-processes-and-cron-jobs.md)
+    * [Automating Linux Local Enumeration](host-and-network-penetration-testing-post-exploitation/linux-local-enumeration/automating-linux-local-enumeration.md)
 * [Bigino - Cheat Sheet](bigino-cheat-sheet/README.md)
   * [Information Gathering](bigino-cheat-sheet/information-gathering.md)
   * [Enumeration](bigino-cheat-sheet/enumeration.md)
