@@ -232,6 +232,8 @@
     * [Enumerating Network Information - Linux](host-and-network-penetration-testing-post-exploitation/linux-local-enumeration/enumerating-network-information-linux.md)
     * [Enumerating Processes & Cron Jobs](host-and-network-penetration-testing-post-exploitation/linux-local-enumeration/enumerating-processes-and-cron-jobs.md)
     * [Automating Linux Local Enumeration](host-and-network-penetration-testing-post-exploitation/linux-local-enumeration/automating-linux-local-enumeration.md)
+  * [Transferring Files To Windows & Linux Targets](host-and-network-penetration-testing-post-exploitation/transferring-files-to-windows-and-linux-targets/README.md)
+    * [Setting Up A Web Server With Python](host-and-network-penetration-testing-post-exploitation/transferring-files-to-windows-and-linux-targets/setting-up-a-web-server-with-python.md)
 * [Bigino - Cheat Sheet](bigino-cheat-sheet/README.md)
   * [Information Gathering](bigino-cheat-sheet/information-gathering.md)
   * [Enumeration](bigino-cheat-sheet/enumeration.md)
