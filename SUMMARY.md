@@ -236,6 +236,8 @@
     * [Setting Up A Web Server With Python](host-and-network-penetration-testing-post-exploitation/transferring-files-to-windows-and-linux-targets/setting-up-a-web-server-with-python.md)
     * [Transferring Files To Windows Targets](host-and-network-penetration-testing-post-exploitation/transferring-files-to-windows-and-linux-targets/transferring-files-to-windows-targets.md)
     * [Transferring Files To Linux Targets](host-and-network-penetration-testing-post-exploitation/transferring-files-to-windows-and-linux-targets/transferring-files-to-linux-targets.md)
+  * [Upgrading Shells](host-and-network-penetration-testing-post-exploitation/upgrading-shells/README.md)
+    * [Upgrading Non-Interactive Shells](host-and-network-penetration-testing-post-exploitation/upgrading-shells/upgrading-non-interactive-shells.md)
 * [Bigino - Cheat Sheet](bigino-cheat-sheet/README.md)
   * [Information Gathering](bigino-cheat-sheet/information-gathering.md)
   * [Enumeration](bigino-cheat-sheet/enumeration.md)
