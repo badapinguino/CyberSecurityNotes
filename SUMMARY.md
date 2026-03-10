@@ -234,6 +234,8 @@
     * [Automating Linux Local Enumeration](host-and-network-penetration-testing-post-exploitation/linux-local-enumeration/automating-linux-local-enumeration.md)
   * [Transferring Files To Windows & Linux Targets](host-and-network-penetration-testing-post-exploitation/transferring-files-to-windows-and-linux-targets/README.md)
     * [Setting Up A Web Server With Python](host-and-network-penetration-testing-post-exploitation/transferring-files-to-windows-and-linux-targets/setting-up-a-web-server-with-python.md)
+    * [Transferring Files To Windows Targets](host-and-network-penetration-testing-post-exploitation/transferring-files-to-windows-and-linux-targets/transferring-files-to-windows-targets.md)
+    * [Transferring Files to Linux Targets](host-and-network-penetration-testing-post-exploitation/transferring-files-to-windows-and-linux-targets/transferring-files-to-linux-targets.md)
 * [Bigino - Cheat Sheet](bigino-cheat-sheet/README.md)
   * [Information Gathering](bigino-cheat-sheet/information-gathering.md)
   * [Enumeration](bigino-cheat-sheet/enumeration.md)
