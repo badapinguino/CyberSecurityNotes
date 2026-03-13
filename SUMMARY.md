@@ -238,6 +238,8 @@
     * [Transferring Files To Linux Targets](host-and-network-penetration-testing-post-exploitation/transferring-files-to-windows-and-linux-targets/transferring-files-to-linux-targets.md)
   * [Upgrading Shells](host-and-network-penetration-testing-post-exploitation/upgrading-shells/README.md)
     * [Upgrading Non-Interactive Shells](host-and-network-penetration-testing-post-exploitation/upgrading-shells/upgrading-non-interactive-shells.md)
+  * [Windows Privilege Escalation](host-and-network-penetration-testing-post-exploitation/windows-privilege-escalation/README.md)
+    * [Identifying Windows Privilege Escalation Vulnerabilities](host-and-network-penetration-testing-post-exploitation/windows-privilege-escalation/identifying-windows-privilege-escalation-vulnerabilities.md)
 * [Bigino - Cheat Sheet](bigino-cheat-sheet/README.md)
   * [Information Gathering](bigino-cheat-sheet/information-gathering.md)
   * [Enumeration](bigino-cheat-sheet/enumeration.md)
