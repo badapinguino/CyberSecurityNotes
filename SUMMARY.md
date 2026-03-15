@@ -245,6 +245,7 @@
   * [Linux Privilege Escalation](host-and-network-penetration-testing-post-exploitation/linux-privilege-escalation.md)
     * [Linux Privilege Escalation - Weak Permissions](host-and-network-penetration-testing-post-exploitation/linux-privilege-escalation/linux-privilege-escalation-weak-permissions.md)
     * [Linux Privilege Escalation - SUDO Privileges](host-and-network-penetration-testing-post-exploitation/linux-privilege-escalation/linux-privilege-escalation-sudo-privileges.md)
+    * [Editing Gone Wrong (Lab SUDO Privileges)](host-and-network-penetration-testing-post-exploitation/linux-privilege-escalation/editing-gone-wrong-lab-sudo-privileges.md)
 * [Bigino - Cheat Sheet](bigino-cheat-sheet/README.md)
   * [Information Gathering](bigino-cheat-sheet/information-gathering.md)
   * [Enumeration](bigino-cheat-sheet/enumeration.md)
