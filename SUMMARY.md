@@ -240,6 +240,8 @@
     * [Upgrading Non-Interactive Shells](host-and-network-penetration-testing-post-exploitation/upgrading-shells/upgrading-non-interactive-shells.md)
   * [Windows Privilege Escalation](host-and-network-penetration-testing-post-exploitation/windows-privilege-escalation/README.md)
     * [Identifying Windows Privilege Escalation Vulnerabilities](host-and-network-penetration-testing-post-exploitation/windows-privilege-escalation/identifying-windows-privilege-escalation-vulnerabilities.md)
+    * [Windows Privilege Escalation](host-and-network-penetration-testing-post-exploitation/windows-privilege-escalation/windows-privilege-escalation.md)
+  * [Linux Privilege Escalation](host-and-network-penetration-testing-post-exploitation/linux-privilege-escalation.md)
 * [Bigino - Cheat Sheet](bigino-cheat-sheet/README.md)
   * [Information Gathering](bigino-cheat-sheet/information-gathering.md)
   * [Enumeration](bigino-cheat-sheet/enumeration.md)
