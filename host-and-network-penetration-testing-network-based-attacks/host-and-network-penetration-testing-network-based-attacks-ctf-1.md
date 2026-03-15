@@ -419,7 +419,7 @@ Se facciamo il follow TCP stream troviamo tutti questi dati che contengono anche
 
 Se cerchiamo la parola "Users" troviamo altri punti in cui compare sempre questo utente rwalters, come ad esempio qui di seguito riguardo un documento Top\_secret:
 
-<figure><img src="../.gitbook/assets/image (12) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (12) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## Flag 5: WindowsPowerShell
 
@@ -503,7 +503,7 @@ WindowsPowerShell/5.1
 
 usa **quella esatta**, senza modificarla.
 
-<figure><img src="../.gitbook/assets/image (13) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (13) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Lo User-Agent nell'header HTTP è: Mozilla/5.0 (Windows NT; Windows NT 10.0; en-US) WindowsPowerShell/5.1.19041.3031
 
@@ -527,7 +527,7 @@ Nella finestra che ci viene aperta cerchiamo poi con il campo apposito "Find" la
 
 Da qui possiamo vedere che l'ID dell'estensione del wallet di Coinbase (e quindi la Flag 6) è: **hnfanknocfeofbddgcijnmhnfnkdnaad**
 
-<figure><img src="../.gitbook/assets/image (14) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (14) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### 🎯 Obiettivo Flag 6
 
