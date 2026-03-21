@@ -249,6 +249,8 @@
   * [Windows Persistence](host-and-network-penetration-testing-post-exploitation/windows-persistence/README.md)
     * [Persistence Via Services](host-and-network-penetration-testing-post-exploitation/windows-persistence/persistence-via-services.md)
     * [Persistence Via RDP](host-and-network-penetration-testing-post-exploitation/windows-persistence/persistence-via-rdp.md)
+  * [Linux Persistence](host-and-network-penetration-testing-post-exploitation/linux-persistence/README.md)
+    * [Persistence Via SSH Keys](host-and-network-penetration-testing-post-exploitation/linux-persistence/persistence-via-ssh-keys.md)
 * [Bigino - Cheat Sheet](bigino-cheat-sheet/README.md)
   * [Information Gathering](bigino-cheat-sheet/information-gathering.md)
   * [Enumeration](bigino-cheat-sheet/enumeration.md)
