@@ -252,6 +252,7 @@
   * [Linux Persistence](host-and-network-penetration-testing-post-exploitation/linux-persistence/README.md)
     * [Persistence Via SSH Keys](host-and-network-penetration-testing-post-exploitation/linux-persistence/persistence-via-ssh-keys.md)
     * [Persistence Via Cron Jobs](host-and-network-penetration-testing-post-exploitation/linux-persistence/persistence-via-cron-jobs.md)
+    * [T1168: Local Job Scheduling (Lab)](host-and-network-penetration-testing-post-exploitation/linux-persistence/t1168-local-job-scheduling-lab.md)
   * [Dumping & Cracking Windows Hashes](host-and-network-penetration-testing-post-exploitation/dumping-and-cracking-windows-hashes.md)
 * [Bigino - Cheat Sheet](bigino-cheat-sheet/README.md)
   * [Information Gathering](bigino-cheat-sheet/information-gathering.md)
