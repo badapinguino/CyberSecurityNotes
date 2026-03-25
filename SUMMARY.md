@@ -260,6 +260,8 @@
     * [Dumping & Cracking Linux Password Hashes](host-and-network-penetration-testing-post-exploitation/dumping-and-cracking-linux-hashes/dumping-and-cracking-linux-password-hashes.md)
   * [Pivoting Overview](host-and-network-penetration-testing-post-exploitation/pivoting-overview/README.md)
     * [Pivoting](host-and-network-penetration-testing-post-exploitation/pivoting-overview/pivoting.md)
+  * [Clearing Your Tracks](host-and-network-penetration-testing-post-exploitation/clearing-your-tracks/README.md)
+    * [Clearing Your Tracks On Windows](host-and-network-penetration-testing-post-exploitation/clearing-your-tracks/clearing-your-tracks-on-windows.md)
 * [Bigino - Cheat Sheet](bigino-cheat-sheet/README.md)
   * [Information Gathering](bigino-cheat-sheet/information-gathering.md)
   * [Enumeration](bigino-cheat-sheet/enumeration.md)
