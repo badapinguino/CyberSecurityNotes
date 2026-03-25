@@ -258,6 +258,8 @@
     * [Windows: NTLM Hash Cracking  (Lab)](host-and-network-penetration-testing-post-exploitation/dumping-and-cracking-windows-hashes/windows-ntlm-hash-cracking-lab.md)
   * [Dumping & Cracking Linux Hashes](host-and-network-penetration-testing-post-exploitation/dumping-and-cracking-linux-hashes/README.md)
     * [Dumping & Cracking Linux Password Hashes](host-and-network-penetration-testing-post-exploitation/dumping-and-cracking-linux-hashes/dumping-and-cracking-linux-password-hashes.md)
+  * [Pivoting Overview](host-and-network-penetration-testing-post-exploitation/pivoting-overview/README.md)
+    * [Pivoting](host-and-network-penetration-testing-post-exploitation/pivoting-overview/pivoting.md)
 * [Bigino - Cheat Sheet](bigino-cheat-sheet/README.md)
   * [Information Gathering](bigino-cheat-sheet/information-gathering.md)
   * [Enumeration](bigino-cheat-sheet/enumeration.md)
