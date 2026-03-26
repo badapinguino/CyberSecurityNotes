@@ -262,6 +262,7 @@
     * [Pivoting](host-and-network-penetration-testing-post-exploitation/pivoting-overview/pivoting.md)
   * [Clearing Your Tracks](host-and-network-penetration-testing-post-exploitation/clearing-your-tracks/README.md)
     * [Clearing Your Tracks On Windows](host-and-network-penetration-testing-post-exploitation/clearing-your-tracks/clearing-your-tracks-on-windows.md)
+    * [Clearing Your Tracks On Linux](host-and-network-penetration-testing-post-exploitation/clearing-your-tracks/clearing-your-tracks-on-linux.md)
 * [Bigino - Cheat Sheet](bigino-cheat-sheet/README.md)
   * [Information Gathering](bigino-cheat-sheet/information-gathering.md)
   * [Enumeration](bigino-cheat-sheet/enumeration.md)
