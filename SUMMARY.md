@@ -268,6 +268,7 @@
       * [Introduction to Social Engineering](host-and-network-penetration-testing-post-exploitation/host-and-network-penetration-testing-social-engineering/social-engineering/introduction-to-social-engineering.md)
       * [Pretexting](host-and-network-penetration-testing-post-exploitation/host-and-network-penetration-testing-social-engineering/social-engineering/pretexting.md)
       * [Phishing with Gophish](host-and-network-penetration-testing-post-exploitation/host-and-network-penetration-testing-social-engineering/social-engineering/phishing-with-gophish.md)
+      * [Let's Go Phishing  (Lab)](host-and-network-penetration-testing-post-exploitation/host-and-network-penetration-testing-social-engineering/social-engineering/lets-go-phishing-lab.md)
 * [Bigino - Cheat Sheet](bigino-cheat-sheet/README.md)
   * [Information Gathering](bigino-cheat-sheet/information-gathering.md)
   * [Enumeration](bigino-cheat-sheet/enumeration.md)
