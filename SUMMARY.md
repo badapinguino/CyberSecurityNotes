@@ -282,4 +282,5 @@
   * [Host & Network Penetration Testing: The Metasploit Framework (MSF)](bigino-cheat-sheet/host-and-network-penetration-testing-the-metasploit-framework-msf.md)
   * [Host & Network Penetration Testing: Exploitation](bigino-cheat-sheet/host-and-network-penetration-testing-exploitation.md)
   * [Host & Network Penetration Testing: Post-Exploitation](bigino-cheat-sheet/host-and-network-penetration-testing-post-exploitation.md)
+  * [Host & Network Penetration Testing: Social Engineering](bigino-cheat-sheet/host-and-network-penetration-testing-social-engineering.md)
 * [Utili](utili.md)
