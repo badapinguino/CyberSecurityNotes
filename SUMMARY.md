@@ -273,6 +273,7 @@
   * [Web Applications](web-application-penetration-testing-introduction-to-the-web-and-http-protocol/web-applications/README.md)
     * [Introduction to Web App Security Testing](web-application-penetration-testing-introduction-to-the-web-and-http-protocol/web-applications/introduction-to-web-app-security-testing/README.md)
       * [Introduction to Web Application Security](web-application-penetration-testing-introduction-to-the-web-and-http-protocol/web-applications/introduction-to-web-app-security-testing/introduction-to-web-application-security.md)
+      * [Web Application Security Testing](web-application-penetration-testing-introduction-to-the-web-and-http-protocol/web-applications/introduction-to-web-app-security-testing/web-application-security-testing.md)
 * [Bigino - Cheat Sheet](bigino-cheat-sheet/README.md)
   * [Information Gathering](bigino-cheat-sheet/information-gathering.md)
   * [Enumeration](bigino-cheat-sheet/enumeration.md)

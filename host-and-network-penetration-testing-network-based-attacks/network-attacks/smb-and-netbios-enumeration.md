@@ -125,7 +125,7 @@ Quindi ora vedremo come sfruttare la versione vulnerabile. Però prima vogliamo 
 nmap -p445 --script smb-security-mode demo.ine.local
 ```
 
-<figure><img src="../../.gitbook/assets/image (10) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (10) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Qui ci dice che lo script è stato eseguito come guest, livello di autenticazione "utente", è supportato e la firma dei messaggi è disabilitata. Quindi si può accedere come guest user, che è un utente di default in tutte le versioni di windows.
 
@@ -135,7 +135,7 @@ Proviamo a testare specifiche vulnerabilità legate a SMB v1 come anonymous acce
 smbclient -L demo.ine.local //e premiamo enter senza inserire una password per testare l'accesso anonimo
 ```
 
-<figure><img src="../../.gitbook/assets/image (11) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (11) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Considerando ora che abbiamo accesso come anonymous con SMB v1 possiamo fare una username enumeration del windows system attraverso SMB.
 
@@ -145,7 +145,7 @@ Considerando ora che abbiamo accesso come anonymous con SMB v1 possiamo fare una
 nmap -p445 --script smb-enum-users.nse 10.4.30.139
 ```
 
-<figure><img src="../../.gitbook/assets/image (12) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (12) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Possiamo quindi vedere che l'hostname è ATTACKDEFENSE e l'RID di admin e Administrator, Guest e root. Con anche info sulla scadenza della password.
 
