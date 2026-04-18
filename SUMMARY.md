@@ -283,6 +283,8 @@
     * [HTTP/S Protocol Fundamentals](web-application-penetration-testing-introduction-to-the-web-and-http-protocol/http-protocol/http-s-protocol-fundamentals/README.md)
       * [Introduction to HTTP](web-application-penetration-testing-introduction-to-the-web-and-http-protocol/http-protocol/http-s-protocol-fundamentals/introduction-to-http.md)
       * [HTTP Requests](web-application-penetration-testing-introduction-to-the-web-and-http-protocol/http-protocol/http-s-protocol-fundamentals/http-requests.md)
+      * [HTTP Response](web-application-penetration-testing-introduction-to-the-web-and-http-protocol/http-protocol/http-s-protocol-fundamentals/http-response.md)
+      * [HTTP Basics Lab - Part 1](web-application-penetration-testing-introduction-to-the-web-and-http-protocol/http-protocol/http-s-protocol-fundamentals/http-basics-lab-part-1.md)
 * [Bigino - Cheat Sheet](bigino-cheat-sheet/README.md)
   * [Information Gathering](bigino-cheat-sheet/information-gathering.md)
   * [Enumeration](bigino-cheat-sheet/enumeration.md)
