@@ -290,6 +290,7 @@
       * [HTTPS](web-application-penetration-testing-introduction-to-the-web-and-http-protocol/http-protocol/http-s-protocol-fundamentals/https.md)
     * [Website Crawling & Spidering](web-application-penetration-testing-introduction-to-the-web-and-http-protocol/http-protocol/website-crawling-and-spidering/README.md)
       * [Passive Crawling & Spidering with Burp Suite & OWASP ZAP](web-application-penetration-testing-introduction-to-the-web-and-http-protocol/http-protocol/website-crawling-and-spidering/passive-crawling-and-spidering-with-burp-suite-and-owasp-zap.md)
+      * [Passive Crawling with Burp Suite (Lab)](web-application-penetration-testing-introduction-to-the-web-and-http-protocol/http-protocol/website-crawling-and-spidering/passive-crawling-with-burp-suite-lab.md)
 * [Bigino - Cheat Sheet](bigino-cheat-sheet/README.md)
   * [Information Gathering](bigino-cheat-sheet/information-gathering.md)
   * [Enumeration](bigino-cheat-sheet/enumeration.md)
