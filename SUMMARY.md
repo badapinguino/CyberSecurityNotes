@@ -300,6 +300,7 @@
       * [Directory Enumeration with Gobuster (Lab)](web-application-penetration-testing-introduction-to-the-web-and-http-protocol/web-app-security-testing/file-and-directory-enumeration/directory-enumeration-with-gobuster-lab.md)
     * [CMS Security Testing](web-application-penetration-testing-introduction-to-the-web-and-http-protocol/web-app-security-testing/cms-security-testing/README.md)
       * [Introduction to CMS Security Testing](web-application-penetration-testing-introduction-to-the-web-and-http-protocol/web-app-security-testing/cms-security-testing/introduction-to-cms-security-testing.md)
+      * [Introduction to WordPress Security Testing](web-application-penetration-testing-introduction-to-the-web-and-http-protocol/web-app-security-testing/cms-security-testing/introduction-to-wordpress-security-testing.md)
 * [Bigino - Cheat Sheet](bigino-cheat-sheet/README.md)
   * [Information Gathering](bigino-cheat-sheet/information-gathering.md)
   * [Enumeration](bigino-cheat-sheet/enumeration.md)
