@@ -303,6 +303,7 @@
       * [Introduction to WordPress Security Testing](web-application-penetration-testing-introduction-to-the-web-and-http-protocol/web-app-security-testing/cms-security-testing/introduction-to-wordpress-security-testing.md)
       * [Exploiting WordPress](web-application-penetration-testing-introduction-to-the-web-and-http-protocol/web-app-security-testing/cms-security-testing/exploiting-wordpress.md)
       * [Exploiting WordPress (Lab)](web-application-penetration-testing-introduction-to-the-web-and-http-protocol/web-app-security-testing/cms-security-testing/exploiting-wordpress-lab.md)
+* [Offensive AI: Generative AI for Pentesters](offensive-ai-generative-ai-for-pentesters.md)
 * [Bigino - Cheat Sheet](bigino-cheat-sheet/README.md)
   * [Information Gathering](bigino-cheat-sheet/information-gathering.md)
   * [Enumeration](bigino-cheat-sheet/enumeration.md)
