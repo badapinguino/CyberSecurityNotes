@@ -318,6 +318,7 @@
     * [Popular AI Tools & Frameworks for Security Professionals](offensive-ai-generative-ai-for-pentesters/ai-machine-learning-and-llm-basics-ai-assisted-pentesting/popular-ai-tools-and-frameworks-for-security-professionals.md)
     * [Ethics, Limitations & Responsible AI Use in Offensive Security](offensive-ai-generative-ai-for-pentesters/ai-machine-learning-and-llm-basics-ai-assisted-pentesting/ethics-limitations-and-responsible-ai-use-in-offensive-security.md)
     * [Prompt Engineering Fundamentals](offensive-ai-generative-ai-for-pentesters/ai-machine-learning-and-llm-basics-ai-assisted-pentesting/prompt-engineering-fundamentals.md)
+* [Penetration Testing Student Summary](penetration-testing-student-summary.md)
 * [Bigino - Cheat Sheet](bigino-cheat-sheet/README.md)
   * [Information Gathering](bigino-cheat-sheet/information-gathering.md)
   * [Enumeration](bigino-cheat-sheet/enumeration.md)
