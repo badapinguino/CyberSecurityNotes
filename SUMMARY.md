@@ -329,4 +329,5 @@
   * [Host & Network Penetration Testing: Exploitation](bigino-cheat-sheet/host-and-network-penetration-testing-exploitation.md)
   * [Host & Network Penetration Testing: Post-Exploitation](bigino-cheat-sheet/host-and-network-penetration-testing-post-exploitation.md)
   * [Host & Network Penetration Testing: Social Engineering](bigino-cheat-sheet/host-and-network-penetration-testing-social-engineering.md)
+  * [Web Application Penetration Testing: Introduction to the Web & HTTP Protocol](bigino-cheat-sheet/web-application-penetration-testing-introduction-to-the-web-and-http-protocol.md)
 * [Utili](utili.md)
