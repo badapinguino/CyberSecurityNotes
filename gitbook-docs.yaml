@@ -4,8 +4,9 @@ site:
   structure:
     - type: section
       key: section-1
-      title: Daniele Badagliacca Docs
-      path: daniele-badagliacca-docs
+      title: INE eJPT Course
+      path: ine-ejpt-course
+      description: ""
       default: true
       children:
         - type: space
