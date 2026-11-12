@@ -197,7 +197,7 @@ A questo punto si può usare psexec o provare ad autenticarsi via RDP se la port
 
 ## SMB Relay Attack
 
-<figure><img src="../.gitbook/assets/image (987).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../lab-hackthebox/.gitbook/assets/image (987).png" alt=""><figcaption></figcaption></figure>
 
 ### Impostare un SMB Relay con un modulo MSF
 
@@ -256,7 +256,7 @@ arpspoof -i eth1 172.16.5.1 182.16.5.5
 ```
 
 {% hint style="info" %}
-ARP Poisoning: \
+ARP Poisoning:\
 Ora quello che sta succedendo è che ogni volta che il sistema vittima Windows 7 avvia una SMB connection, il DNSspoof assieme all'ARPspoof forges (crea) una risposta DNS che dice alla vittima che l'indirizzo DNS che sta cercando la vittima si risolve (resolves) con l'indirizzo IP del sistema Kali attaccante.
 {% endhint %}
 
@@ -334,7 +334,7 @@ This is a graphic that represents how this attack should work:![](https://images
 
 ### Solution
 
-### **Step 1:** Start **msfconsole** and configure the SMB Relay exploit:&#x20;
+### **Step 1:** Start **msfconsole** and configure the SMB Relay exploit:
 
 ```
 msfconsole
@@ -376,11 +376,11 @@ arpspoof -i eth1 -t 172.16.5.1 172.16.5.5
 
 So, every time the victim (**Windows 7**) starts an **SMB connection**, **dnsspoof** aligned with the **ARP Spoof** attack, forges the **DNS** replies telling that the searched **DNS** address is hosted at the attacker machine
 
-For example, from the previous results, Windows 7 has started an SMB connection for \[**\\\fileserver.sportsfoo.com\AnyShare**].&#x20;
+For example, from the previous results, Windows 7 has started an SMB connection for \[**\\\fileserver.sportsfoo.com\AnyShare**].
 
-Then instead of getting a DNS response with the real IP address of **fileserver.sportsfoo.com**, it received the IP of the attacker: **172.16.5.101**.&#x20;
+Then instead of getting a DNS response with the real IP address of **fileserver.sportsfoo.com**, it received the IP of the attacker: **172.16.5.101**.
 
-Consequently, the SMB connection is hijacked to \[**\\\172.16.5.101\AnyShare**].&#x20;
+Consequently, the SMB connection is hijacked to \[**\\\172.16.5.101\AnyShare**].
 
 In Metasploit, every time there is an incoming **SMB** connection, the **SMB Relay exploit** grab the **SMB hashes**(credentials) and then uses them to get a shell on the target machine (**172.16.5.10** - since it was set in the **SMBHOST** field of the **smb-relay** exploit).
 

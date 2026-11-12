@@ -1,8 +1,8 @@
 # Introduction to System/Host Based Attacks
 
-<figure><img src="../.gitbook/assets/image (111).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../lab-hackthebox/.gitbook/assets/image (111).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../.gitbook/assets/image (112).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../lab-hackthebox/.gitbook/assets/image (112).png" alt=""><figcaption></figcaption></figure>
 
 Sfruttare le vulnerabilità di un SO, per entrare nei PC dei dipendenti, invece che network based attacks che sono relativi ai servizi esposti da un server.
 

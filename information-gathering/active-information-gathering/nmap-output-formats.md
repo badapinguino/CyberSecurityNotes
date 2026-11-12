@@ -12,65 +12,65 @@ L'obiettivo di questo video è di salvare i risultati di nmap in un formato como
 * -v: verbose
 * \--reason: specifica perché una porta è nello stato indicato
 
-<figure><img src="../../.gitbook/assets/image (386).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../lab-hackthebox/.gitbook/assets/image (386).png" alt=""><figcaption></figcaption></figure>
 
 In qualsiasi formato decidiamo di salvare comunque viene mostrato il risultato a terminale:
 
-<figure><img src="../../.gitbook/assets/image (387).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../lab-hackthebox/.gitbook/assets/image (387).png" alt=""><figcaption></figcaption></figure>
 
 ```
 nmap <IP> -oN nmap_normal.txt // output txt
 nmap <IP> -oX nmap_xml.xml // output xml
 ```
 
-<figure><img src="../../.gitbook/assets/image (388).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../lab-hackthebox/.gitbook/assets/image (388).png" alt=""><figcaption></figcaption></figure>
 
 ## Caricare il file xml nel DB metasploit
 
 prima bisogna avviare il db:
 
-<figure><img src="../../.gitbook/assets/image (389).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../lab-hackthebox/.gitbook/assets/image (389).png" alt=""><figcaption></figcaption></figure>
 
 avviamo poi metaspolit:
 
-<figure><img src="../../.gitbook/assets/image (390).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../lab-hackthebox/.gitbook/assets/image (390).png" alt=""><figcaption></figcaption></figure>
 
 possiamo poi creare un nuovo workspace per questa attività di pentest e usare questo:
 
-<figure><img src="../../.gitbook/assets/image (391).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../lab-hackthebox/.gitbook/assets/image (391).png" alt=""><figcaption></figcaption></figure>
 
 ora carichiamo il file nel database, per il workspace appena creato
 
-<figure><img src="../../.gitbook/assets/image (392).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../lab-hackthebox/.gitbook/assets/image (392).png" alt=""><figcaption></figcaption></figure>
 
 Una volta importati i risultati come li posso usare? ad esempio usando il comando hosts o services
 
-<figure><img src="../../.gitbook/assets/image (393).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../lab-hackthebox/.gitbook/assets/image (393).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/image (394).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../lab-hackthebox/.gitbook/assets/image (394).png" alt=""><figcaption></figcaption></figure>
 
 Possiamo anche eseguire nmap usando il comando db\_nmap, ed il risultato verrà automaticamente salvato nel Metslpoit Database:
 
-<figure><img src="../../.gitbook/assets/image (395).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../lab-hackthebox/.gitbook/assets/image (395).png" alt=""><figcaption></figcaption></figure>
 
 E vengono poi aggiornate le informazioni presenti sul database che avevamo importato prima:
 
-<figure><img src="../../.gitbook/assets/image (396).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../lab-hackthebox/.gitbook/assets/image (396).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/image (397).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../lab-hackthebox/.gitbook/assets/image (397).png" alt=""><figcaption></figcaption></figure>
 
 Come possiamo vedere questi risultati vengono salvati solo nel workspace che abbiamo selezionato all'inizio:
 
-<figure><img src="../../.gitbook/assets/image (399).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../lab-hackthebox/.gitbook/assets/image (398).png" alt=""><figcaption></figcaption></figure>
 
 Se facciamo exit e poi riapriamo metasploit tramite il comando msfconsole, troviamo ancora i risultati salvati nel DB, questo fintanto che il DB rimane attivo.
 
 ## Greppable format
 
-<figure><img src="../../.gitbook/assets/image (400).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../lab-hackthebox/.gitbook/assets/image (400).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/image (401).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../lab-hackthebox/.gitbook/assets/image (401).png" alt=""><figcaption></figcaption></figure>
 
 Esempio di utilizzo con il grepable format, nel caso specifico per avere delle informazioni in output personalizzate:
 
-<figure><img src="../../.gitbook/assets/image (402).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../lab-hackthebox/.gitbook/assets/image (402).png" alt=""><figcaption></figcaption></figure>
