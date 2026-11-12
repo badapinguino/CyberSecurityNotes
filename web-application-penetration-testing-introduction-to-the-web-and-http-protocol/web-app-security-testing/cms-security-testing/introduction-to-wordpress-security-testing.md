@@ -1,14 +1,14 @@
 # Introduction to WordPress Security Testing
 
-<figure><img src="../../../lab-hackthebox/.gitbook/assets/image (1838).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../daniele-badagliacca-docs/docs/.gitbook/assets/image (3071).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../../lab-hackthebox/.gitbook/assets/image (1839).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../daniele-badagliacca-docs/docs/.gitbook/assets/image (3072).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../../lab-hackthebox/.gitbook/assets/image (1840).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../daniele-badagliacca-docs/docs/.gitbook/assets/image (3073).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../../lab-hackthebox/.gitbook/assets/image (1841).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../daniele-badagliacca-docs/docs/.gitbook/assets/image (3074).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../../lab-hackthebox/.gitbook/assets/image (1842).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../daniele-badagliacca-docs/docs/.gitbook/assets/image (3075).png" alt=""><figcaption></figcaption></figure>
 
 Per exploitation si tenta anche di bypassare il login per ottenere accesso.
 

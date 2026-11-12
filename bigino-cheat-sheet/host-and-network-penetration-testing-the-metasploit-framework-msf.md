@@ -61,7 +61,7 @@ Il PTES è una metodologia di penetration testing sviluppata da un team di profe
 * Obiettivo: Offrire uno standard completo e aggiornato per l'esecuzione dei test di sicurezza.
 * Roadmap: MSF può essere adottato come roadmap per comprendere le varie fasi che compongono un penetration test e come integrarsi in ognuna di ess
 
-<figure><img src="../lab-hackthebox/.gitbook/assets/image (1110).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../daniele-badagliacca-docs/docs/.gitbook/assets/image (2343).png" alt=""><figcaption></figcaption></figure>
 
 Metasploit Framework copre l'intero ciclo di vita dell'attacco:
 
@@ -184,7 +184,7 @@ nmap -Pn -sV -O <IP> -oX nome_file.xml
 3. Creare un nuovo workspace: `workspace -a <nome workspace>`
 4. Verificare che siamo nel nuovo workspace: `workspace`
 5. Caricare il file XML: `db_import nomefile.xml`
-6. Verificare che sia caricato con i comandi: `hosts, services, vulns`
+6. Verificare che sia caricato con i comandi: `hosts, services, vulns`&#x20;
 
 Si può anche inizializzare e performare una nmap scan direttamente dentro metasploit ed il cui output verrà automaticamente inserito nel database:
 
@@ -592,11 +592,11 @@ wmap_run -t //identifica tutti i moduli auxiliary compatibili con il target
 wmap_run -e //esegue i moduli compatibili trovati prima
 ```
 
-wmap\_run -t va a cercare tutti i moduli auxiliary che possono essere utili per il nostro target.
+wmap\_run -t va a cercare tutti i moduli auxiliary che possono essere utili per il nostro target.&#x20;
 
 wmap\_run -e va a usare tutti i moduli che possono essere utili per il nostro target e webserver, non tutti in generale.
 
-Osservare bene il contenuto della wmap\_run -e per identificare l'esito della http enumeration.\
+Osservare bene il contenuto della wmap\_run -e per identificare l'esito della http enumeration. \
 In particolare fare attenzione a:
 
 * le chiamate HTTP supportate (la PUT ci consente di caricare file exploit per reverse shell
@@ -879,7 +879,7 @@ run
 
 ### Exploiting Windows MS17-010 SMB Vulnerability (EternalBlue)
 
-<figure><img src="../lab-hackthebox/.gitbook/assets/image (9) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../daniele-badagliacca-docs/docs/.gitbook/assets/image (977).png" alt=""><figcaption></figcaption></figure>
 
 ```
 service postgresql start
@@ -1591,7 +1591,7 @@ clearev
 
 ### Pivoting
 
-<figure><img src="../lab-hackthebox/.gitbook/assets/image (29) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../daniele-badagliacca-docs/docs/.gitbook/assets/image (716).png" alt=""><figcaption></figcaption></figure>
 
 Una volta exploitato e avuto accesso a Victim 1 possiamo fare pivoting verso la rete interna a cui appartiene Victim 1, che ci permette di raggiungere Victim 2.
 
@@ -1873,7 +1873,7 @@ set SESSION 1
 run
 ```
 
-#### Linux Gather NetworkManager 802-11-Wireless-Security Credentials
+#### Linux Gather NetworkManager 802-11-Wireless-Security Credentials&#xD;
 
 This module collects 802-11-Wireless-Security credentials such as Access-Point name and Pre-Shared-Key from Linux NetworkManager connection configuration files.
 

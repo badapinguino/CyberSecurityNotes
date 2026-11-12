@@ -1,6 +1,6 @@
 # Dumping Hashes With Mimikatz
 
-<figure><img src="../../lab-hackthebox/.gitbook/assets/image (21) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../daniele-badagliacca-docs/docs/.gitbook/assets/image (1254).png" alt=""><figcaption></figcaption></figure>
 
 Kiwi ha come vantaggio che viene eseguito in memoria quindi non lascia artefatti o tracce sul target come mimikatz che dev'essere scaricato.
 
@@ -22,29 +22,29 @@ migrate 788
 getuid
 ```
 
-<figure><img src="../../lab-hackthebox/.gitbook/assets/image (22) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../daniele-badagliacca-docs/docs/.gitbook/assets/image (1255).png" alt=""><figcaption></figcaption></figure>
 
 La macchina target ha sulla porta 80 un servizio vulnerabile chiamato BadBlue
 
 Noi facciamo comunque uno scan con nmap dalla nostra macchina attaccante.
 
-<figure><img src="../../lab-hackthebox/.gitbook/assets/image (23) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../daniele-badagliacca-docs/docs/.gitbook/assets/image (1256).png" alt=""><figcaption></figcaption></figure>
 
 BadBlue in version 2.7
 
-<figure><img src="../../lab-hackthebox/.gitbook/assets/image (24) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../daniele-badagliacca-docs/docs/.gitbook/assets/image (1257).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../lab-hackthebox/.gitbook/assets/image (26) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../daniele-badagliacca-docs/docs/.gitbook/assets/image (1259).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../lab-hackthebox/.gitbook/assets/image (27) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../daniele-badagliacca-docs/docs/.gitbook/assets/image (1261).png" alt=""><figcaption></figcaption></figure>
 
 L'unica opzione da configurare è il target IP
 
-<figure><img src="../../lab-hackthebox/.gitbook/assets/image (29) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../daniele-badagliacca-docs/docs/.gitbook/assets/image (1262).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../lab-hackthebox/.gitbook/assets/image (30) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../daniele-badagliacca-docs/docs/.gitbook/assets/image (1263).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../lab-hackthebox/.gitbook/assets/image (31) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../daniele-badagliacca-docs/docs/.gitbook/assets/image (1264).png" alt=""><figcaption></figcaption></figure>
 
 Migriamo a un processo 64 bit, ed essendo Administrator possiamo migrare anche a un processo SYSTEM.
 
@@ -60,29 +60,31 @@ lsa_dump_sam
 lsa_dump_secrets
 ```
 
-<figure><img src="../../lab-hackthebox/.gitbook/assets/image (4) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1)  (10).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../daniele-badagliacca-docs/docs/.gitbook/assets/image (1237).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../lab-hackthebox/.gitbook/assets/image (5) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1)  (10).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../daniele-badagliacca-docs/docs/.gitbook/assets/image (1238).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../lab-hackthebox/.gitbook/assets/image (6) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) ( (8).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../daniele-badagliacca-docs/docs/.gitbook/assets/image (1239).png" alt=""><figcaption></figcaption></figure>
 
 creads\_all per dumpare tutte le credenziali:
 
-<figure><img src="../../lab-hackthebox/.gitbook/assets/image (7) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) ( (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../daniele-badagliacca-docs/docs/.gitbook/assets/image (1240).png" alt=""><figcaption></figcaption></figure>
 
 Possiamo vedere gli hash NTLM, wdigest e kerberos sono vuote, questo perché le versioni successive a Windows 8.1 non conservano password in cleartext in nessun modo.
 
-<figure><img src="../../lab-hackthebox/.gitbook/assets/image (9) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../daniele-badagliacca-docs/docs/.gitbook/assets/image (1241).png" alt=""><figcaption></figcaption></figure>
 
 Il comando lsa\_dump\_sam ci mostra tutti gli hash NTLM che sono presenti e la SysKey, che può tornare utile più tardi. Abbiamo anche la SAMKey.
 
 Il comando lsa\_dump\_secrets ci restituisce:
 
-<figure><img src="../../lab-hackthebox/.gitbook/assets/image (10) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../daniele-badagliacca-docs/docs/.gitbook/assets/image (1243).png" alt=""><figcaption></figcaption></figure>
 
 In alcuni casi ci può fornire delle credenziali in cleartext, in questo caso no quindi fa niente.
 
-<figure><img src="../../lab-hackthebox/.gitbook/assets/image (11) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+
+
+<figure><img src="../../daniele-badagliacca-docs/docs/.gitbook/assets/image (1244).png" alt=""><figcaption></figcaption></figure>
 
 Se si lavora con un ambiente Active Directory è possibile usare i comandi kerberos\_ticket e golden\_ticket\_create.
 
@@ -109,32 +111,34 @@ lsadump::secrets
 sekurlsa::logonpasswords // se presenti in memoria le password usate nei login
 ```
 
-<figure><img src="../../lab-hackthebox/.gitbook/assets/image (12) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../daniele-badagliacca-docs/docs/.gitbook/assets/image (1245).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../lab-hackthebox/.gitbook/assets/image (13) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../daniele-badagliacca-docs/docs/.gitbook/assets/image (1246).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../lab-hackthebox/.gitbook/assets/image (14) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../daniele-badagliacca-docs/docs/.gitbook/assets/image (1247).png" alt=""><figcaption></figcaption></figure>
 
 Con il comando privilege::debug verifichiamo di avere i permessi per poter eseguire hash extraction from memory, se ci restituisce "20 OK" allora va bene.
 
-<figure><img src="../../lab-hackthebox/.gitbook/assets/image (15) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../daniele-badagliacca-docs/docs/.gitbook/assets/image (1248).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../lab-hackthebox/.gitbook/assets/image (16) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../daniele-badagliacca-docs/docs/.gitbook/assets/image (1249).png" alt=""><figcaption></figcaption></figure>
 
 Possiamo anche dumpare i secrets:
 
-<figure><img src="../../lab-hackthebox/.gitbook/assets/image (17) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../daniele-badagliacca-docs/docs/.gitbook/assets/image (1250).png" alt=""><figcaption></figcaption></figure>
+
+
 
 Con mimikatz possiamo mostrare le logon password usate se il sistema è stato configurato per tenerle in memoria.
 
-<figure><img src="../../lab-hackthebox/.gitbook/assets/image (18) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../daniele-badagliacca-docs/docs/.gitbook/assets/image (1251).png" alt=""><figcaption></figcaption></figure>
 
 In questo caso il sistema è stato configurato bene perché non ci viene mostrata nessuna password in chiaro.
 
-<figure><img src="../../lab-hackthebox/.gitbook/assets/image (19) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../daniele-badagliacca-docs/docs/.gitbook/assets/image (1252).png" alt=""><figcaption></figcaption></figure>
 
 Questi sono tutti logon effettuati (es. quello sopra è un interattivo da window manager) con loggate le password, che in questo caso sono (null) perché non vengono tenute in memoria, cleartext passwords sono state disabilitate.
 
-<figure><img src="../../lab-hackthebox/.gitbook/assets/image (20) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../daniele-badagliacca-docs/docs/.gitbook/assets/image (1253).png" alt=""><figcaption></figcaption></figure>
 
 Al massimo vengono mostrati gli hash NTLM come prima.

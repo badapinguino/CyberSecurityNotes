@@ -94,6 +94,8 @@ delete shell.asp
 ls
 ```
 
+
+
 ### Exploiting SMB with PSExec
 
 #### Identifichiamo se la porta 445 è aperta e servizio attivo
@@ -146,7 +148,7 @@ exploit
 
 ### Exploiting EternalBlue (MS17-010) - SMB
 
-<figure><img src="../lab-hackthebox/.gitbook/assets/image (680).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../daniele-badagliacca-docs/docs/.gitbook/assets/image (1913).png" alt=""><figcaption></figcaption></figure>
 
 #### Scan Nmap per vedere OS e porta SMB
 
@@ -218,7 +220,7 @@ xfreerdp /u:administrator /p:qwertyuiop /v:10.2.24.86:3333
 
 ### BlueKeep (CVE-2019-0708) - RDP
 
-<figure><img src="../lab-hackthebox/.gitbook/assets/image (681).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../daniele-badagliacca-docs/docs/.gitbook/assets/image (1914).png" alt=""><figcaption></figcaption></figure>
 
 Deve essere abilitato RDP e disabilitata la Network Level authentication. E quindi per mitigare si può abilitare la Network Level Authentication.
 
@@ -530,7 +532,7 @@ wupdate //E ci viene eseguito winpeas che era il nostro payload
 
 ### Windows Password Hashes
 
-<figure><img src="../lab-hackthebox/.gitbook/assets/image (6) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) ( (7).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../daniele-badagliacca-docs/docs/.gitbook/assets/image (1233).png" alt=""><figcaption></figcaption></figure>
 
 Prima si fa privilege escalation, e poi con la sessione amministrativa si fa il dump delle credenziali.
 
@@ -538,11 +540,11 @@ Tool come mimikatz vanno a leggere la cache del processo LSASS che interagisce c
 
 #### LM Hash
 
-<figure><img src="../lab-hackthebox/.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1)  (12).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../daniele-badagliacca-docs/docs/.gitbook/assets/image (1234).png" alt=""><figcaption></figcaption></figure>
 
 ### NTLM Hash
 
-<figure><img src="../lab-hackthebox/.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1)   (7).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../daniele-badagliacca-docs/docs/.gitbook/assets/image (1235).png" alt=""><figcaption></figcaption></figure>
 
 Non hanno password salts, quindi possono essere craccate con brute force e rainbow attack.
 
@@ -617,7 +619,7 @@ Source: https://github.com/PowerShellMafia/PowerSploit
 
 ***
 
-#### **Aprire il powershell della macchina attaccante ed eseguire PowerUp.ps1 per trovare le vulnerabilità sfruttabili per privilege escalation**
+#### **Aprire il powershell della macchina attaccante ed eseguire PowerUp.ps1  per trovare le vulnerabilità sfruttabili per privilege escalation**
 
 ```
 cd .\Desktop\PowerSploit\Privesc\
@@ -714,7 +716,7 @@ lsa_dump_secrets
 
 **lsa\_dump\_secrets**: ci restituisce la SysKey e in alcuni casi ci può fornire delle credenziali in cleartext.
 
-<figure><img src="../lab-hackthebox/.gitbook/assets/image (11) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../daniele-badagliacca-docs/docs/.gitbook/assets/image (1244).png" alt=""><figcaption></figcaption></figure>
 
 Se si lavora con un ambiente Active Directory è possibile usare i comandi **kerberos\_ticket** e **golden\_ticket\_create**.
 
@@ -825,7 +827,7 @@ crackmapexec smb 10.2.28.132 -u Administrator -H <NTLM_Hash> -x "net user admini
 
 ### Vulnerability Analysis: Shellshock (CVE-2014-6271) - Apache e Bash
 
-Vulnerabilità Linux: **() { :; }; echo; echo; /bin/bash -c '\<comando da eseguire>'**
+Vulnerabilità Linux:  **() { :; }; echo; echo; /bin/bash -c '\<comando da eseguire>'**
 
 #### Identificare se un server è vulnerabile a Shellshock
 
@@ -1020,7 +1022,7 @@ exploit
 
 ### Linux Kernel Exploits
 
-<figure><img src="../lab-hackthebox/.gitbook/assets/image (985).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../daniele-badagliacca-docs/docs/.gitbook/assets/image (2218).png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="info" %}
 ATTENZIONE: Kernel Exploits non compatibili con la versione di kernel del target può comportare server crash, kernel panic e conseguente perdita di dati. Fare quindi molta attenzione ad eseguire Kernel exploits in ambienti di produzione o enterprise.
@@ -1135,7 +1137,7 @@ ls
 cat flag
 ```
 
-Ciò che stiamo dicendo di fare è di fare un redirect dell'output "student ALL=NOPASSWD:ALL" nel file sudoers.\
+Ciò che stiamo dicendo di fare è di fare un redirect dell'output "student ALL=NOPASSWD:ALL" nel file sudoers. \
 Quella stringa significa che l'utente student dovrebbe avere ALL privileges e non ha bisogno di specificare la password.
 
 ### Exploiting SUID Binaries
@@ -1151,11 +1153,11 @@ pwd
 ls -al
 ```
 
-<figure><img src="../lab-hackthebox/.gitbook/assets/image (11) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../daniele-badagliacca-docs/docs/.gitbook/assets/image (1196).png" alt=""><figcaption></figcaption></figure>
 
 Nella home dell'utente ci sono due file: greetings e welcome. Welcome appartiene all'utente root ma possiamo eseguirlo dato che ci sono le x. Ma se poniamo attenzione alla s, quella s è l'SUID permission è applicata a questo file.
 
-<figure><img src="../lab-hackthebox/.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1)   (7).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../daniele-badagliacca-docs/docs/.gitbook/assets/image (1197).png" alt=""><figcaption></figcaption></figure>
 
 #### Static Analysis del file con SUID e delle chiamate per sfruttarlo
 
@@ -1183,7 +1185,7 @@ cat /etc/shadow
 * Tutte le password crittografate per gli utenti sono archiviate nel file shadow. Si trova nella seguente directory: `/etc/shadow`
 * Il file shadow può essere acceduto e letto solo dall'account root, questa è una caratteristica di sicurezza molto importante in quanto impedisce ad altri account sul sistema di accedere alle password sottoposte ad hashing.
 
-<figure><img src="../lab-hackthebox/.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1)   (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../daniele-badagliacca-docs/docs/.gitbook/assets/image (1198).png" alt=""><figcaption></figcaption></figure>
 
 In Linux con l'hash delle password non possiamo farci molto se non craccarli per ottenere la password.
 

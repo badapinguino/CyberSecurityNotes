@@ -1,11 +1,11 @@
 # HTTPS
 
-<figure><img src="../../../lab-hackthebox/.gitbook/assets/image (1792).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../daniele-badagliacca-docs/docs/.gitbook/assets/image (3025).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../../lab-hackthebox/.gitbook/assets/image (1793).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../daniele-badagliacca-docs/docs/.gitbook/assets/image (3026).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../../lab-hackthebox/.gitbook/assets/image (1794).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../daniele-badagliacca-docs/docs/.gitbook/assets/image (3027).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../../lab-hackthebox/.gitbook/assets/image (1795).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../daniele-badagliacca-docs/docs/.gitbook/assets/image (3028).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../../lab-hackthebox/.gitbook/assets/image (1796).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../daniele-badagliacca-docs/docs/.gitbook/assets/image (3029).png" alt=""><figcaption></figcaption></figure>

@@ -1,11 +1,11 @@
 # Web Application Technologies - Part 1
 
-<figure><img src="../../../lab-hackthebox/.gitbook/assets/image (1727).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../daniele-badagliacca-docs/docs/.gitbook/assets/image (2960).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../../lab-hackthebox/.gitbook/assets/image (5) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../daniele-badagliacca-docs/docs/.gitbook/assets/image (121).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../../lab-hackthebox/.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../daniele-badagliacca-docs/docs/.gitbook/assets/image (122).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../../lab-hackthebox/.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../daniele-badagliacca-docs/docs/.gitbook/assets/image (123).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../../lab-hackthebox/.gitbook/assets/image (3) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../daniele-badagliacca-docs/docs/.gitbook/assets/image (124).png" alt=""><figcaption></figcaption></figure>

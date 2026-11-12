@@ -1,25 +1,25 @@
 # Pretexting
 
-<figure><img src="../../lab-hackthebox/.gitbook/assets/image (3) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../daniele-badagliacca-docs/docs/.gitbook/assets/image (158).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../lab-hackthebox/.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../daniele-badagliacca-docs/docs/.gitbook/assets/image (159).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../lab-hackthebox/.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../daniele-badagliacca-docs/docs/.gitbook/assets/image (160).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../lab-hackthebox/.gitbook/assets/image (3) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../daniele-badagliacca-docs/docs/.gitbook/assets/image (161).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../lab-hackthebox/.gitbook/assets/image (4) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../daniele-badagliacca-docs/docs/.gitbook/assets/image (162).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../lab-hackthebox/.gitbook/assets/image (5) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../daniele-badagliacca-docs/docs/.gitbook/assets/image (163).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../lab-hackthebox/.gitbook/assets/image (6) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../daniele-badagliacca-docs/docs/.gitbook/assets/image (164).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../lab-hackthebox/.gitbook/assets/image (7) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../daniele-badagliacca-docs/docs/.gitbook/assets/image (165).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../lab-hackthebox/.gitbook/assets/image (8) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../daniele-badagliacca-docs/docs/.gitbook/assets/image (166).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../lab-hackthebox/.gitbook/assets/image (9) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../daniele-badagliacca-docs/docs/.gitbook/assets/image (167).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../lab-hackthebox/.gitbook/assets/image (10) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../daniele-badagliacca-docs/docs/.gitbook/assets/image (168).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../lab-hackthebox/.gitbook/assets/image (1668).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../daniele-badagliacca-docs/docs/.gitbook/assets/image (2901).png" alt=""><figcaption></figcaption></figure>

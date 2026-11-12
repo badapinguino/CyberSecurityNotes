@@ -1,29 +1,29 @@
 # Introduction to Social Engineering
 
-<figure><img src="../../lab-hackthebox/.gitbook/assets/image (1664).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../daniele-badagliacca-docs/docs/.gitbook/assets/image (2897).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../lab-hackthebox/.gitbook/assets/image (1665).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../daniele-badagliacca-docs/docs/.gitbook/assets/image (2898).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../lab-hackthebox/.gitbook/assets/image (1666).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../daniele-badagliacca-docs/docs/.gitbook/assets/image (2899).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../lab-hackthebox/.gitbook/assets/image (1667).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../daniele-badagliacca-docs/docs/.gitbook/assets/image (2900).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../lab-hackthebox/.gitbook/assets/image (11) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../daniele-badagliacca-docs/docs/.gitbook/assets/image (169).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../lab-hackthebox/.gitbook/assets/image (12) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../daniele-badagliacca-docs/docs/.gitbook/assets/image (170).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../lab-hackthebox/.gitbook/assets/image (13) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../daniele-badagliacca-docs/docs/.gitbook/assets/image (171).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../lab-hackthebox/.gitbook/assets/image (14) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../daniele-badagliacca-docs/docs/.gitbook/assets/image (172).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../lab-hackthebox/.gitbook/assets/image (15) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../daniele-badagliacca-docs/docs/.gitbook/assets/image (173).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../lab-hackthebox/.gitbook/assets/image (16) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../daniele-badagliacca-docs/docs/.gitbook/assets/image (174).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../lab-hackthebox/.gitbook/assets/image (17) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../daniele-badagliacca-docs/docs/.gitbook/assets/image (175).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../lab-hackthebox/.gitbook/assets/image (18) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../daniele-badagliacca-docs/docs/.gitbook/assets/image (176).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../lab-hackthebox/.gitbook/assets/image (19) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../daniele-badagliacca-docs/docs/.gitbook/assets/image (177).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../lab-hackthebox/.gitbook/assets/image (20) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../daniele-badagliacca-docs/docs/.gitbook/assets/image (178).png" alt=""><figcaption></figcaption></figure>

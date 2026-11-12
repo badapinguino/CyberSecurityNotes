@@ -1,19 +1,19 @@
 # Web Application Technologies - Part 2
 
-<figure><img src="../../../lab-hackthebox/.gitbook/assets/image (4) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../daniele-badagliacca-docs/docs/.gitbook/assets/image (125).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../../lab-hackthebox/.gitbook/assets/image (5) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../daniele-badagliacca-docs/docs/.gitbook/assets/image (126).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../../lab-hackthebox/.gitbook/assets/image (6) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../daniele-badagliacca-docs/docs/.gitbook/assets/image (127).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../../lab-hackthebox/.gitbook/assets/image (7) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../daniele-badagliacca-docs/docs/.gitbook/assets/image (128).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../../lab-hackthebox/.gitbook/assets/image (8) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../daniele-badagliacca-docs/docs/.gitbook/assets/image (129).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../../lab-hackthebox/.gitbook/assets/image (9) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../daniele-badagliacca-docs/docs/.gitbook/assets/image (130).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../../lab-hackthebox/.gitbook/assets/image (10) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../daniele-badagliacca-docs/docs/.gitbook/assets/image (131).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../../lab-hackthebox/.gitbook/assets/image (11) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../daniele-badagliacca-docs/docs/.gitbook/assets/image (132).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../../lab-hackthebox/.gitbook/assets/image (12) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../daniele-badagliacca-docs/docs/.gitbook/assets/image (133).png" alt=""><figcaption></figcaption></figure>

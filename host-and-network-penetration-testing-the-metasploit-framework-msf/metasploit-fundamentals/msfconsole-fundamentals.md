@@ -1,12 +1,12 @@
 # MSFconsole Fundamentals
 
-<figure><img src="../../lab-hackthebox/.gitbook/assets/image (1015).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../daniele-badagliacca-docs/docs/.gitbook/assets/image (2248).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../lab-hackthebox/.gitbook/assets/image (1016).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../daniele-badagliacca-docs/docs/.gitbook/assets/image (2249).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../lab-hackthebox/.gitbook/assets/image (1017).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../daniele-badagliacca-docs/docs/.gitbook/assets/image (2250).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../lab-hackthebox/.gitbook/assets/image (1018).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../daniele-badagliacca-docs/docs/.gitbook/assets/image (2251).png" alt=""><figcaption></figcaption></figure>
 
 ***
 
@@ -29,27 +29,27 @@ search cve:2017 type:exploit platform:windows //per filtrare tramite CVE e filtr
 
 ```
 
-<figure><img src="../../lab-hackthebox/.gitbook/assets/image (1019).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../daniele-badagliacca-docs/docs/.gitbook/assets/image (2252).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../lab-hackthebox/.gitbook/assets/image (1020).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../daniele-badagliacca-docs/docs/.gitbook/assets/image (2253).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../lab-hackthebox/.gitbook/assets/image (1021).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../daniele-badagliacca-docs/docs/.gitbook/assets/image (2254).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../lab-hackthebox/.gitbook/assets/image (1022).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../daniele-badagliacca-docs/docs/.gitbook/assets/image (2255).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../lab-hackthebox/.gitbook/assets/image (1024).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../daniele-badagliacca-docs/docs/.gitbook/assets/image (2257).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../lab-hackthebox/.gitbook/assets/image (1025).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../daniele-badagliacca-docs/docs/.gitbook/assets/image (2258).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../lab-hackthebox/.gitbook/assets/image (1026).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../daniele-badagliacca-docs/docs/.gitbook/assets/image (2259).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../lab-hackthebox/.gitbook/assets/image (1027).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../daniele-badagliacca-docs/docs/.gitbook/assets/image (2260).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../lab-hackthebox/.gitbook/assets/image (1028).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../daniele-badagliacca-docs/docs/.gitbook/assets/image (2261).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../lab-hackthebox/.gitbook/assets/image (1029).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../daniele-badagliacca-docs/docs/.gitbook/assets/image (2262).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../lab-hackthebox/.gitbook/assets/image (1030).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../daniele-badagliacca-docs/docs/.gitbook/assets/image (2263).png" alt=""><figcaption></figcaption></figure>
 
 ## Moduli con payload
 
@@ -64,21 +64,21 @@ set LPORT //se necessario, magari la porta è già occupata
 exploit
 ```
 
-<figure><img src="../../lab-hackthebox/.gitbook/assets/image (1031).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../daniele-badagliacca-docs/docs/.gitbook/assets/image (2264).png" alt=""><figcaption></figcaption></figure>
 
 In alcuni casi potrebbe essere necessario modificare il payload da 32 a 64 bit o da windows a linux
 
-<figure><img src="../../lab-hackthebox/.gitbook/assets/image (1032).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../daniele-badagliacca-docs/docs/.gitbook/assets/image (2265).png" alt=""><figcaption></figcaption></figure>
 
 Per cambiare il payload possiamo usare il comando set paylod e poi specificando il tipo di payload:
 
-<figure><img src="../../lab-hackthebox/.gitbook/assets/image (1033).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../daniele-badagliacca-docs/docs/.gitbook/assets/image (2266).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../lab-hackthebox/.gitbook/assets/image (1034).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../daniele-badagliacca-docs/docs/.gitbook/assets/image (2267).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../lab-hackthebox/.gitbook/assets/image (1035).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../daniele-badagliacca-docs/docs/.gitbook/assets/image (2268).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../lab-hackthebox/.gitbook/assets/image (1036).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../daniele-badagliacca-docs/docs/.gitbook/assets/image (2269).png" alt=""><figcaption></figcaption></figure>
 
 ## Gestire le sessioni
 
@@ -86,7 +86,7 @@ Per cambiare il payload possiamo usare il comando set paylod e poi specificando 
 sessions
 ```
 
-<figure><img src="../../lab-hackthebox/.gitbook/assets/image (1037).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../daniele-badagliacca-docs/docs/.gitbook/assets/image (2270).png" alt=""><figcaption></figcaption></figure>
 
 ## Funzionalità aggiuntive
 
@@ -96,10 +96,11 @@ sessions
 connect -h
 ```
 
-<figure><img src="../../lab-hackthebox/.gitbook/assets/image (1038).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../daniele-badagliacca-docs/docs/.gitbook/assets/image (2271).png" alt=""><figcaption></figcaption></figure>
 
 Possibilità di fare connessioni tipo con netcat, in sostanza ci permette di fare **banner grabbing**
 
-<figure><img src="../../lab-hackthebox/.gitbook/assets/image (1039).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../daniele-badagliacca-docs/docs/.gitbook/assets/image (2272).png" alt=""><figcaption></figcaption></figure>
 
 Ci dice la porta che è stata usata per connettersi dall'attacker IP, e in caso di alcuni servizi ci mostra il banner relativo.
+

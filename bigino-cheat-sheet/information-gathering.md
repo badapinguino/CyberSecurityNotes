@@ -1,6 +1,6 @@
 # Information Gathering
 
-<figure><img src="../lab-hackthebox/.gitbook/assets/image (553).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../daniele-badagliacca-docs/docs/.gitbook/assets/image (1786).png" alt=""><figcaption></figcaption></figure>
 
 ## Passive Information Gathering
 
@@ -108,9 +108,9 @@ Possiamo utilizzare haveibeenpwned.com per trovare password di dipendenti coinvo
 
 ### DNS Zone Transfer
 
-<figure><img src="../lab-hackthebox/.gitbook/assets/image (439).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../daniele-badagliacca-docs/docs/.gitbook/assets/image (1672).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../lab-hackthebox/.gitbook/assets/image (440).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../daniele-badagliacca-docs/docs/.gitbook/assets/image (1673).png" alt=""><figcaption></figcaption></figure>
 
 Possiamo usare due strumenti per trovare se ci sono dei server DNS attivi con domini diversi rispetto al dominio cercato (zone transfer):
 
@@ -174,7 +174,7 @@ fping -a -g <IP>/24 //-g generate target list // -S imposta l'IP sorgente
 
 Scansione porte aperte su un IP o una rete
 
-#### Scan completo con script per tutte le porte
+#### Scan completo con script per tutte le porte&#x20;
 
 ```
 nmap -T4 -A -p- <IP>
@@ -276,7 +276,7 @@ nmap -Pn -sS -sV -g <PORT> <IP dest>  // -g specifica la porta sorgente
 
 #### Timing templates
 
-Usare sneaky per evitare di essere individuati da un IDS.
+Usare sneaky per evitare di essere individuati da un IDS.&#x20;
 
 * T0: paranoid
 * T1: sneaky - sembra quasi traffico normale talmente è frammentato l'invio dei pacchetti

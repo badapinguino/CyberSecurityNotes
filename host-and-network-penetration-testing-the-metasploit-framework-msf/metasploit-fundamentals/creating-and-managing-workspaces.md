@@ -1,6 +1,6 @@
 # Creating & Managing Workspaces
 
-<figure><img src="../../lab-hackthebox/.gitbook/assets/image (11) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../daniele-badagliacca-docs/docs/.gitbook/assets/image (1044).png" alt=""><figcaption></figcaption></figure>
 
 Per ogni engagement è necessario creare workspace diversi, per evitare di mischiare dati di clienti e/o macchine/ambienti diversi.
 
@@ -11,6 +11,8 @@ Per ogni engagement è necessario creare workspace diversi, per evitare di misch
 Tutti i dati sono salvati nel MSF DB. Essenziale che il Db sia attivo e quindi msfconsole sia connesso al MSF DB per non perdere i dati ad ogni restart.
 
 ***
+
+
 
 ```
 db_status //test della connessione al DB
@@ -31,22 +33,22 @@ workspace -r INE PTA //per rinominare un workspace, in questo caso da INE a PTA
 workspace
 ```
 
-<figure><img src="../../lab-hackthebox/.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) ( (6).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../daniele-badagliacca-docs/docs/.gitbook/assets/image (1045).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../lab-hackthebox/.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) ( (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../daniele-badagliacca-docs/docs/.gitbook/assets/image (1046).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../lab-hackthebox/.gitbook/assets/image (3) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../daniele-badagliacca-docs/docs/.gitbook/assets/image (1047).png" alt=""><figcaption></figcaption></figure>
 
 C'è un workspace di default che viene automaticamente selezionato (mostrato con l'asterisco).
 
 Traccia i dati anche di sessioni precedenti:
 
-<figure><img src="../../lab-hackthebox/.gitbook/assets/image (4) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../daniele-badagliacca-docs/docs/.gitbook/assets/image (1048).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../lab-hackthebox/.gitbook/assets/image (5) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../daniele-badagliacca-docs/docs/.gitbook/assets/image (1049).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../lab-hackthebox/.gitbook/assets/image (6) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../daniele-badagliacca-docs/docs/.gitbook/assets/image (1050).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../lab-hackthebox/.gitbook/assets/image (7) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../daniele-badagliacca-docs/docs/.gitbook/assets/image (1051).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../lab-hackthebox/.gitbook/assets/image (8) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../daniele-badagliacca-docs/docs/.gitbook/assets/image (1052).png" alt=""><figcaption></figcaption></figure>

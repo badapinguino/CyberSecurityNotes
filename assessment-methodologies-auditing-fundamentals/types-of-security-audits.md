@@ -1,7 +1,7 @@
 # Types of Security Audits
 
-<figure><img src="../lab-hackthebox/.gitbook/assets/image (168).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../daniele-badagliacca-docs/docs/.gitbook/assets/image (1401).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../lab-hackthebox/.gitbook/assets/image (169).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../daniele-badagliacca-docs/docs/.gitbook/assets/image (1402).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../lab-hackthebox/.gitbook/assets/image (170).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../daniele-badagliacca-docs/docs/.gitbook/assets/image (1403).png" alt=""><figcaption></figcaption></figure>

@@ -1,11 +1,11 @@
 # Introduction to CMS Security Testing
 
-<figure><img src="../../../lab-hackthebox/.gitbook/assets/image (16) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../daniele-badagliacca-docs/docs/.gitbook/assets/image (75).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../../lab-hackthebox/.gitbook/assets/image (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../daniele-badagliacca-docs/docs/.gitbook/assets/image (76).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../../lab-hackthebox/.gitbook/assets/image (2) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../daniele-badagliacca-docs/docs/.gitbook/assets/image (77).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../../lab-hackthebox/.gitbook/assets/image (3) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../daniele-badagliacca-docs/docs/.gitbook/assets/image (78).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../../lab-hackthebox/.gitbook/assets/image (4) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../daniele-badagliacca-docs/docs/.gitbook/assets/image (79).png" alt=""><figcaption></figcaption></figure>

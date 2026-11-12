@@ -1,7 +1,7 @@
 # Active Information Gathering
 
-<figure><img src="../../lab-hackthebox/.gitbook/assets/image (437).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../daniele-badagliacca-docs/docs/.gitbook/assets/image (1670).png" alt=""><figcaption></figcaption></figure>
 
 {% embed url="https://my.ine.com/CyberSecurity/courses/a415dc11/assessment-methodologies-footprinting-scanning" %}
 
-<figure><img src="../../lab-hackthebox/.gitbook/assets/image (438).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../daniele-badagliacca-docs/docs/.gitbook/assets/image (1671).png" alt=""><figcaption></figcaption></figure>

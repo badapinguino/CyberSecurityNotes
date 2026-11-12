@@ -1,21 +1,22 @@
 # GRC: Common Standards, Frameworks & Guidelines
 
-<figure><img src="../lab-hackthebox/.gitbook/assets/image (133).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../daniele-badagliacca-docs/docs/.gitbook/assets/image (1366).png" alt=""><figcaption></figcaption></figure>
 
 ## Frameworks
 
-<figure><img src="../lab-hackthebox/.gitbook/assets/image (134).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../daniele-badagliacca-docs/docs/.gitbook/assets/image (1367).png" alt=""><figcaption></figcaption></figure>
 
 ## Standards
 
-<figure><img src="../lab-hackthebox/.gitbook/assets/image (135).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../daniele-badagliacca-docs/docs/.gitbook/assets/image (1368).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../lab-hackthebox/.gitbook/assets/image (136).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../daniele-badagliacca-docs/docs/.gitbook/assets/image (1369).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../lab-hackthebox/.gitbook/assets/image (137).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../daniele-badagliacca-docs/docs/.gitbook/assets/image (1370).png" alt=""><figcaption></figcaption></figure>
 
 ## Guidelines
 
-<figure><img src="../lab-hackthebox/.gitbook/assets/image (138).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../daniele-badagliacca-docs/docs/.gitbook/assets/image (1371).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../lab-hackthebox/.gitbook/assets/image (139).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../daniele-badagliacca-docs/docs/.gitbook/assets/image (1372).png" alt=""><figcaption></figcaption></figure>
+

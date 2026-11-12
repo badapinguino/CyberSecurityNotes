@@ -6,17 +6,17 @@ Netcraft (sito netcraft.com)
 
 Dà informazioni su un dominio, informazioni sulle tecnologie di un sito, name servers DNS, info sul register del dominio, ecc... Dà tutte le informazioni che abbiamo trovato prima a mano ma in maniera automatica, molto utile.
 
-<figure><img src="../../lab-hackthebox/.gitbook/assets/image (481).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../daniele-badagliacca-docs/docs/.gitbook/assets/image (1714).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../lab-hackthebox/.gitbook/assets/image (482).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../daniele-badagliacca-docs/docs/.gitbook/assets/image (1715).png" alt=""><figcaption></figcaption></figure>
 
 Esempio di risultato:
 
-<figure><img src="../../lab-hackthebox/.gitbook/assets/image (483).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../daniele-badagliacca-docs/docs/.gitbook/assets/image (1716).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../lab-hackthebox/.gitbook/assets/image (484).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../daniele-badagliacca-docs/docs/.gitbook/assets/image (1718).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../lab-hackthebox/.gitbook/assets/image (486).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../daniele-badagliacca-docs/docs/.gitbook/assets/image (1719).png" alt=""><figcaption></figcaption></figure>
 
 Informazioni importanti dal punto di vista di un pentester
 
@@ -50,10 +50,10 @@ Informazioni importanti dal punto di vista di un pentester
 * Server Side
   * Fornisce informazioni sui linguaggi utilizzati e web-technology
 * Client Side
-  * Frameworks usati (es. JQuery)
+  * Frameworks usati (es. JQuery)&#x20;
   * linguaggi (es. JS)
 * PHP Application
   * es. Wordpress
 * RSS abilitato o no
-* HTML5
+* HTML5&#x20;
   * se usato per mobile optimization oppure no

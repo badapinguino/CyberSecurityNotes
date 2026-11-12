@@ -380,9 +380,9 @@ La tecnologia **non è neutra**:\
 determina **come attaccare l’applicazione** e **quali vulnerabilità aspettarsi**.\
 Più componenti → più superficie di attacco.
 
-<figure><img src="../lab-hackthebox/.gitbook/assets/image (1898).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../daniele-badagliacca-docs/docs/.gitbook/assets/image (3131).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../lab-hackthebox/.gitbook/assets/image (1897).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../daniele-badagliacca-docs/docs/.gitbook/assets/image (3130).png" alt=""><figcaption></figcaption></figure>
 
 ## HTTP Protocol
 

@@ -11,4 +11,4 @@ Tecniche utilizzate per fare Host Discovery:
 * TCP ACK Ping: se risponde RST è vivo.
 * SYN-ACK Ping: se riceve RST l'host è attivo.
 
-<figure><img src="../../../lab-hackthebox/.gitbook/assets/image (436).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../daniele-badagliacca-docs/docs/.gitbook/assets/image (1669).png" alt=""><figcaption></figcaption></figure>

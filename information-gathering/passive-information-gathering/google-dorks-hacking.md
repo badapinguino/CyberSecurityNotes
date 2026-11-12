@@ -38,7 +38,7 @@ Se stiamo mcercando siti con directory listing disponibile, solitamente per misc
 /intitle:index of
 ```
 
-<figure><img src="../../lab-hackthebox/.gitbook/assets/image (500).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../daniele-badagliacca-docs/docs/.gitbook/assets/image (1733).png" alt=""><figcaption></figcaption></figure>
 
 Se vogliamo trovare una vecchia versione di un sito web: cache:
 
@@ -50,18 +50,22 @@ Altrimenti usiamo waybackmachine
 
 Pssiamo trovare informazioni sensibili che sono state poi rimosse.
 
+
+
 inurl:auth\_user\_fiole.txt
 
-<figure><img src="../../lab-hackthebox/.gitbook/assets/image (501).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../daniele-badagliacca-docs/docs/.gitbook/assets/image (1734).png" alt=""><figcaption></figcaption></figure>
 
 inurl:passwd.txt
 
-<figure><img src="../../lab-hackthebox/.gitbook/assets/image (502).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../daniele-badagliacca-docs/docs/.gitbook/assets/image (1735).png" alt=""><figcaption></figcaption></figure>
 
 ## Google Hacking Database
 
-<figure><img src="../../lab-hackthebox/.gitbook/assets/image (503).png" alt=""><figcaption><p>Ha già degli esempi di query disponibili</p></figcaption></figure>
+<figure><img src="../../daniele-badagliacca-docs/docs/.gitbook/assets/image (1736).png" alt=""><figcaption><p>Ha già degli esempi di query disponibili</p></figcaption></figure>
+
+
 
 Possibilità di filtri per categoria e immagine:
 
-<figure><img src="../../lab-hackthebox/.gitbook/assets/image (504).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../daniele-badagliacca-docs/docs/.gitbook/assets/image (1737).png" alt=""><figcaption></figcaption></figure>
