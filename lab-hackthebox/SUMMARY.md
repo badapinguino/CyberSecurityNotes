@@ -2,6 +2,7 @@
 
 * [Easy](README.md)
   * [Paperwork](easy/paperwork.md)
+  * [Touch](easy/touch.md)
 * [Information Gathering](../README.md)
   * [Passive Information Gathering](../information-gathering/passive-information-gathering/README.md)
     * [Website Recon & Footprinting](../information-gathering/passive-information-gathering/website-recon-and-footprinting.md)
