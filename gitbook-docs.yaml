@@ -1,0 +1,30 @@
+$schema: https://api.gitbook.com/gitbook-docs.yaml
+site:
+  title: Daniele Badagliacca Docs
+  structure:
+    - type: section
+      key: section-1
+      title: Daniele Badagliacca Docs
+      path: daniele-badagliacca-docs
+      default: true
+      children:
+        - type: space
+          key: space-1
+          title: INE eJPT Course
+          path: docs
+          default: true
+          content:
+            directory: ./daniele-badagliacca-docs/docs
+    - type: section
+      key: section-2
+      title: Lab Hackthebox
+      path: lab-hackthebox
+      children:
+        - type: space
+          key: space-2
+          title: Lab Hackthebox
+          path: lab-hackthebox
+          default: true
+          draft: true
+          content:
+            directory: ./lab-hackthebox
